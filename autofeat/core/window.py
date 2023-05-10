@@ -12,20 +12,11 @@ class Window(object):
         Args:
             window_size: The size of the window.
             step_size: The step size of the window.
-        
-        Raises:
-            TypeError: If the signal is not a numpy array.
-            DimensionError: If the signal is not 1D.
-            TypeError: If the window size or step size are not integers.
-            ValueError: If the window size is greater than the signal length.
         """
 
         # Checks
-        if not isinstance(window_size, (int, np.int_)):
-            raise TypeError("Window size must be an integer.")
-        
-        if not isinstance(step_size, (int, np.int_)):
-            raise TypeError("Step size must be an integer.")
+        self._check_window_size(window_size)
+        self._check_step_size(step_size)
 
         self._window_size = window_size
         self._step_size = step_size
@@ -47,7 +38,108 @@ class Window(object):
             The string representation of the sliding window.
         """
         return self.__str__()
+
+    # Getters and setters
+    def get_window_size(self) -> Union[int, np.int_]:
+        """
+        Get the window size.
+
+        Returns:
+            The window size.
+        """
+        return self._window_size
+
+    def get_step_size(self) -> Union[int, np.int_]:
+        """
+        Get the step size.
+
+        Returns:
+            The step size.
+        """
+        return self._step_size
     
+    def set_window_size(self, window_size: Union[int, np.int_]) -> None:
+        """
+        Set the window size.
+
+        Args:
+            window_size: The window size.
+        
+        Raises:
+            TypeError: If the window size is not an integer.
+        """
+
+        # Checks
+        self._check_window_size(window_size)
+
+        self._window_size = window_size
+    
+    def set_step_size(self, step_size: Union[int, np.int_]) -> None:
+        """
+        Set the step size.
+
+        Args:
+            step_size: The step size.
+        
+        Raises:
+            TypeError: If the step size is not an integer.
+        """
+        # Checks
+        self._check_step_size(step_size)
+
+        self._step_size = step_size
+
+    # Checks
+    def _check_signal(self, signal: np.ndarray) -> None:
+        """
+        Check if the signal is valid.
+
+        Args:
+            signal: The signal to check.
+        
+        Raises:
+            TypeError: If the signal is not a numpy array.
+            Exception: If the signal is not 1D.
+            ValueError: If the window size is greater than the signal length.
+        """
+        if not isinstance(signal, np.ndarray):
+            raise TypeError("Signal must be a numpy array.")
+
+        if signal.ndim != 1:
+            raise Exception("Signal must be 1D.")        
+
+        if self._window_size > len(signal):
+            raise ValueError("Window size cannot be greater than signal length.")
+    
+    def _check_step_size(self, step_size: Union[int, np.int_]) -> None:
+        """
+        Check if the step size is valid.
+
+        Args:
+            step_size: The step size to check.
+        
+        Raises:
+            TypeError: If the step size is not an integer.
+        """
+
+        if not isinstance(step_size, (int, np.int_)):
+            raise TypeError("Step size must be an integer.")
+    
+    def _check_window_size(self, window_size: Union[int, np.int_]) -> None:
+        """
+        Check if the window size is valid.
+
+        Args:
+            window_size: The window size to check.
+        
+        Raises:
+            TypeError: If the window size is not an integer.
+        """
+
+        if not isinstance(window_size, (int, np.int_)):
+            raise TypeError("Window size must be an integer.")
+
+    # Methods
     def use(self, transform: Callable[[np.ndarray], Union[np.float_, np.int_]]) -> Callable[[np.ndarray], np.ndarray]:
         """
         Use a transform function to transform each window.
@@ -62,6 +154,7 @@ class Window(object):
             TypeError: If the transform is not callable. 
         """
 
+        # Checks
         if not callable(transform):
             raise TypeError("Transform must be callable.")
         
@@ -99,24 +192,4 @@ class Window(object):
             return transformed_signal
         
         return apply
-    
-    def _check_signal(self, signal: np.ndarray) -> None:
-        """
-        Check if the signal is valid.
 
-        Args:
-            signal: The signal to check.
-        
-        Raises:
-            TypeError: If the signal is not a numpy array.
-            Exception: If the signal is not 1D.
-            ValueError: If the window size is greater than the signal length.
-        """
-        if not isinstance(signal, np.ndarray):
-            raise TypeError("Signal must be a numpy array.")
-
-        if signal.ndim != 1:
-            raise Exception("Signal must be 1D.")        
-
-        if self._window_size > len(signal):
-            raise ValueError("Window size cannot be greater than signal length.")
