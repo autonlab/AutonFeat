@@ -1,7 +1,7 @@
 import numpy as np
 from typing import Union, Callable
 
-class Window(object):
+class SlidingWindow(object):
     """
     Represents a 1D sliding window over a time series signal.
     """

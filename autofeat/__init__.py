@@ -1,5 +1,5 @@
 # Package imports
-from .core import Window, Transform
+from .core import SlidingWindow, Transform
 
 # Property imports
 import os
