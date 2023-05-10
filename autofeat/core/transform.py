@@ -7,11 +7,12 @@ class Transform(object):
     Represents a transformation to apply to a signal.
     """
 
-    def __init__(self) -> None:
+    # Dunder methods
+    def __init__(self, name: str="Not specified") -> None:
         """
         Initialize a new transformation.
         """
-        self._name = "Not specified"
+        self._name = name
     
     def __str__(self) -> str:
         """
@@ -42,9 +43,30 @@ class Transform(object):
         
         Returns:
             A scalar value representing the transformation of the signal.
+        
+        Raises:
+            NotImplementedError: If the transformation is not implemented.
 
         """
         
         raise NotImplementedError("This method is not implemented.")
 
+    # Getters and setters
+    def get_name(self) -> str:
+        """
+        Get the name of the transformation.
+
+        Returns:
+            The name of the transformation.
+        """
+        return self._name
+    
+    def set_name(self, name: str) -> None:
+        """
+        Set the name of the transformation.
+
+        Args:
+            name: The new name of the transformation.
+        """
+        self._name = name
     
