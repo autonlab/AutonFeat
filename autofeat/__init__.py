@@ -1,3 +1,7 @@
+# Package imports
+from .core import Window, Transform
+
+# Property imports
 import os
 
 class SetupProperties(object):
