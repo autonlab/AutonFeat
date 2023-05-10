@@ -1,5 +1,6 @@
 # Package imports
 from .core import SlidingWindow, Transform
+from .common import MeanTransform
 
 # Property imports
 import os

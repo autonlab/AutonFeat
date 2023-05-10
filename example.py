@@ -3,10 +3,10 @@ import numpy as np
 
 if __name__ == '__main__':
     # Load data
-    x = np.random(1000)
+    x = np.random(100)
     
     # Create sliding window
-    window = aft.SlidingWindow(window_size=100, step_size=100)
+    window = aft.SlidingWindow(window_size=10, step_size=10)
 
     # Create transform
     mean_tf = aft.MeanTransform()
