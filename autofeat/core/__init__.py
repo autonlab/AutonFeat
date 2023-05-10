@@ -1,2 +1,2 @@
-from window import SlidingWindow
-from transform import Transform
+from .window import SlidingWindow
+from .transform import Transform

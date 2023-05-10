@@ -1,1 +1,1 @@
-from mean import mean_tf
+from .mean import mean_tf

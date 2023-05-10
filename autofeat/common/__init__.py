@@ -1,1 +1,1 @@
-from mean_transform import MeanTransform
+from .mean_transform import MeanTransform
