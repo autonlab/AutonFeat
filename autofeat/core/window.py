@@ -11,6 +11,7 @@ class SlidingWindow(object):
 
         Args:
             `window_size`: The size of the window.
+
             `step_size`: The step size of the window.
         """
 
@@ -99,7 +100,9 @@ class SlidingWindow(object):
         
         Raises:
             `TypeError`: If the signal is not a numpy array.
+
             `Exception`: If the signal is not 1D.
+
             `ValueError`: If the window size is greater than the signal length.
         """
         if not isinstance(signal, np.ndarray):
@@ -164,8 +167,10 @@ class SlidingWindow(object):
 
             Args:
                 `signal`: The signal to apply the transformation to.
-                `start_idx`: The starting index of the window. (Default: None)
-                `end_idx`: The ending index of the window. (Default: None)
+
+                `start_idx`: The starting index of the window. Default is `0`.
+                
+                `end_idx`: The ending index of the window. Default is `None`.
             
             Returns:
                 The transformed signal.

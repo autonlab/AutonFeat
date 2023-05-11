@@ -38,7 +38,9 @@ class Transform(object):
 
         Args:
             `signal_window`: The signal window to transform.
+
             `*args`: Additional arguments to pass to the transformation.
+            
             `**kwargs`: Additional keyword arguments to pass to the transformation.
         
         Returns:
