@@ -1,8 +1,6 @@
 import numpy as np
 from typing import Union
 
-# numpy.quantile(a, q, axis=None, out=None, overwrite_input=False, method='linear', keepdims=False, *, interpolation=None)[source]
-
 def quantile_tf(x: np.ndarray, q: Union[float, np.float_], method: str='linear') -> Union[float, np.float_]:
     """
     Compute the q-th quantile of the values in `x`.
