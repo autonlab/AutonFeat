@@ -2,11 +2,14 @@ import autofeat as aft
 import numpy as np
 
 if __name__ == '__main__':
-    # Load data
-    x = np.random(100)
+    # Random data
+    n_samples = 100
+    x = np.random.rand(n_samples)
     
     # Create sliding window
-    window = aft.SlidingWindow(window_size=10, step_size=10)
+    ws = 10
+    ss = 10
+    window = aft.SlidingWindow(window_size=ws, step_size=ss)
 
     # Create transform
     mean_tf = aft.MeanTransform()
@@ -22,4 +25,4 @@ if __name__ == '__main__':
     print(mean_tf)
     print(features)
 
-
+    
