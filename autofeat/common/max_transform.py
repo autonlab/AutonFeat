@@ -22,7 +22,7 @@ class MaxTransform(Transform):
         Args:
             `signal_window`: The signal window to find the max of.
             
-            `where`: A function that takes a value and returns True or False. (Default: None)
+            `where`: A function that takes a value and returns `True` or `False` for whether it is to be included in the computation. Default is `None`.
         
         Returns:
             A scalar value representing the max of the signal.
