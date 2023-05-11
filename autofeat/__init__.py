@@ -1,6 +1,6 @@
 # Package imports
 from .core import SlidingWindow, Transform
-from .common import MeanTransform, MaxTransform, MinTransform
+from .common import MeanTransform, MaxTransform, MinTransform, QuantileTransform, RangeTransform, IQRTransform
 
 # Property imports
 import os
