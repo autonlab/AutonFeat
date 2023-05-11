@@ -9,7 +9,9 @@ def quantile_tf(x: np.ndarray, q: Union[float, np.float_], method: str='linear')
 
     Args:
         `x`: The array to compute the q-th quantile of.
+
         `q`: The quantile to compute. `q` belongs to [0, 1].
+        
         `method`: The method to use when computing the quantile. Default is 'linear'. See `numpy.quantile` for more information.
 
     Returns:
