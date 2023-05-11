@@ -8,6 +8,7 @@ def min_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]
 
     Args:
         `x`: The array to compute the min of.
+        
         `where`: A function that takes a value and returns `True` or `False`. Default is `None`.
 
     Returns:
