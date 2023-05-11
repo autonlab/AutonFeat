@@ -1,5 +1,5 @@
 import numpy as np
-from typing import Callable, Union, Any
+from typing import Callable, Union
 
 from autofeat.core import Transform
 from autofeat.functional import max_tf
@@ -21,6 +21,7 @@ class MaxTransform(Transform):
 
         Args:
             `signal_window`: The signal window to find the max of.
+            
             `where`: A function that takes a value and returns True or False. (Default: None)
         
         Returns:
