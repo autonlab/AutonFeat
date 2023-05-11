@@ -5,3 +5,5 @@ from .quantile import quantile_tf
 from .iqr import iqr_tf
 from .range import range_tf
 from .median import median_tf
+from .std import std_tf
+from .var import var_tf
