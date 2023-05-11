@@ -7,7 +7,7 @@ from autofeat.functional import mean_tf
 
 class MeanTransform(Transform):
     """
-    Compute the mean of the values in `x` where `where` is True.
+    Compute the mean of the values in `x`.
 
     Inherits from Transform.
     """

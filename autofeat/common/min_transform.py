@@ -7,7 +7,7 @@ from autofeat.functional import min_tf
 
 class MinTransform(Transform):
     """
-    Compute the min of the values in `x` where `where` is True.
+    Compute the min of the values in `x`.
 
     Inherits from Transform.
     """

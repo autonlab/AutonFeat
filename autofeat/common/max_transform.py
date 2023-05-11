@@ -7,7 +7,7 @@ from autofeat.functional import max_tf
 
 class MaxTransform(Transform):
     """
-    Compute the max of the values in `x` where `where` is True.
+    Compute the max of the values in `x`.
 
     Inherits from Transform.
     """
