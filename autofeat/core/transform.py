@@ -37,15 +37,15 @@ class Transform(object):
         Apply the transformation to the signal window provided.
 
         Args:
-            signal_window: The signal window to transform.
-            *args: Additional arguments to pass to the transformation.
-            **kwargs: Additional keyword arguments to pass to the transformation.
+            `signal_window`: The signal window to transform.
+            `*args`: Additional arguments to pass to the transformation.
+            `**kwargs`: Additional keyword arguments to pass to the transformation.
         
         Returns:
             A scalar value representing the transformation of the signal.
         
         Raises:
-            NotImplementedError: If the transformation is not implemented.
+            `NotImplementedError`: If the transformation is not implemented.
 
         """
         
@@ -66,7 +66,7 @@ class Transform(object):
         Set the name of the transformation.
 
         Args:
-            name: The new name of the transformation.
+            `name`: The new name of the transformation.
         """
         self._name = name
     

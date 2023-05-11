@@ -12,7 +12,7 @@ if __name__ == '__main__':
     window = aft.SlidingWindow(window_size=ws, step_size=ss)
 
     # Create transform
-    mean_tf = aft.MeanTransform()
+    mean_tf = aft.MaxTransform()
 
     # Get featurizer
     featurizer = window.use(mean_tf)
@@ -25,4 +25,3 @@ if __name__ == '__main__':
     print(mean_tf)
     print(features)
 
-    
