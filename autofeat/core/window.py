@@ -137,10 +137,15 @@ class SlidingWindow(object):
         
         Raises:
             `TypeError`: If the window size is not an integer.
+            
+            `ValueError`: If the window size is less than 1.
         """
 
         if not isinstance(window_size, (int, np.int_)):
             raise TypeError("Window size must be an integer.")
+        
+        if window_size < 1:
+            raise ValueError("Window size must be greater than 0.")
 
     # Methods
     def use(self, transform: Callable[[np.ndarray], Union[np.float_, np.int_]]) -> Callable[[np.ndarray], np.ndarray]:
