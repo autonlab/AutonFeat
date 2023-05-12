@@ -16,6 +16,7 @@ Assumptions:
 ## Example
 
 ```python
+
 import autofeat as aft
 import numpy as np
 
@@ -30,7 +31,7 @@ if __name__ == '__main__':
     window = aft.SlidingWindow(window_size=ws, step_size=ss)
 
     # Create transform
-    mean_tf = aft.MaxTransform()
+    mean_tf = aft.MeanTransform()
 
     # Get featurizer
     featurizer = window.use(mean_tf)
@@ -42,6 +43,5 @@ if __name__ == '__main__':
     print(window)
     print(mean_tf)
     print(features)
-
 
 ```
