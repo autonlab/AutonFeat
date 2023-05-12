@@ -171,3 +171,12 @@ cython_debug/
 
 # Bash scripts
 sanity.sh
+
+# Documentation build
+doxify.sh
+
+# Mac OS files
+.DS_Store
+
+# Documentation
+docs/
