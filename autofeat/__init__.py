@@ -1,14 +1,29 @@
 # Package imports
 from .core import SlidingWindow, Transform
 from .common import (
-    MeanTransform, MaxTransform, MinTransform, 
-    QuantileTransform, RangeTransform, IQRTransform, 
-    MedianTransform, StdTransform, VarTransform, 
-    
+    MeanTransform, MaxTransform, MinTransform,
+    QuantileTransform, RangeTransform, IQRTransform,
+    MedianTransform, StdTransform, VarTransform,
 )
+
+# For linter
+__all__ = [
+    'SlidingWindow',
+    'Transform',
+    'MeanTransform',
+    'MaxTransform',
+    'MinTransform',
+    'QuantileTransform',
+    'RangeTransform',
+    'IQRTransform',
+    'MedianTransform',
+    'StdTransform',
+    'VarTransform',
+]
 
 # Property imports
 import os
+
 
 class SetupProperties(object):
     """
@@ -25,10 +40,10 @@ class SetupProperties(object):
         self.author_email = 'dsrikant@andrew.cmu.edu'
         self.url = None
         self.packages = [
-            'distutils', 
-            'distutils.command', 
+            'distutils',
+            'distutils.command',
         ]
-    
+
     def get_name(self):
         """
         Get the name of the package.
@@ -37,7 +52,7 @@ class SetupProperties(object):
             The name of the package.
         """
         return self.name
-    
+
     def get_version(self):
         '''
         Get the version of the package.
@@ -46,25 +61,25 @@ class SetupProperties(object):
             The version of the package.
         '''
         return self.version
-    
+
     def get_description(self):
         """
         Get the description of the package which is read from the README.md file.
-        
+
         Returns:
             The description of the package.
         """
         return self.description
-    
+
     def get_author(self):
         """
         Get the author of the package.
 
         Returns:
-            The author of the package.    
+            The author of the package.
         """
         return self.author
-    
+
     def get_author_email(self):
         """
         Get the author email of the package.
@@ -73,7 +88,7 @@ class SetupProperties(object):
             The author email of the package.
         """
         return self.author_email
-    
+
     def get_url(self):
         """
         Get the url of the package.
@@ -82,7 +97,7 @@ class SetupProperties(object):
             The url of the package.
         """
         return self.url
-    
+
     def get_packages(self):
         """
         Get the packages used by the package.
@@ -91,4 +106,3 @@ class SetupProperties(object):
             The packages used by the package.
         """
         return self.packages
-

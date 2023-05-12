@@ -7,3 +7,16 @@ from .iqr_transform import IQRTransform
 from .median_transform import MedianTransform
 from .std_transform import StdTransform
 from .var_transform import VarTransform
+
+# For linter
+__all__ = [
+    'MeanTransform',
+    'MaxTransform',
+    'MinTransform',
+    'QuantileTransform',
+    'RangeTransform',
+    'IQRTransform',
+    'MedianTransform',
+    'StdTransform',
+    'VarTransform',
+]

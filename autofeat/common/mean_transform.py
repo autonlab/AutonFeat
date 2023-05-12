@@ -14,16 +14,16 @@ class MeanTransform(Transform):
     # Dunder methods
     def __init__(self):
         super().__init__(name="Mean")
-    
-    def __call__(self, signal_window: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]]=None) -> Union[np.float_, np.int_]:
+
+    def __call__(self, signal_window: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = None) -> Union[np.float_, np.int_]:
         """
         Compute the mean of the signal window provided.
 
         Args:
             `signal_window`: The signal window to find the mean of.
-            
+
             `where`: A function that takes a value and returns `True` or `False` for whether it is to be included in the computation. Default is `None`.
-        
+
         Returns:
             A scalar value representing the mean of the signal.
 
