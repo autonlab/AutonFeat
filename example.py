@@ -1,11 +1,12 @@
 import autofeat as aft
 import numpy as np
 
+
 def main():
     # Random data
     n_samples = 100
     x = np.random.rand(n_samples)
-    
+
     # Create sliding window
     ws = 10
     ss = 10
@@ -24,6 +25,7 @@ def main():
     print(window)
     print(tf)
     print(features)
+
 
 if __name__ == '__main__':
     main()
