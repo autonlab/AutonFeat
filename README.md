@@ -20,7 +20,7 @@ Assumptions:
 import autofeat as aft
 import numpy as np
 
-if __name__ == '__main__':
+def main():
     # Random data
     n_samples = 100
     x = np.random.rand(n_samples)
@@ -31,17 +31,20 @@ if __name__ == '__main__':
     window = aft.SlidingWindow(window_size=ws, step_size=ss)
 
     # Create transform
-    mean_tf = aft.MeanTransform()
+    tf = aft.MeanTransform()
 
     # Get featurizer
-    featurizer = window.use(mean_tf)
+    featurizer = window.use(tf)
 
     # Get features
     features = featurizer(x)
 
     # Print features
     print(window)
-    print(mean_tf)
+    print(tf)
     print(features)
+
+if __name__ == '__main__':
+    main()
 
 ```
