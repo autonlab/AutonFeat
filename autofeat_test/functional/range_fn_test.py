@@ -3,7 +3,7 @@ from autofeat.functional import range_tf
 import pytest
 
 
-def test_range():
+def test_range_fn():
     """
     Test range functional form transform.
     """

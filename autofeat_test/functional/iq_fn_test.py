@@ -3,7 +3,7 @@ from autofeat.functional import iqr_tf
 import pytest
 
 
-def test_iqr():
+def test_iqr_fn():
     """
     Test inter-quartile range functional form transform.
     """

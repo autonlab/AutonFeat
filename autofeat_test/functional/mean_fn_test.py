@@ -3,7 +3,7 @@ from autofeat.functional import mean_tf
 import pytest
 
 
-def test_mean():
+def test_mean_fn():
     """
     Test mean functional form transform.
     """

@@ -3,7 +3,7 @@ from autofeat.functional import var_tf
 import pytest
 
 
-def test_var():
+def test_var_fn():
     """
     Test variance functional form transform.
     """

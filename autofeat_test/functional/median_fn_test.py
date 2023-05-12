@@ -3,7 +3,7 @@ from autofeat.functional import median_tf
 import pytest
 
 
-def test_median():
+def test_median_fn():
     """
     Test median functional form transform.
     """

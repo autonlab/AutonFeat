@@ -3,7 +3,7 @@ from autofeat.functional import max_tf
 import pytest
 
 
-def test_max():
+def test_max_fn():
     """
     Test max functional form transform.
     """

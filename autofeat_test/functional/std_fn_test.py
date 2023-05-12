@@ -3,7 +3,7 @@ from autofeat.functional import std_tf
 import pytest
 
 
-def test_std():
+def test_std_fn():
     """
     Test standard deviation functional form transform.
     """

@@ -3,7 +3,7 @@ from autofeat.functional import min_tf
 import pytest
 
 
-def test_min():
+def test_min_fn():
     """
     Test min functional form transform.
     """
