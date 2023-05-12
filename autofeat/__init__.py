@@ -34,7 +34,7 @@ class SetupProperties(object):
         Properties needed to setup the package.
         """
         self.name = "autofeat"
-        self.version = '1.0'
+        self.version = '0.0.1'
         self.description = os.read('README.md')
         self.author = 'Dhruv Srikanth'
         self.author_email = 'dsrikant@andrew.cmu.edu'
