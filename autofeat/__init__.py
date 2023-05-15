@@ -4,7 +4,7 @@ from .common import (
     MeanTransform, MaxTransform, MinTransform,
     QuantileTransform, RangeTransform, IQRTransform,
     MedianTransform, StdTransform, VarTransform,
-    NValidTransform,
+    NValidTransform, DataDensityTransform, DataSparsityTransform,
 )
 
 # For linter
@@ -21,6 +21,8 @@ __all__ = [
     'StdTransform',
     'VarTransform',
     'NValidTransform',
+    'DataDensityTransform',
+    'DataSparsityTransform',
 ]
 
 # Property imports
