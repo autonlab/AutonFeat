@@ -48,3 +48,18 @@ if __name__ == '__main__':
     main()
 
 ```
+
+## Features
+
+| Feature | Description | Endpoint |
+| --- | --- | --- |
+| Max | Maximum value of the signal | `MaxTransform` |
+| Min | Minimum value of the signal | `MinTransform` |
+| Mean | Mean of the signal | `MeanTransform` |
+| Median | Median of the signal | `MedianTransform` |
+| Standard Deviation | Standard deviation of the signal | `StdTransform` |
+| Variance | Variance of the signal | `VarTransform` |
+| Quantile | Quantile of the signal | `QuantileTransform` |
+| Range | Range of the signal | `RangeTransform` |
+| IQR | Interquartile range of the signal | `IQRTransform` |
+| N Valid | Number of valid values in the signal | `NValidTransform` |
