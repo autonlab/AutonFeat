@@ -1,6 +1,6 @@
 import numpy as np
 from typing import Union, Callable
-from autofeat.functional import data_density_tf
+from autofeat.functional import n_valid_tf
 
 
 def data_sparsity_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
@@ -22,4 +22,4 @@ def data_sparsity_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, 
     if len(x) == 0:
         raise ZeroDivisionError("Cannot compute data sparsity of empty array.")
 
-    return 1.0 - data_density_tf(x, where=where)
+    return (len(x) - n_valid_tf(x=x, where=where)) / len(x)
