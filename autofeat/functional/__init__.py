@@ -8,6 +8,8 @@ from .median import median_tf
 from .std import std_tf
 from .var import var_tf
 from .n_valid import n_valid_tf
+from .data_density import data_density_tf
+from .data_sparsity import data_sparsity_tf
 
 # For linter
 __all__ = [
@@ -21,4 +23,6 @@ __all__ = [
     "std_tf",
     "var_tf",
     "n_valid_tf",
+    "data_density_tf",
+    "data_sparsity_tf",
 ]

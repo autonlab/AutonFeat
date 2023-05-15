@@ -8,6 +8,8 @@ from .median_transform import MedianTransform
 from .std_transform import StdTransform
 from .var_transform import VarTransform
 from .n_valid_transform import NValidTransform
+from .data_density_transform import DataDensityTransform
+from .data_sparsity_transform import DataSparsityTransform
 
 # For linter
 __all__ = [
@@ -21,4 +23,6 @@ __all__ = [
     'StdTransform',
     'VarTransform',
     'NValidTransform',
+    'DataDensityTransform',
+    'DataSparsityTransform',
 ]
