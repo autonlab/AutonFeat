@@ -7,6 +7,7 @@ from .range import range_tf
 from .median import median_tf
 from .std import std_tf
 from .var import var_tf
+from .n_valid import n_valid_tf
 
 # For linter
 __all__ = [
@@ -19,4 +20,5 @@ __all__ = [
     "median_tf",
     "std_tf",
     "var_tf",
+    "n_valid_tf",
 ]

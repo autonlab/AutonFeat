@@ -7,6 +7,7 @@ from .iqr_transform import IQRTransform
 from .median_transform import MedianTransform
 from .std_transform import StdTransform
 from .var_transform import VarTransform
+from .n_valid_transform import NValidTransform
 
 # For linter
 __all__ = [
@@ -19,4 +20,5 @@ __all__ = [
     'MedianTransform',
     'StdTransform',
     'VarTransform',
+    'NValidTransform',
 ]
