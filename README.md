@@ -51,6 +51,7 @@ if __name__ == '__main__':
 
 ## Features
 
+**Summary Statistics**:
 | Feature | Description | Endpoint |
 | --- | --- | --- |
 | Max | Maximum value of the signal | `MaxTransform` |
@@ -63,3 +64,9 @@ if __name__ == '__main__':
 | Range | Range of the signal | `RangeTransform` |
 | IQR | Interquartile range of the signal | `IQRTransform` |
 | N Valid | Number of valid values in the signal | `NValidTransform` |
+
+**Data Sparsity**:
+| Feature | Description | Endpoint |
+| --- | --- | --- |
+| Data Density | Ratio of valid values to window size | `DataDensityTransform` |
+| Data Sparsity | Ratio of missing values to window size | `DataSparsityTransform` |
