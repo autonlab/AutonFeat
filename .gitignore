@@ -180,3 +180,6 @@ doxify.sh
 
 # Documentation
 docs/
+
+# User studies
+user_studies/
