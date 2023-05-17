@@ -2,7 +2,7 @@ import numpy as np
 from typing import Union, Callable
 
 
-def delta_tf(x: np.ndarray, delta: Union[int, float, np.int_, np.float_], where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
+def delta_tf(x: np.ndarray, delta: Union[int, float, np.int_, np.float_], where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> np.ndarray:
     """
     Compute the difference between the values in `x` and `delta` where `where` is `True`.
 

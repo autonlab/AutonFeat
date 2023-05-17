@@ -3,7 +3,7 @@ from typing import Union, Callable
 from autofeat.functional import var_tf, delta_tf
 
 
-def delta_var_tf(x: np.ndarray, ddof: Union[int, np.int_] = 0, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
+def delta_var_tf(x: np.ndarray, ddof: Union[int, np.int_] = 0, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> np.ndarray:
     """
     Compute the difference between the values in `x` and `var` where `where` is `True`.
 

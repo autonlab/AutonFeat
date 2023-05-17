@@ -3,7 +3,7 @@ from typing import Union, Callable
 from autofeat.functional import quantile_tf, delta_tf
 
 
-def delta_quantile_tf(x: np.ndarray, q: Union[float, np.float_], method: str = 'linear', where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
+def delta_quantile_tf(x: np.ndarray, q: Union[float, np.float_], method: str = 'linear', where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> np.ndarray:
     """
     Compute the difference between the values in `x` and `quantile` where `where` is `True`.
 
