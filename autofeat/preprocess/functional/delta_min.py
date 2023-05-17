@@ -4,7 +4,7 @@ from autofeat.functional import min_tf
 from autofeat.preprocess.functional import delta_tf
 
 
-def delta_min_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x), initial: Union[int, float, np.int_, np.float_] = np.inf) -> Union[float, np.float_]:
+def delta_min_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x), initial: Union[int, float, np.int_, np.float_] = np.inf) -> np.ndarray:
     """
     Compute the difference between the values in `x` and `min` where `where` is `True`.
 

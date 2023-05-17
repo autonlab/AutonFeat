@@ -4,7 +4,7 @@ from autofeat.functional import mean_tf
 from autofeat.preprocess.functional import delta_tf
 
 
-def delta_mean_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
+def delta_mean_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> np.ndarray:
     """
     Compute the difference between the values in `x` and `mean` where `where` is `True`.
 
