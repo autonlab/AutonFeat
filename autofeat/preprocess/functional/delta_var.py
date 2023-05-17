@@ -1,6 +1,7 @@
 import numpy as np
 from typing import Union, Callable
-from autofeat.functional import var_tf, delta_tf
+from autofeat.functional import var_tf
+from autofeat.preprocess.functional import delta_tf
 
 
 def delta_var_tf(x: np.ndarray, ddof: Union[int, np.int_] = 0, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> np.ndarray:
@@ -19,4 +20,4 @@ def delta_var_tf(x: np.ndarray, ddof: Union[int, np.int_] = 0, where: Callable[[
 
     """
     var = var_tf(x, ddof=ddof, where=where)
-    return delta_tf(x, detla=var, where=where)
+    return delta_tf(x, delta=var, where=where)

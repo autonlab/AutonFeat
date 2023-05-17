@@ -51,7 +51,7 @@ if __name__ == '__main__':
 
 ## Features
 
-**Summary Statistics**:
+**Summary Statistics**: 
 | Feature | Description | Endpoint |
 | --- | --- | --- |
 | Max | Maximum value of the signal | `MaxTransform` |

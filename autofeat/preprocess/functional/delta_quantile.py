@@ -1,6 +1,7 @@
 import numpy as np
 from typing import Union, Callable
-from autofeat.functional import quantile_tf, delta_tf
+from autofeat.functional import quantile_tf
+from autofeat.preprocess.functional import delta_tf
 
 
 def delta_quantile_tf(x: np.ndarray, q: Union[float, np.float_], method: str = 'linear', where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> np.ndarray:
@@ -21,4 +22,4 @@ def delta_quantile_tf(x: np.ndarray, q: Union[float, np.float_], method: str = '
 
     """
     quantile = quantile_tf(x, q=q, method=method, where=where)
-    return delta_tf(x, detla=quantile, where=where)
+    return delta_tf(x, delta=quantile, where=where)

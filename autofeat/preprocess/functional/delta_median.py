@@ -1,6 +1,7 @@
 import numpy as np
 from typing import Union, Callable
-from autofeat.functional import median_tf, delta_tf
+from autofeat.functional import median_tf
+from autofeat.preprocess.functional import delta_tf
 
 
 def delta_median_tf(x: np.ndarray, method: str = 'linear', where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
@@ -19,4 +20,4 @@ def delta_median_tf(x: np.ndarray, method: str = 'linear', where: Callable[[Unio
 
     """
     median = median_tf(x, method=method, where=where)
-    return delta_tf(x, detla=median, where=where)
+    return delta_tf(x, delta=median, where=where)

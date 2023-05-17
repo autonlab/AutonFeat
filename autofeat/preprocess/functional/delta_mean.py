@@ -1,6 +1,7 @@
 import numpy as np
 from typing import Union, Callable
-from autofeat.functional import mean_tf, delta_tf
+from autofeat.functional import mean_tf
+from autofeat.preprocess.functional import delta_tf
 
 
 def delta_mean_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
@@ -17,4 +18,4 @@ def delta_mean_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.
 
     """
     mean = mean_tf(x, where=where)
-    return delta_tf(x, detla=mean, where=where)
+    return delta_tf(x, delta=mean, where=where)
