@@ -17,9 +17,6 @@ def delta_tf(x: np.ndarray, delta: Union[int, float, np.int_, np.float_], where:
         The difference between the of the values in `x` and `delta` where `where` is `True`.
 
     """
-    if where is None:
-        return x - delta
-
     return np.array(
         [
             x_i - delta
