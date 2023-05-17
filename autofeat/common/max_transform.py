@@ -15,7 +15,7 @@ class MaxTransform(Transform):
     def __init__(self):
         super().__init__(name="Max")
 
-    def __call__(self, signal_window: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[np.float_, np.int_]:
+    def __call__(self, signal_window: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x), initial: Union[int, float, np.int_, np.float_] = -np.inf) -> Union[np.float_, np.int_]:
         """
         Compute the max of the signal window provided.
 
@@ -24,8 +24,10 @@ class MaxTransform(Transform):
 
             `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
+            `initial`: The initial value to use when computing the max. Default is `-np.inf`.
+
         Returns:
             A scalar value representing the max of the signal.
 
         """
-        return max_tf(signal_window, where=where)
+        return max_tf(signal_window, where=where, initial=initial)
