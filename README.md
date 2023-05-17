@@ -71,16 +71,18 @@ if __name__ == '__main__':
 | Data Density | Ratio of valid values to window size | `DataDensityTransform` |
 | Data Sparsity | Ratio of missing values to window size | `DataSparsityTransform` |
 
-## Preprocess
+## Preprocessors
 
 **Delta Distribution Shift**:
 | Feature | Description | Endpoint |
 | --- | --- | --- |
-| Delta | Delta from a value and the rest of the signal | `DeltaTransform` |
-| Delta Mean | Delta from the mean of the signal | `DeltaMeanTransform` |
-| Delta Median | Delta from the median of the signal | `DeltaMedianTransform` |
-| Delta Max | Delta from the maximum value of the signal | `DeltaMaxTransform` |
-| Delta Min | Delta from the minimum value of the signal | `DeltaMinTransform` |
-| Delta Std | Delta from the standard deviation of the signal | `DeltaStdTransform` |
-| Delta Var | Delta from the variance of the signal | `DeltaVarTransform` |
-| Delta Quantile | Delta from the quantile of the signal | `DeltaQuantileTransform` |
+| Delta | Delta from a value and the rest of the signal | `DeltaPreprocessor` |
+| Delta Mean | Delta from the mean of the signal | `DeltameanPreprocessor` |
+| Delta Median | Delta from the median of the signal | `DeltaMedianPreprocessor` |
+| Delta Max | Delta from the maximum value of the signal | `DeltaMaxPreprocessor` |
+| Delta Min | Delta from the minimum value of the signal | `DeltaMinPreprocessor` |
+| Delta Std | Delta from the standard deviation of the signal | `DeltaStdPreprocessor` |
+| Delta Var | Delta from the variance of the signal | `DeltaVarPreprocessor` |
+| Delta Quantile | Delta from the quantile of the signal | `DeltaQuantilePreprocessor` |
+
+
