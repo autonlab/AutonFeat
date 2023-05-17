@@ -1,5 +1,8 @@
 # Package imports
-from .core import SlidingWindow, Transform
+from .core import (
+    SlidingWindow, Transform, Preprocess,
+)
+
 from .common import (
     MeanTransform, MaxTransform, MinTransform,
     QuantileTransform, RangeTransform, IQRTransform,
@@ -11,6 +14,8 @@ from .common import (
 __all__ = [
     'SlidingWindow',
     'Transform',
+    'Preprocess',
+
     'MeanTransform',
     'MaxTransform',
     'MinTransform',
@@ -46,6 +51,9 @@ class SetupProperties(object):
         self.packages = [
             'distutils',
             'distutils.command',
+            'numpy',
+            'typing',
+            'numba',
         ]
 
     def get_name(self):
