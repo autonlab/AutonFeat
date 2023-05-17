@@ -18,5 +18,4 @@ def iqr_tf(x: np.ndarray, method: str = 'linear', where: Callable[[Union[int, fl
         The IQR of the values in `x`.
 
     """
-
     return quantile_tf(x, q=0.75, method=method, where=where) - quantile_tf(x, q=0.25, method=method, where=where)

@@ -17,7 +17,4 @@ def max_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]
         The max of the values in `x` where `where` is `True`.
 
     """
-    if where is None:
-        return np.amax(x, axis=0)
-
     return np.amax(x, axis=0, where=[where(x_i) for x_i in x], initial=initial)
