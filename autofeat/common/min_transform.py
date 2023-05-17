@@ -12,8 +12,8 @@ class MinTransform(Transform):
     Inherits from Transform.
     """
     # Dunder methods
-    def __init__(self):
-        super().__init__(name="Min")
+    def __init__(self, name: str = "Min") -> None:
+        super().__init__(name=name)
 
     def __call__(self, signal_window: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x), initial: Union[int, float, np.int_, np.float_] = np.inf) -> Union[np.float_, np.int_]:
         """

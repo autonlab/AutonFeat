@@ -12,8 +12,8 @@ class DataSparsityTransform(Transform):
     Inherits from Transform.
     """
     # Dunder methods
-    def __init__(self):
-        super().__init__(name="Data Sparsity")
+    def __init__(self, name: str = "Data Sparsity") -> None:
+        super().__init__(name=name)
 
     def __call__(self, signal_window: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[np.float_, np.int_]:
         """
