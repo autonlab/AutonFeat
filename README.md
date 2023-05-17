@@ -71,7 +71,9 @@ if __name__ == '__main__':
 | Data Density | Ratio of valid values to window size | `DataDensityTransform` |
 | Data Sparsity | Ratio of missing values to window size | `DataSparsityTransform` |
 
-**Delta Features**:
+## Preprocess
+
+**Delta Distribution Shift**:
 | Feature | Description | Endpoint |
 | --- | --- | --- |
 | Delta | Delta from a value and the rest of the signal | `DeltaTransform` |
