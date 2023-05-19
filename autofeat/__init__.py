@@ -10,6 +10,8 @@ from .common import (
     NValidTransform, DataDensityTransform, DataSparsityTransform,
 )
 
+import autofeat.preprocess as preprocess
+
 # For linter
 __all__ = [
     'SlidingWindow',
@@ -28,6 +30,8 @@ __all__ = [
     'NValidTransform',
     'DataDensityTransform',
     'DataSparsityTransform',
+
+    'preprocess',
 ]
 
 # Property imports
