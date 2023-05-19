@@ -1,12 +1,12 @@
 import numpy as np
-from typing import Union, Callable
+from typing import Union, Callable, List
 
 
 class SlidingWindow(object):
     """
     Represents a 1D sliding window over a time series signal.
     """
-    def __init__(self, window_size: Union[int, np.int_], step_size: Union[int, np.int_]) -> None:
+    def __init__(self, window_size: Union[int, np.int_], step_size: Union[int, np.int_], overflow: str = 'pad', padding: Union[int, float, np.int_, np.float_] = 0) -> None:
         """
         Initialize a new 1D sliding window.
 
@@ -15,14 +15,31 @@ class SlidingWindow(object):
 
             `step_size`: The step size of the window.
 
+            `overflow`: The method to take when there is an overflow of the window compared to the signal. Default is `pad`.
+                          \tValid methods:
+                          \t\t`restrict` - Reduces the window to the end of the signal (results in performance degradation due to broken cache lines).\n
+                          \t\t`pad` - Pad signal with value passed to argument `padding`.\n
+                          \t\t`stop` - Skips computation of feature over final window that contains overflow.
+
+            `padding`: The value to pad the signal with in the case of an overflow. Default is `0`.
+
         """
+
+        self._overflow_methods = [
+            'restrict',
+            'pad',
+            'stop',
+        ]
 
         # Checks
         self._check_window_size(window_size)
         self._check_step_size(step_size)
+        self._check_overflow(overflow)
 
         self._window_size = window_size
         self._step_size = step_size
+        self._overflow = overflow
+        self._padding = padding
 
     def __str__(self) -> str:
         """
@@ -65,6 +82,15 @@ class SlidingWindow(object):
         """
         return self._step_size
 
+    def get_overflow_methods(self) -> List[str]:
+        """
+        Get the overflow methods supported.
+
+        Returns:
+            A list of supported overflow methods.
+        """
+        return self._overflow_methods
+
     def set_window_size(self, window_size: Union[int, np.int_]) -> None:
         """
         Set the window size.
@@ -79,8 +105,6 @@ class SlidingWindow(object):
         # Checks
         self._check_window_size(window_size)
 
-        self._window_size = window_size
-
     def set_step_size(self, step_size: Union[int, np.int_]) -> None:
         """
         Set the step size.
@@ -94,8 +118,6 @@ class SlidingWindow(object):
         """
         # Checks
         self._check_step_size(step_size)
-
-        self._step_size = step_size
 
     # Checks
     def _check_signal(self, signal: np.ndarray) -> None:
@@ -157,6 +179,20 @@ class SlidingWindow(object):
         if window_size < 1:
             raise ValueError("Window size must be greater than 0.")
 
+    def _check_overflow(self, overflow):
+        """
+        Check if the overflow passed is a supported method of handling overflow.
+
+        Args:
+            `overflow`: The overflow method name to check.
+
+        Raises:
+            `ValueError`: If the method name passed is not a valid method. See documentation for more details on overflow handling methods supported.
+        """
+        supported_methods = self.get_overflow_methods()
+        if overflow not in supported_methods:
+            raise ValueError(f"{overflow} is not a supported method for handling window to signal overflow.\nSupported methods include {', '.join(supported_methods)}.")
+
     # Methods
     def use(self, transform: Callable[[np.ndarray], Union[np.float_, np.int_]]) -> Callable[[np.ndarray], np.ndarray]:
         """
@@ -200,12 +236,28 @@ class SlidingWindow(object):
             if start_idx < 0 or end_idx > len(signal):
                 raise IndexError("Window indices out of bounds. Start index must be greater than or equal to 0 and end index must be less than or equal to the signal length.")
 
+            # Handle overflow
+            # Find the last index the window is applied to
+            last_idx = start_idx
+            while last_idx + self._window_size <= end_idx:
+                last_idx += self._step_size
+
+            if self._overflow == 'restrict':
+                pass  # End index is already set to the last index the window is applied to
+            elif self._overflow == 'pad':
+                # Compute the number of values to pad
+                n_over = self._window_size + last_idx - end_idx
+                signal = np.pad(array=signal, pad_width=(0, n_over), constant_values=self._padding)
+            elif self._overflow == 'stop':
+                # Set the end index to the last index the window is applied to
+                end_idx = last_idx
+
             # Apply the transformation
             transformed_signal = np.array(
                 [
                     transform(signal[i:i + self._window_size])           # Apply the transformation to the window
-                    if i + self._window_size <= end_idx                  # This is important to avoid data leakage
-                    else transform(signal[i:])                           # Apply the transformation to the last window
+                    # if i + self._window_size <= end_idx                  # This is important to avoid data leakage
+                    # else transform(signal[i:])                           # Apply the transformation to the last window
                     for i in range(start_idx, end_idx, self._step_size)
                 ]
             )
