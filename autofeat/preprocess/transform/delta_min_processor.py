@@ -14,7 +14,7 @@ class DeltaMinPreprocessor(Preprocess):
     def __init__(self, name: str = "Delta Min") -> None:
         super().__init__(name=name)
 
-    def __call__(self, signal: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x), initial: Union[int, float, np.int_, np.float_] = -np.inf) -> np.ndarray:
+    def __call__(self, signal: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x), initial: Union[int, float, np.int_, np.float_] = np.inf) -> np.ndarray:
         """
         Compute the difference between the values in `signal` and `min` where `where` is `True`.
 
