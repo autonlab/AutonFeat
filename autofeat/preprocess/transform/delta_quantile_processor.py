@@ -29,6 +29,5 @@ class DeltaQuantilePreprocessor(Preprocess):
 
         Returns:
             The difference between the of the values in `signal` and `quantile` where `where` is `True`.
-
         """
         return delta_quantile_tf(x=signal, q=q, method=method, where=where)

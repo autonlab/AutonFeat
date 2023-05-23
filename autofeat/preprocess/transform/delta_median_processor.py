@@ -27,6 +27,5 @@ class DeltaMedianPreprocessor(Preprocess):
 
         Returns:
             The difference between the of the values in `signal` and `median` where `where` is `True`.
-
         """
         return delta_median_tf(x=signal, method=method, where=where)

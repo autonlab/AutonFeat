@@ -27,6 +27,5 @@ class DeltaStdPreprocessor(Preprocess):
 
         Returns:
             The difference between the of the values in `signal` and `std` where `where` is `True`.
-
         """
         return delta_std_tf(x=signal, ddof=ddof, where=where)

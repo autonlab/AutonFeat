@@ -27,6 +27,5 @@ class DeltaVarPreprocessor(Preprocess):
 
         Returns:
             The difference between the of the values in `signal` and `var` where `where` is `True`.
-
         """
         return delta_var_tf(x=signal, ddof=ddof, where=where)
