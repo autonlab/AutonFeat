@@ -1,4 +1,5 @@
 import numpy as np
+import numba as nb
 from typing import Union, Callable, List
 
 
@@ -22,7 +23,6 @@ class SlidingWindow(object):
                           \t\t`stop` - Skips computation of feature over final window that contains overflow.
 
             `padding`: The value to pad the signal with in the case of an overflow. Default is `0`.
-
         """
 
         self._overflow_methods = [
@@ -47,7 +47,6 @@ class SlidingWindow(object):
 
         Returns:
             The string representation of the sliding window.
-
         """
         return f"Window(window_size={self._window_size}, step_size={self._step_size})"
 
@@ -57,7 +56,6 @@ class SlidingWindow(object):
 
         Returns:
             The string representation of the sliding window.
-
         """
         return self.__str__()
 
@@ -68,7 +66,6 @@ class SlidingWindow(object):
 
         Returns:
             The window size.
-
         """
         return self._window_size
 
@@ -78,7 +75,6 @@ class SlidingWindow(object):
 
         Returns:
             The step size.
-
         """
         return self._step_size
 
@@ -90,6 +86,24 @@ class SlidingWindow(object):
             A list of supported overflow methods.
         """
         return self._overflow_methods
+
+    def get_overflow(self) -> str:
+        """
+        Get the overflow method.
+
+        Returns:
+            The overflow method.
+        """
+        return self._overflow
+
+    def get_padding(self) -> Union[int, float, np.int_, np.float_]:
+        """
+        Get the padding value.
+
+        Returns:
+            The padding value.
+        """
+        return self._padding
 
     def set_window_size(self, window_size: Union[int, np.int_]) -> None:
         """
@@ -105,6 +119,8 @@ class SlidingWindow(object):
         # Checks
         self._check_window_size(window_size)
 
+        self._window_size = window_size
+
     def set_step_size(self, step_size: Union[int, np.int_]) -> None:
         """
         Set the step size.
@@ -114,10 +130,35 @@ class SlidingWindow(object):
 
         Raises:
             `TypeError`: If the step size is not an integer.
-
         """
         # Checks
         self._check_step_size(step_size)
+
+        self._step_size = step_size
+
+    def set_overflow(self, overflow: str) -> None:
+        """
+        Set the overflow method.
+
+        Args:
+            `overflow`: The overflow method to set.
+
+        Raises:
+            `ValueError`: If the overflow method is not supported.
+        """
+        # Checks
+        self._check_overflow(overflow)
+
+        self._overflow = overflow
+
+    def set_padding(self, padding: Union[int, float, np.int_, np.float_]) -> None:
+        """
+        Set the padding value.
+
+        Args:
+            `padding`: The padding value to set.
+        """
+        self._padding = padding
 
     # Checks
     def _check_signal(self, signal: np.ndarray) -> None:
@@ -133,7 +174,6 @@ class SlidingWindow(object):
             `Exception`: If the signal is not 1D.
 
             `ValueError`: If the window size is greater than the signal length.
-
         """
         if not isinstance(signal, np.ndarray):
             raise TypeError("Signal must be a numpy array.")
@@ -141,7 +181,7 @@ class SlidingWindow(object):
         if signal.ndim != 1:
             raise Exception("Signal must be 1D.")
 
-        if self._window_size > len(signal):
+        if self._window_size > signal.shape[0]:
             raise ValueError("Window size cannot be greater than signal length.")
 
     def _check_step_size(self, step_size: Union[int, np.int_]) -> None:
@@ -153,7 +193,6 @@ class SlidingWindow(object):
 
         Raises:
             `TypeError`: If the step size is not an integer.
-
         """
 
         if not isinstance(step_size, (int, np.int_)):
@@ -170,7 +209,6 @@ class SlidingWindow(object):
             `TypeError`: If the window size is not an integer.
 
             `ValueError`: If the window size is less than 1.
-
         """
 
         if not isinstance(window_size, (int, np.int_)):
@@ -206,7 +244,6 @@ class SlidingWindow(object):
 
         Raises:
             `TypeError`: If the transform is not callable.
-
         """
 
         # Checks
@@ -230,10 +267,11 @@ class SlidingWindow(object):
             # Checks
             self._check_signal(signal)
 
+            length = signal.shape[0]
             if end_idx is None:
-                end_idx = len(signal)
+                end_idx = length
 
-            if start_idx < 0 or end_idx > len(signal):
+            if start_idx < 0 or end_idx > length:
                 raise IndexError("Window indices out of bounds. Start index must be greater than or equal to 0 and end index must be less than or equal to the signal length.")
 
             # Handle overflow
@@ -253,14 +291,18 @@ class SlidingWindow(object):
                 end_idx = last_idx
 
             # Apply the transformation
-            transformed_signal = np.array(
-                [
-                    transform(signal[i:i + self._window_size])           # Apply the transformation to the window
-                    # if i + self._window_size <= end_idx                  # This is important to avoid data leakage
-                    # else transform(signal[i:])                           # Apply the transformation to the last window
-                    for i in range(start_idx, end_idx, self._step_size)
-                ]
-            )
+            # transformed_signal = np.array(
+            #     [
+            #         transform(signal[i:i + self._window_size])           # Apply the transformation to the window
+            #         # if i + self._window_size <= end_idx                  # This is important to avoid data leakage
+            #         # else transform(signal[i:])                           # Apply the transformation to the last window
+            #         for i in range(start_idx, end_idx, self._step_size)
+            #     ]
+            # )
+
+            transformed_signal = np.empty(shape=(len(nb.prange(start_idx, end_idx, self._step_size)),), dtype=np.float_)
+            for i in nb.prange(start_idx, end_idx, self._step_size):
+                transformed_signal[i] = transform(signal[i:i + self._window_size])
 
             return transformed_signal
 
