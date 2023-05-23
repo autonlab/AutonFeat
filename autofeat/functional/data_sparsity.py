@@ -18,8 +18,8 @@ def data_sparsity_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, 
     Raises:
         `DivideByZeroError`: If `x` is empty.
     """
-
-    if len(x) == 0:
+    size = x.shape[0]
+    if size == 0:
         raise ZeroDivisionError("Cannot compute data sparsity of empty array.")
 
-    return (len(x) - n_valid_tf(x=x, where=where)) / len(x)
+    return (size - n_valid_tf(x=x, where=where)) / size

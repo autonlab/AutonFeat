@@ -20,10 +20,10 @@ def quantile_tf(x: np.ndarray, q: Union[float, np.float_], method: str = 'linear
 
     Raises:
         `ValueError`: If `q` is not in [0, 1].
-
     """
     if q < 0 or q > 1:
         raise ValueError('q must be in [0, 1].')
 
-    filtered_x = np.array([x_i for x_i in x if where(x_i)])
-    return np.quantile(filtered_x, q, axis=0, method=method)
+    # Vectorize filter fn
+    filter_fn = np.vectorize(pyfunc=lambda x_i: x_i if where(x_i) else np.nan)
+    return np.nanquantile(filter_fn(x), q, axis=0, method=method)

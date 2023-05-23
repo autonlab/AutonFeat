@@ -13,6 +13,7 @@ def mean_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_
 
     Returns:
         The mean of the values in `x` where `where` is `True`.
-
     """
-    return np.mean(x, where=[where(x_i) for x_i in x])
+    # Vectorize where fn
+    where_fn = np.vectorize(pyfunc=where)
+    return np.mean(x, where=where_fn(x))

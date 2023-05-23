@@ -18,8 +18,8 @@ def data_density_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, n
     Raises:
         `DivideByZeroError`: If `x` is empty.
     """
-
-    if len(x) == 0:
+    size = x.shape[0]
+    if size == 0:
         raise ZeroDivisionError("Cannot compute data density of empty array.")
 
-    return n_valid_tf(x, where=where) / len(x)
+    return n_valid_tf(x, where=where) / size

@@ -16,6 +16,5 @@ def median_tf(x: np.ndarray, method: str = 'linear', where: Callable[[Union[int,
 
     Returns:
         The median of the values in `x`.
-
     """
     return quantile_tf(x, q=0.5, method=method, where=where)

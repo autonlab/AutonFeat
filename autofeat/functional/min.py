@@ -15,6 +15,7 @@ def min_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]
 
     Returns:
         The min of the values in `x` where `where` is True.
-
     """
-    return np.amin(x, axis=0, where=[where(x_i) for x_i in x], initial=initial)
+    # Vectorize where fn
+    where_fn = np.vectorize(pyfunc=where)
+    return np.amin(x, axis=0, where=where_fn(x), initial=initial)

@@ -15,6 +15,7 @@ def std_tf(x: np.ndarray, ddof: Union[int, np.int_] = 0, where: Callable[[Union[
 
     Returns:
         The standard deviation of the values in `x`.
-
     """
-    return np.std(x, axis=0, ddof=ddof, where=[where(x_i) for x_i in x])
+    # Vectorize where fn
+    where_fn = np.vectorize(pyfunc=where)
+    return np.std(x, axis=0, ddof=ddof, where=where_fn(x))

@@ -13,11 +13,7 @@ def n_valid_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.flo
 
     Returns:
         The number of valid measurements in `x`.
-
     """
-    return np.sum(
-        [
-            int(where(x_i))
-            for x_i in x
-        ]
-    )
+    # Vectorize where fn
+    where_fn = np.vectorize(pyfunc=where)
+    return np.sum(where_fn(x))
