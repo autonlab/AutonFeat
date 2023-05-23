@@ -17,7 +17,6 @@ def delta_max_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.f
 
     Returns:
         The difference between the of the values in `x` and `max` where `where` is `True`.
-
     """
     max = max_tf(x, where=where, initial=initial)
     return delta_tf(x, delta=max, where=where)

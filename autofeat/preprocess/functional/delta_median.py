@@ -17,7 +17,6 @@ def delta_median_tf(x: np.ndarray, method: str = 'linear', where: Callable[[Unio
 
     Returns:
         The difference between the of the values in `x` and `median` where `where` is `True`.
-
     """
     median = median_tf(x, method=method, where=where)
     return delta_tf(x, delta=median, where=where)

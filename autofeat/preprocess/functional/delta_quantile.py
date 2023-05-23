@@ -19,7 +19,6 @@ def delta_quantile_tf(x: np.ndarray, q: Union[float, np.float_], method: str = '
 
     Returns:
         The difference between the of the values in `x` and `quantile` where `where` is `True`.
-
     """
     quantile = quantile_tf(x, q=q, method=method, where=where)
     return delta_tf(x, delta=quantile, where=where)

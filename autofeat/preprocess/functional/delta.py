@@ -15,13 +15,11 @@ def delta_tf(x: np.ndarray, delta: Union[int, float, np.int_, np.float_], where:
 
     Returns:
         The difference between the of the values in `x` and `delta` where `where` is `True`.
-
     """
-    return np.array(
-        [
-            x_i - delta
-            if where(x_i)
-            else x_i
-            for x_i in x
-        ]
-    )
+    # Vectorize where fn
+    where_fn = np.vectorize(where)
+    # Compute mask and multiply by distribution shift along axis
+    mask = where_fn(x)
+    shift = mask * delta
+    # Compute shifted distribution
+    return x - shift

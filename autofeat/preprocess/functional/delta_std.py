@@ -17,7 +17,6 @@ def delta_std_tf(x: np.ndarray, ddof: Union[int, np.int_] = 0, where: Callable[[
 
     Returns:
         The difference between the of the values in `x` and `std` where `where` is `True`.
-
     """
     std = std_tf(x, ddof=ddof, where=where)
     return delta_tf(x, delta=std, where=where)

@@ -17,7 +17,6 @@ def delta_min_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.f
 
     Returns:
         The difference between the of the values in `x` and `min` where `where` is `True`.
-
     """
     min = min_tf(x, where=where, initial=initial)
     return delta_tf(x, delta=min, where=where)

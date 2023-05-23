@@ -15,7 +15,6 @@ def delta_mean_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.
 
     Returns:
         The difference between the of the values in `x` and `mean` where `where` is `True`.
-
     """
     mean = mean_tf(x, where=where)
     return delta_tf(x, delta=mean, where=where)
