@@ -20,7 +20,6 @@ class Transform(object):
 
         Returns:
             The string representation of the transformation.
-
         """
         return f"Transform({self._name})"
 
@@ -30,7 +29,6 @@ class Transform(object):
 
         Returns:
             The string representation of the transformation.
-
         """
         return self.__str__()
 
@@ -50,7 +48,6 @@ class Transform(object):
 
         Raises:
             `NotImplementedError`: If the transformation is not implemented.
-
         """
         raise NotImplementedError("This method is not implemented.")
 
@@ -61,7 +58,6 @@ class Transform(object):
 
         Returns:
             The name of the transformation.
-
         """
         return self._name
 
@@ -71,6 +67,5 @@ class Transform(object):
 
         Args:
             `name`: The new name of the transformation.
-
         """
         self._name = name

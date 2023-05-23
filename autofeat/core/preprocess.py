@@ -20,7 +20,6 @@ class Preprocess(object):
 
         Returns:
             The string representation of the preprocessor.
-
         """
         return f"Preprocess({self._name})"
 
@@ -30,7 +29,6 @@ class Preprocess(object):
 
         Returns:
             The string representation of the preprocessor.
-
         """
         return self.__str__()
 
@@ -50,7 +48,6 @@ class Preprocess(object):
 
         Raises:
             `NotImplementedError`: If the preprocessor is not implemented.
-
         """
         raise NotImplementedError("This method is not implemented.")
 
@@ -61,7 +58,6 @@ class Preprocess(object):
 
         Returns:
             The name of the preprocessor.
-
         """
         return self._name
 
@@ -71,6 +67,5 @@ class Preprocess(object):
 
         Args:
             `name`: The new name of the preprocessor.
-
         """
         self._name = name
