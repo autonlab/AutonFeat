@@ -182,4 +182,7 @@ doxify.sh
 docs/
 
 # User studies
-user_studies/
+user_studies
+
+# Experiments
+experiments
