@@ -1,5 +1,9 @@
-import autofeat as aft
 import numpy as np
+import sys
+package_path = '/Users/dhruvsrikanth/Work/CMU/AutoFeat'
+sys.path.append(package_path)
+
+import autofeat as aft
 
 
 def main():
@@ -14,9 +18,9 @@ def main():
     transformed_dist = preprocessor(dist)
 
     # Print features
-    print(preprocessor)
-    print(dist)
-    print(transformed_dist)
+    # print(preprocessor)
+    # print(dist)
+    print(transformed_dist.shape)
 
 
 if __name__ == '__main__':
