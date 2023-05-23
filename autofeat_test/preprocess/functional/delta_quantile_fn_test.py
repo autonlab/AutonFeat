@@ -12,7 +12,7 @@ def test_delta_quantile_fn():
     x = np.random.rand(100)
 
     for p in (10, 100, 10):
-        shifted_x_hat = delta_quantile_tf(x, p / 100)
+        shifted_x_hat = delta_quantile_tf(x, q=p / 100)
 
         delta = np.percentile(x, p)
         shifted_x = x - delta

@@ -2,7 +2,7 @@ import numpy as np
 from autofeat.preprocess.transform import DeltaStdPreprocessor
 
 
-def test_delta_std_fn():
+def test_delta_std():
     """
     Test standard deviation distribution shift preprocessor.
     """
