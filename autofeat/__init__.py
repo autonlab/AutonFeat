@@ -11,6 +11,7 @@ from .common import (
 )
 
 import autofeat.preprocess as preprocess
+import autofeat.utils as utils
 
 # For linter
 __all__ = [
@@ -32,6 +33,7 @@ __all__ = [
     'DataSparsityTransform',
 
     'preprocess',
+    'utils',
 ]
 
 # Property imports
