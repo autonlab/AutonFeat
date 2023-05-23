@@ -28,6 +28,5 @@ class VarTransform(Transform):
 
         Returns:
             A scalar value representing the variance of the signal.
-
         """
         return var_tf(signal_window, ddof=ddof, where=where)

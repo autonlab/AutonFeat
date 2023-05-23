@@ -30,6 +30,5 @@ class QuantileTransform(Transform):
 
         Returns:
             A scalar value representing the q-th quantile of the signal.
-
         """
         return quantile_tf(signal_window, q=q, method=method, where=where)

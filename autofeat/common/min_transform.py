@@ -28,6 +28,5 @@ class MinTransform(Transform):
 
         Returns:
             A scalar value representing the min of the signal.
-
         """
         return min_tf(signal_window, where=where, initial=initial)

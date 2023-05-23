@@ -28,6 +28,5 @@ class MaxTransform(Transform):
 
         Returns:
             A scalar value representing the max of the signal.
-
         """
         return max_tf(signal_window, where=where, initial=initial)

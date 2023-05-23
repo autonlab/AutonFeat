@@ -28,6 +28,5 @@ class StdTransform(Transform):
 
         Returns:
             A scalar value representing the standard deviation of the signal.
-
         """
         return std_tf(signal_window, ddof=ddof, where=where)

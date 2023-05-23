@@ -26,6 +26,5 @@ class DataDensityTransform(Transform):
 
         Returns:
             A scalar value representing the data density of `x`.
-
         """
         return data_density_tf(x=signal_window, where=where)

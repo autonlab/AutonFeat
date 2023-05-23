@@ -26,6 +26,5 @@ class DataSparsityTransform(Transform):
 
         Returns:
             A scalar value representing the data sparsity of `x`.
-
         """
         return data_sparsity_tf(x=signal_window, where=where)

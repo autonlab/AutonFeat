@@ -26,6 +26,5 @@ class RangeTransform(Transform):
 
         Returns:
             A scalar value representing the range of the signal.
-
         """
         return range_tf(signal_window, where=where)

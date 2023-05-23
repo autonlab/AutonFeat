@@ -28,6 +28,5 @@ class IQRTransform(Transform):
 
         Returns:
             A scalar value representing the IQR of the signal.
-
         """
         return iqr_tf(signal_window, method=method, where=where)

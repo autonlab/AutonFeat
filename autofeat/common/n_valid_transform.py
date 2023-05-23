@@ -26,7 +26,5 @@ class NValidTransform(Transform):
 
         Returns:
             A scalar value representing the number of valid measurements in `x`.
-
         """
-
         return n_valid_tf(signal_window, where=where)

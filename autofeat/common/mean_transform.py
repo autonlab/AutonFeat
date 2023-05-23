@@ -26,6 +26,5 @@ class MeanTransform(Transform):
 
         Returns:
             A scalar value representing the mean of the signal.
-
         """
         return mean_tf(signal_window, where=where)

@@ -28,6 +28,5 @@ class MedianTransform(Transform):
 
         Returns:
             A scalar value representing the median of the signal.
-
         """
         return median_tf(signal_window, method=method, where=where)
