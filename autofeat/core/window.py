@@ -274,22 +274,6 @@ class SlidingWindow(object):
             if start_idx < 0 or end_idx > length:
                 raise IndexError("Window indices out of bounds. Start index must be greater than or equal to 0 and end index must be less than or equal to the signal length.")
 
-            # Handle overflow
-            # Find the last index the window is applied to
-            last_idx = start_idx
-            while last_idx + self._window_size <= end_idx:
-                last_idx += self._step_size
-
-            if self._overflow == 'restrict':
-                pass  # End index is already set to the last index the window is applied to
-            elif self._overflow == 'pad':
-                # Compute the number of values to pad
-                n_over = self._window_size + last_idx - end_idx
-                signal = np.pad(array=signal, pad_width=(0, n_over), constant_values=self._padding)
-            elif self._overflow == 'stop':
-                # Set the end index to the last index the window is applied to
-                end_idx = last_idx
-
             # Apply the transformation
             # transformed_signal = np.array(
             #     [
@@ -300,9 +284,24 @@ class SlidingWindow(object):
             #     ]
             # )
 
-            transformed_signal = np.empty(shape=(len(nb.prange(start_idx, end_idx, self._step_size)),), dtype=np.float_)
+            # transformed_signal = np.empty(shape=(len(nb.prange(start_idx, end_idx, self._step_size)),), dtype=np.float_)
+            transformed_signal = []
             for i in nb.prange(start_idx, end_idx, self._step_size):
-                transformed_signal[i] = transform(signal[i:i + self._window_size])
+                if i + self._window_size <= end_idx:
+                    transformed_signal.append(transform(signal[i:i + self._window_size]))
+                else:
+                    # Overflow occuring
+                    if self._overflow == 'restrict':
+                        # restrict the window to the end of the signal
+                        transformed_signal.append(transform(signal[i:]))
+                    elif self._overflow == 'pad':
+                        # pad the signal by a value and the apply the transformation
+                        n_over = i + self._window_size - end_idx
+                        padded_signal = np.pad(array=signal[i:], pad_width=(0, n_over), constant_values=self._padding)
+                        transformed_signal.append(transform(padded_signal))
+                    else:
+                        # stop computing features
+                        break
 
             return transformed_signal
 
