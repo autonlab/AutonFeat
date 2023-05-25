@@ -6,6 +6,7 @@ from .delta_median import delta_median_tf
 from .delta_std import delta_std_tf
 from .delta_var import delta_var_tf
 from .delta_quantile import delta_quantile_tf
+from .dft import dft_tf
 
 # For linter
 __all__ = [
@@ -17,4 +18,5 @@ __all__ = [
     "delta_std_tf",
     "delta_var_tf",
     "delta_quantile_tf",
+    "dft_tf",
 ]
