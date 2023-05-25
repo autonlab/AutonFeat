@@ -6,6 +6,7 @@ from .delta_median_processor import DeltaMedianPreprocessor
 from .delta_quantile_processor import DeltaQuantilePreprocessor
 from .delta_std_processor import DeltaStdPreprocessor
 from .delta_var_processor import DeltaVarPreprocessor
+from .dft_processor import DFTPreprocessor
 
 # For linter
 __all__ = [
@@ -17,4 +18,5 @@ __all__ = [
     "DeltaQuantilePreprocessor",
     "DeltaStdPreprocessor",
     "DeltaVarPreprocessor",
+    "DFTPreprocessor",
 ]

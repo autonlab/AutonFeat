@@ -1,7 +1,7 @@
 from .transform import (
     DeltaPreprocessor, DeltaMeanPreprocessor, DeltaMaxPreprocessor,
     DeltaMinPreprocessor, DeltaMedianPreprocessor, DeltaQuantilePreprocessor,
-    DeltaStdPreprocessor, DeltaVarPreprocessor,
+    DeltaStdPreprocessor, DeltaVarPreprocessor, DFTPreprocessor,
 )
 
 # For linter
@@ -14,4 +14,5 @@ __all__ = [
     "DeltaQuantilePreprocessor",
     "DeltaStdPreprocessor",
     "DeltaVarPreprocessor",
+    "DFTPreprocessor",
 ]
