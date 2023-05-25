@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.preprocess.transform import DeltaMeanPreprocessor
+from autofeat.preprocess import DeltaMeanPreprocessor
 
 
 def test_delta_mean():

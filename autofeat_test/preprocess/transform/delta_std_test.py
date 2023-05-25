@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.preprocess.transform import DeltaStdPreprocessor
+from autofeat.preprocess import DeltaStdPreprocessor
 
 
 def test_delta_std():

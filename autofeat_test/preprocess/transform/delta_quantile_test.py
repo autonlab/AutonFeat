@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.preprocess.transform import DeltaQuantilePreprocessor
+from autofeat.preprocess import DeltaQuantilePreprocessor
 
 
 def test_delta_quantile():

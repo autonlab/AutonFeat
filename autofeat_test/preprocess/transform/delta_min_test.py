@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.preprocess.transform import DeltaMinPreprocessor
+from autofeat.preprocess import DeltaMinPreprocessor
 
 
 def test_delta_min():

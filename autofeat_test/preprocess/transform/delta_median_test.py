@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.preprocess.transform import DeltaMedianPreprocessor
+from autofeat.preprocess import DeltaMedianPreprocessor
 
 
 def test_delta_median():
