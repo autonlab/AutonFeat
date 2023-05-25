@@ -85,4 +85,8 @@ if __name__ == '__main__':
 | Delta Var | Delta from the variance of the signal | `DeltaVarPreprocessor` |
 | Delta Quantile | Delta from the quantile of the signal | `DeltaQuantilePreprocessor` |
 
+**Frequency Domain**:
+| Feature | Description | Endpoint |
+| --- | --- | --- |
+| DFT | 1D Discrete Fourier Transform of the signal | `DFTPreprocessor` |
 
