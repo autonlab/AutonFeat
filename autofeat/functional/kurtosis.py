@@ -30,6 +30,6 @@ def kurtosis_tf(x: np.ndarray, fischer: Union[bool, np.bool_] = True, where: Cal
     kurtosis = np.mean(((filtered_x - sample_mean) / sample_std) ** 4)
 
     # Fisher's definition
-    kurtosis = kurtosis - 3 if fischer else kurtosis
+    kurtosis = kurtosis - 3.0 if fischer else kurtosis
 
     return kurtosis
