@@ -159,3 +159,27 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+## Testing
+
+All tests can be run using the following command:
+
+```bash
+python -m pytest autofeat_test
+```
+
+## Contributing
+
+When contributing, please add tests to the `autofeat_test` directory. Additionally, I follow `flake8` as a linter. Please lint your code before submitting a pull request to maintain design consistency.
+
+The following commands can be run for verficiation before opening a PR:
+
+```bash
+# Unit tests
+python -m pytest autofeat_test
+
+# Linting
+flake8 autofeat --ignore=E501
+```
+
+
