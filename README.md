@@ -3,20 +3,38 @@
 
 # AutoFeat
 
-A domain agnostic package for time series featurization with minimal build dependencies.
+A domain agnostic package for time series featurization.
 
-## Design Objectives:
+We've included some domain specific featurizers for popular domains like healthcare. 
+
+In addition, we've included some preprocessors to help with featurization.
+
+Finally, our goal was to make this package without too many dependencies and overhead.
+
+
+## Design Objectives
 
 - **Simple**: The package should be easy to use and require as little user input as possible.
 - **Interpretable**: The package should be interpretable, i.e. the user should be able to understand the featurization process and the resulting features through good documentation.
 - **Fast**: The package should be fast enough to be used in production.
 - **Flexible**: The package should be flexible enough to be used in a variety of settings, including custom featurization functions.
 
-## Assumptions:
+
+## Assumptions
+
 - The input data is a 1D time series in the form of a numpy array.
 - If there are missing values, they must be represented by `np.nan` to be detected, otherwise, gaps in the time series are not detected.
 
-## Features
+## Installation
+
+*(Coming soon)*
+```bash
+pip install autofeat
+```
+
+
+## Domain Agnostic Features
+
 
 **Summary Statistics**: 
 | Feature | Description | Endpoint |
@@ -34,11 +52,13 @@ A domain agnostic package for time series featurization with minimal build depen
 | Skewness | Skewness of the signal | `SkewnessTransform` |
 | Kurtosis | Kurtosis of the signal | `KurtosisTransform` |
 
+
 **Data Sparsity Measures**:
 | Feature | Description | Endpoint |
 | --- | --- | --- |
 | Data Density | Ratio of valid values to window size | `DataDensityTransform` |
 | Data Sparsity | Ratio of missing values to window size | `DataSparsityTransform` |
+
 
 **Information Theoretic Measures**:
 | Feature | Description | Endpoint |
@@ -47,6 +67,13 @@ A domain agnostic package for time series featurization with minimal build depen
 | KL Divergence | KL divergence (relative entropy) of the signal with respect to another distribution. | `EntropyTransform` |
 | Sample Entropy | Sample entropy of the signal | `SampleEntropyTransform` |
 | Cross Entropy | Cross entropy of the signal with respect to another distribution | `CrossEntropyTransform` |
+
+
+### Domain Specific
+
+**Biomedical, and Physiological Signals**:
+| Feature | Description | Endpoint |
+| --- | --- | --- |
 
 
 #### Example
@@ -99,10 +126,12 @@ if __name__ == '__main__':
 | Delta Var | Delta from the variance of the signal | `DeltaVarPreprocessor` |
 | Delta Quantile | Delta from the quantile of the signal | `DeltaQuantilePreprocessor` |
 
+
 **Frequency Domain**:
 | Feature | Description | Endpoint |
 | --- | --- | --- |
 | DFT | 1D Discrete Fourier Transform of the signal | `DFTPreprocessor` |
+
 
 #### Example
 
