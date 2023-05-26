@@ -10,6 +10,11 @@ from .var import var_tf
 from .n_valid import n_valid_tf
 from .data_density import data_density_tf
 from .data_sparsity import data_sparsity_tf
+from .kurtosis import kurtosis_tf
+from .skewness import skewness_tf
+from .entropy import entropy_tf
+from .cross_entropy import cross_entropy_tf
+from .sample_entropy import sample_entropy_tf
 
 # For linter
 __all__ = [
@@ -25,4 +30,9 @@ __all__ = [
     "n_valid_tf",
     "data_density_tf",
     "data_sparsity_tf",
+    "kurtosis_tf",
+    "skewness_tf",
+    "entropy_tf",
+    "cross_entropy_tf",
+    "sample_entropy_tf",
 ]
