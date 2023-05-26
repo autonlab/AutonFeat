@@ -21,6 +21,9 @@ def entropy_tf(pk: np.ndarray, qk: np.ndarray = None, base: Union[int, np.int_] 
     Returns:
         The entropy of the values in `pk` optionally with respect to `qk` (relative entropy) where `where` is `True`.
     """
+    if base is None:
+        base = np.e
+
     # Vectorize where fn
     where_fn = np.vectorize(pyfunc=where)
     # Get the valid values
@@ -29,7 +32,7 @@ def entropy_tf(pk: np.ndarray, qk: np.ndarray = None, base: Union[int, np.int_] 
     # Compute entropy
     if qk is None:
         # Shannon entropy
-        return -np.sum(pk * np.log(pk) / np.log(base))
+        return -np.sum(pk * (np.log(pk) / np.log(base)))
     else:
         # KL divergence
-        return -np.sum(pk * np.log(pk / qk) / np.log(base))
+        return np.sum(pk * (np.log(pk / qk) / np.log(base)))
