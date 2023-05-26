@@ -13,7 +13,6 @@ def entropy_tf(pk: np.ndarray, qk: np.ndarray = None, base: Union[int, np.int_] 
                         If `qk` is `None`, Shannon entropy is computed using `H = -sum(pk * log(pk))`.\n
                         If `qk` is not `None`, relative entropy is computed using `H = -sum(pk * log(pk / qk))`. This is also called the Kullback-Leibler (KL) divergence.
 
-
         `base`: The base of the logarithm used to compute the entropy. Default is `None` which means that the natural logarithm is used.
 
         `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
