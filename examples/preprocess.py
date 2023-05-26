@@ -18,9 +18,9 @@ def main():
     transformed_dist = preprocessor(dist)
 
     # Print features
-    # print(preprocessor)
-    # print(dist)
-    print(transformed_dist.shape)
+    print(preprocessor)
+    print(dist)
+    print(transformed_dist)
 
 
 if __name__ == '__main__':
