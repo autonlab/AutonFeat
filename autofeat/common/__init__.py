@@ -10,6 +10,11 @@ from .var_transform import VarTransform
 from .n_valid_transform import NValidTransform
 from .data_density_transform import DataDensityTransform
 from .data_sparsity_transform import DataSparsityTransform
+from .skewness_transform import SkewnessTransform
+from .kurtosis_transform import KurtosisTransform
+from .entropy_transform import EntropyTransform
+from .cross_entropy_transform import CrossEntropyTransform
+from .sample_entropy_transform import SampleEntropyTransform
 
 # For linter
 __all__ = [
@@ -25,4 +30,9 @@ __all__ = [
     'NValidTransform',
     'DataDensityTransform',
     'DataSparsityTransform',
+    'SkewnessTransform',
+    'KurtosisTransform',
+    'EntropyTransform',
+    'CrossEntropyTransform',
+    'SampleEntropyTransform',
 ]

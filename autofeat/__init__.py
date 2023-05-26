@@ -8,6 +8,8 @@ from .common import (
     QuantileTransform, RangeTransform, IQRTransform,
     MedianTransform, StdTransform, VarTransform,
     NValidTransform, DataDensityTransform, DataSparsityTransform,
+    SkewnessTransform, KurtosisTransform, EntropyTransform,
+    CrossEntropyTransform, SampleEntropyTransform,
 )
 
 import autofeat.preprocess as preprocess
@@ -31,6 +33,11 @@ __all__ = [
     'NValidTransform',
     'DataDensityTransform',
     'DataSparsityTransform',
+    'SkewnessTransform',
+    'KurtosisTransform',
+    'EntropyTransform',
+    'CrossEntropyTransform',
+    'SampleEntropyTransform',
 
     'preprocess',
     'utils',
