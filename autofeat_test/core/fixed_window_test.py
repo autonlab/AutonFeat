@@ -3,7 +3,7 @@ from autofeat.common import MeanTransform
 import numpy as np
 
 
-def test_window():
+def test_fixed_window():
     overflow_methods = [
         'restrict',
         'pad',  # Note for padding we will consider the default value in testing i.e. signal is padded with zeros.
