@@ -1,4 +1,4 @@
-from .window import SlidingWindow
+from .fixed_window import SlidingWindow
 from .transform import Transform
 from .preprocess import Preprocess
 
