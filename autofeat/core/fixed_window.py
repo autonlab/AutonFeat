@@ -217,7 +217,7 @@ class SlidingWindow(object):
         if window_size < 1:
             raise ValueError("Window size must be greater than 0.")
 
-    def _check_overflow(self, overflow):
+    def _check_overflow(self, overflow) -> None:
         """
         Check if the overflow passed is a supported method of handling overflow.
 

@@ -45,13 +45,14 @@ __all__ = [
 
 # Property imports
 import os
+from typing import List
 
 
 class SetupProperties(object):
     """
     A class to store all the properties needed to setup the package.
     """
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Properties needed to setup the package.
         """
@@ -69,7 +70,7 @@ class SetupProperties(object):
             'numba',
         ]
 
-    def get_name(self):
+    def get_name(self) -> str:
         """
         Get the name of the package.
 
@@ -78,7 +79,7 @@ class SetupProperties(object):
         """
         return self.name
 
-    def get_version(self):
+    def get_version(self) -> str:
         '''
         Get the version of the package.
 
@@ -87,7 +88,7 @@ class SetupProperties(object):
         '''
         return self.version
 
-    def get_description(self):
+    def get_description(self) -> str:
         """
         Get the description of the package which is read from the README.md file.
 
@@ -96,7 +97,7 @@ class SetupProperties(object):
         """
         return self.description
 
-    def get_author(self):
+    def get_author(self) -> str:
         """
         Get the author of the package.
 
@@ -105,7 +106,7 @@ class SetupProperties(object):
         """
         return self.author
 
-    def get_author_email(self):
+    def get_author_email(self) -> str:
         """
         Get the author email of the package.
 
@@ -114,7 +115,7 @@ class SetupProperties(object):
         """
         return self.author_email
 
-    def get_url(self):
+    def get_url(self) -> str:
         """
         Get the url of the package.
 
@@ -123,7 +124,7 @@ class SetupProperties(object):
         """
         return self.url
 
-    def get_packages(self):
+    def get_packages(self) -> List[str]:
         """
         Get the packages used by the package.
 
