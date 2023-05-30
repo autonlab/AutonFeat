@@ -1,9 +1,9 @@
 import numpy as np
-from typing import Union, Callable
+from typing import Union, Callable, Optional
 from autofeat.functional.entropy import entropy_tf
 
 
-def cross_entropy_tf(pk: np.ndarray, qk: np.ndarray, base: Union[int, np.int_] = None, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
+def cross_entropy_tf(pk: np.ndarray, qk: np.ndarray, base: Optional[Union[int, np.int_]] = None, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
     """
     Compute the cross-entropy of the values in `pk` with respect to `qk` where `where` is `True`.
 

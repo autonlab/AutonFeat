@@ -15,7 +15,7 @@ class KurtosisTransform(Transform):
     def __init__(self, name: str = "Kurtosis") -> None:
         super().__init__(name=name)
 
-    def __call__(self, signal_window: np.ndarray, fisher: Union[bool, np.bool_], where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[np.float_, np.int_]:
+    def __call__(self, signal_window: np.ndarray, fisher: Union[bool, np.bool_] = True, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[np.float_, np.int_]:
         """
         Compute the krutosis of the values in `x` where `where` is `True`.\n
         The krutosis is a measure of the "tailedness" of a distribution. It is defined as the fourth standardized moment of a distribution, and is calculated as:

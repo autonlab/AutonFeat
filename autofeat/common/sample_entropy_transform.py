@@ -15,7 +15,7 @@ class SampleEntropyTransform(Transform):
     def __init__(self, name: str = "Sample Entropy") -> None:
         super().__init__(name=name)
 
-    def __call__(signal_window: np.ndarray, m: Union[int, np.int_], r: Union[int, np.int_], where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
+    def __call__(self, signal_window: np.ndarray, m: Union[int, np.int_], r: Union[int, np.int_], where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
         """
         Compute the sample entropy of the values in `x` where `where` is `True`.\n
         This is a measure of the complexity of a signal. It is a modification of the approximate entropy (ApEn) algorithm. It can be computed with the formula:\n

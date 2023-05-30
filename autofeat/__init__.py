@@ -12,6 +12,7 @@ from .common import (
     CrossEntropyTransform, SampleEntropyTransform,
 )
 
+import autofeat.functional as functional
 import autofeat.preprocess as preprocess
 import autofeat.utils as utils
 
@@ -39,6 +40,7 @@ __all__ = [
     'CrossEntropyTransform',
     'SampleEntropyTransform',
 
+    'functional',
     'preprocess',
     'utils',
 ]

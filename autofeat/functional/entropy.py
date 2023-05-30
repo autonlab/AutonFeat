@@ -1,8 +1,8 @@
 import numpy as np
-from typing import Union, Callable
+from typing import Union, Callable, Optional
 
 
-def entropy_tf(pk: np.ndarray, qk: np.ndarray = None, base: Union[int, np.int_] = None, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
+def entropy_tf(pk: np.ndarray, qk: Optional[np.ndarray] = None, base: Optional[Union[int, np.int_]] = None, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
     """
     Compute the entropy of the values in `pk` where `where` is `True`.
 
@@ -20,18 +20,24 @@ def entropy_tf(pk: np.ndarray, qk: np.ndarray = None, base: Union[int, np.int_] 
     Returns:
         The entropy of the values in `pk` optionally with respect to `qk` (relative entropy) where `where` is `True`.
     """
-    if base is None:
-        base = np.e
+    if base is not None and base <= 0:
+        raise ValueError("Base must be a positive integer or `None`.")
 
     # Vectorize where fn
     where_fn = np.vectorize(pyfunc=where)
+
     # Get the valid values
     pk = pk[where_fn(pk)]
     qk = qk[where_fn(qk)] if qk is not None else None
-    # Compute entropy
-    if qk is None:
-        # Shannon entropy
-        return -np.sum(pk * (np.log(pk) / np.log(base)))
-    else:
-        # KL divergence
-        return np.sum(pk * (np.log(pk / qk) / np.log(base)))
+
+    # Normalize distributions
+    pk = pk / np.sum(pk, axis=0)
+    qk = qk / np.sum(qk, axis=0) if qk is not None else None
+
+    # Compute Shannon entropy or KL divergence
+    S = -np.sum(pk * np.log(pk), axis=0) if qk is None else np.sum(pk * np.log(pk / qk), axis=0)
+
+    # Correct units e.g. bits, nats, etc. with base
+    if base is not None:
+        S /= np.log(base)
+    return S

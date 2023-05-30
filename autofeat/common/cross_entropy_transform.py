@@ -1,5 +1,5 @@
 import numpy as np
-from typing import Callable, Union
+from typing import Callable, Union, Optional
 
 from autofeat.core import Transform
 from autofeat.functional import cross_entropy_tf
@@ -15,7 +15,7 @@ class CrossEntropyTransform(Transform):
     def __init__(self, name: str = "Cross Entropy") -> None:
         super().__init__(name=name)
 
-    def __call__(pk: np.ndarray, qk: np.ndarray = None, base: Union[int, np.int_] = None, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
+    def __call__(self, pk: np.ndarray, qk: np.ndarray, base: Optional[Union[int, np.int_]] = None, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
         """
         Compute the cross-entropy of the values in `pk` with respect to `qk` where `where` is `True`.
 

@@ -1,5 +1,5 @@
 import numpy as np
-from typing import Callable, Union
+from typing import Callable, Union, Optional
 
 from autofeat.core import Transform
 from autofeat.functional import entropy_tf
@@ -15,7 +15,7 @@ class EntropyTransform(Transform):
     def __init__(self, name: str = "Shannon Entropy/KL Divergence") -> None:
         super().__init__(name=name)
 
-    def __call__(pk: np.ndarray, qk: np.ndarray = None, base: Union[int, np.int_] = None, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
+    def __call__(self, pk: np.ndarray, qk: Optional[np.ndarray] = None, base: Optional[Union[int, np.int_]] = None, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
         """
         Compute the entropy of the values in `pk` where `where` is `True`.
 
@@ -24,7 +24,7 @@ class EntropyTransform(Transform):
 
             `qk`: The second discrete probability distribution to find the relative entropy with. Default is `None`.
                             If `qk` is `None`, Shannon entropy is computed using `H = -sum(pk * log(pk))`.\n
-                            If `qk` is not `None`, relative entropy is computed using `H = -sum(pk * log(pk / qk))`. This is also called the Kullback-Leibler (KL) divergence.
+                            If `qk` is not `None`, relative entropy is computed using `H = sum(pk * log(pk / qk))`. This is also called the Kullback-Leibler (KL) divergence.
 
 
             `base`: The base of the logarithm used to compute the entropy. Default is `None` which means that the natural logarithm is used.
