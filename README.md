@@ -1,5 +1,4 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Georgia&weight=900&size=26&duration=4000&pause=1000&color=F71313&center=false&vCenter=true&width=435&lines=AutoFeat)](https://git.io/typing-svg)
-
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Georgia&size=26&duration=4000&pause=400&color=F70000&vCenter=true&multiline=true&width=750&height=100&lines=AutoFeat;A+High+Performance+Library+for+Time-Series+Featurization)](https://git.io/typing-svg)
 
 # AutoFeat
 
