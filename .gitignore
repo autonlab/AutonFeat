@@ -167,7 +167,7 @@ cython_debug/
 .envrc
 
 # VSCode files
-.vscode/
+.vscode
 
 # Bash scripts
 sanity.sh
@@ -179,7 +179,9 @@ doxify.sh
 .DS_Store
 
 # Documentation
-docs/
+docs
+site
+mkdocs.yml
 
 # User studies
 user_studies
