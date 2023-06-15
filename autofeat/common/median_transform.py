@@ -18,7 +18,7 @@ class MedianTransform(Transform):
         Compute the median of the values in `x`.
 
         Args:
-            x: The array to compute the median of.
+            signal_window: The array to compute the median of.
 
             method: The method to use when computing the quantile. Default is 'linear'. See `numpy.quantile` for more information.
 
