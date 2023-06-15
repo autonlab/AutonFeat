@@ -8,8 +8,6 @@ from autofeat.functional import max_tf
 class MaxTransform(Transform):
     """
     Compute the max of the values in `x`.
-
-    Inherits from Transform.
     """
     # Dunder methods
     def __init__(self, name: str = "Max") -> None:
@@ -20,11 +18,11 @@ class MaxTransform(Transform):
         Compute the max of the signal window provided.
 
         Args:
-            `signal_window`: The signal window to find the max of.
+            signal_window: The signal window to find the max of.
 
-            `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+            where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
-            `initial`: The initial value to use when computing the max. Default is `-np.inf`.
+            initial: The initial value to use when computing the max. Default is `-np.inf`.
 
         Returns:
             A scalar value representing the max of the signal.

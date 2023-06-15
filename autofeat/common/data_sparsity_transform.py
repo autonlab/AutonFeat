@@ -7,9 +7,7 @@ from autofeat.functional import data_sparsity_tf
 
 class DataSparsityTransform(Transform):
     """
-    Compute the number of valid measurements `x`.
-
-    Inherits from Transform.
+    Compute the number of invalid measurements `x`.
     """
     # Dunder methods
     def __init__(self, name: str = "Data Sparsity") -> None:
@@ -20,9 +18,9 @@ class DataSparsityTransform(Transform):
         Compute the data sparsity of the array `x`.
 
         Args:
-            `signal_window`: The signal window to find the data sparsity of.
+            signal_window: The signal window to find the data sparsity of.
 
-            `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+            where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
         Returns:
             A scalar value representing the data sparsity of `x`.

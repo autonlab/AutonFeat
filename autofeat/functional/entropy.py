@@ -11,7 +11,7 @@ def entropy_tf(pk: np.ndarray, qk: Optional[np.ndarray] = None, base: Optional[U
 
         `qk`: The second discrete probability distribution to find the relative entropy with. Default is `None`.
                         If `qk` is `None`, Shannon entropy is computed using `H = -sum(pk * log(pk))`.\n
-                        If `qk` is not `None`, relative entropy is computed using `H = -sum(pk * log(pk / qk))`. This is also called the Kullback-Leibler (KL) divergence.
+                        If `qk` is not `None`, relative entropy is computed using `H = sum(pk * log(pk / qk))`. This is also called the Kullback-Leibler (KL) divergence.
 
         `base`: The base of the logarithm used to compute the entropy. Default is `None` which means that the natural logarithm is used.
 

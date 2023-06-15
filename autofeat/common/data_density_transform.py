@@ -8,8 +8,6 @@ from autofeat.functional import data_density_tf
 class DataDensityTransform(Transform):
     """
     Compute the number of valid measurements `x`.
-
-    Inherits from Transform.
     """
     # Dunder methods
     def __init__(self, name: str = "Data Density") -> None:
@@ -20,9 +18,9 @@ class DataDensityTransform(Transform):
         Compute the data density of the array `x`.
 
         Args:
-            `signal_window`: The signal window to find the data density of.
+            signal_window: The signal window to find the data density of.
 
-            `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+            where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
         Returns:
             A scalar value representing the data density of `x`.

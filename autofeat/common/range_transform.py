@@ -8,8 +8,6 @@ from autofeat.functional import range_tf
 class RangeTransform(Transform):
     """
     Compute the range of the values.
-
-    Inherits from Transform.
     """
     # Dunder methods
     def __init__(self, name: str = "Range") -> None:
@@ -20,9 +18,9 @@ class RangeTransform(Transform):
         Compute the range of the values in `x`.
 
         Args:
-            `x`: The array to compute the range of.
+            signal_window: The array to compute the range of.
 
-            `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+            where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
         Returns:
             A scalar value representing the range of the signal.

@@ -8,8 +8,6 @@ from autofeat.functional import min_tf
 class MinTransform(Transform):
     """
     Compute the min of the values in `x`.
-
-    Inherits from Transform.
     """
     # Dunder methods
     def __init__(self, name: str = "Min") -> None:
@@ -20,11 +18,11 @@ class MinTransform(Transform):
         Compute the min of the signal window provided.
 
         Args:
-            `signal_window`: The signal window to find the min of.
+            signal_window: The signal window to find the min of.
 
-            `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+            where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
-            `initial`: The initial value to use when computing the min. Default is `np.inf`.
+            initial: The initial value to use when computing the min. Default is `np.inf`.
 
         Returns:
             A scalar value representing the min of the signal.

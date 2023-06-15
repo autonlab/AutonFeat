@@ -6,16 +6,6 @@ def skewness_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.fl
     """
     Compute the skewness of the values in `x` where `where` is `True`.
     The skewness is computed using the Fisher-Pearson standardized coefficient of skewness.\n
-    The sample skewness is computed as:
-    ```
-    g_1 = m_3 / m_2^(3/2)
-    ```
-    where `m_2` is the second central moment and `m_3` is the third central moment.\n
-    The Fisher-Pearson standardized coefficient of skewness is computed as:
-    ```
-    G_1 = g_1 * sqrt(n(n-1)) / (n-2)
-    ```
-
     Note:
         The skewness is only computed for valid values i.e. values where `where` is `True`. The skewness computed is corrected for statistical bias.
 

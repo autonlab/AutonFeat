@@ -8,8 +8,6 @@ from autofeat.functional import n_valid_tf
 class NValidTransform(Transform):
     """
     Compute the number of valid measurements `x`.
-
-    Inherits from Transform.
     """
     # Dunder methods
     def __init__(self, name: str = "N-Valid") -> None:
@@ -20,9 +18,9 @@ class NValidTransform(Transform):
         Compute the number of valid measurements in `x` where `where` is `True` for valid measurements.
 
         Args:
-            `signal_window`: The signal window to find number of valid measurements in.
+            signal_window: The signal window to find number of valid measurements in.
 
-            `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+            where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
         Returns:
             A scalar value representing the number of valid measurements in `x`.

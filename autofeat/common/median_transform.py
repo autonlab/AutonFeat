@@ -8,8 +8,6 @@ from autofeat.functional import median_tf
 class MedianTransform(Transform):
     """
     Compute the median of the values.
-
-    Inherits from Transform.
     """
     # Dunder methods
     def __init__(self, name: str = "Median") -> None:
@@ -20,11 +18,11 @@ class MedianTransform(Transform):
         Compute the median of the values in `x`.
 
         Args:
-            `x`: The array to compute the median of.
+            x: The array to compute the median of.
 
-            `method`: The method to use when computing the quantile. Default is 'linear'. See `numpy.quantile` for more information.
+            method: The method to use when computing the quantile. Default is 'linear'. See `numpy.quantile` for more information.
 
-            `where`: `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+            where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
         Returns:
             A scalar value representing the median of the signal.

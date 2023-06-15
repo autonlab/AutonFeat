@@ -8,8 +8,6 @@ from autofeat.functional import mean_tf
 class MeanTransform(Transform):
     """
     Compute the mean of the values in `x`.
-
-    Inherits from Transform.
     """
     # Dunder methods
     def __init__(self, name: str = "Mean") -> None:
@@ -20,9 +18,9 @@ class MeanTransform(Transform):
         Compute the mean of the signal window provided.
 
         Args:
-            `signal_window`: The signal window to find the mean of.
+            signal_window: The signal window to find the mean of.
 
-            `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+            where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
         Returns:
             A scalar value representing the mean of the signal.

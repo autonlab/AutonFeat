@@ -8,8 +8,6 @@ from autofeat.functional import quantile_tf
 class QuantileTransform(Transform):
     """
     Compute the q-th quantile of the values.
-
-    Inherits from Transform.
     """
     # Dunder methods
     def __init__(self, name: str = "Quantile") -> None:
@@ -20,13 +18,13 @@ class QuantileTransform(Transform):
         Compute the q-th quantile of the values in `x`.
 
         Args:
-            `x`: The array to compute the q-th quantile of.
+            signal_window: The array to compute the q-th quantile of.
 
-            `q`: The quantile to compute. `q` belongs to [0, 1].
+            q: The quantile to compute. `q` belongs to [0, 1].
 
-            `method`: The method to use when computing the quantile. Default is 'linear'. See `numpy.quantile` for more information.
+            method: The method to use when computing the quantile. Default is 'linear'. See `numpy.quantile` for more information.
 
-            `where`: `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+            where: `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
         Returns:
             A scalar value representing the q-th quantile of the signal.
