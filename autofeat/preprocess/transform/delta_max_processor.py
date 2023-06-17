@@ -6,9 +6,7 @@ from autofeat.preprocess.functional import delta_max_tf
 
 class DeltaMaxPreprocessor(Preprocess):
     """
-    Preprocess the signal by computing a delta (using `max`) with elements of a `signal`.
-
-    Inherits from Preprocess.
+    Preprocess the signal by shifting the signal down by the maximum value.
     """
     # Dunder methods
     def __init__(self, name: str = "Delta Max") -> None:
@@ -19,13 +17,13 @@ class DeltaMaxPreprocessor(Preprocess):
         Compute the difference between the values in `signal` and `max` where `where` is `True`.
 
         Args:
-            `signal`: The array to compute the delta with.
+            signal: The array to compute the delta with.
 
-            `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+            where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
-            `initial`: The initial value for the maximum. Default is `-np.inf`.
+            initial: The initial value for the maximum. Default is `-np.inf`.
 
         Returns:
-            The difference between the of the values in `signal` and `max` where `where` is `True`.
+            The shifted signal.
         """
         return delta_max_tf(x=signal, where=where, initial=initial)

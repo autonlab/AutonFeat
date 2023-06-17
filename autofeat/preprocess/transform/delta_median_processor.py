@@ -6,9 +6,7 @@ from autofeat.preprocess.functional import delta_median_tf
 
 class DeltaMedianPreprocessor(Preprocess):
     """
-    Preprocess the signal by computing a delta (using `median`) with elements of a `signal`.
-
-    Inherits from Preprocess.
+    Preprocess the signal by shifting the signal up by the median value.
     """
     # Dunder methods
     def __init__(self, name: str = "Delta Median") -> None:
@@ -19,13 +17,13 @@ class DeltaMedianPreprocessor(Preprocess):
         Compute the difference between the values in `signal` and `median` where `where` is `True`.
 
         Args:
-            `signal`: The array to compute the delta with.
+            signal: The array to compute the delta with.
 
-            `method`: The method to use when computing the quantile. Default is 'linear'. See `numpy.quantile` for more information.
+            method: The method to use when computing the quantile. Default is 'linear'. See `numpy.quantile` for more information.
 
-            `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+            where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
         Returns:
-            The difference between the of the values in `signal` and `median` where `where` is `True`.
+            The shifted signal.
         """
         return delta_median_tf(x=signal, method=method, where=where)
