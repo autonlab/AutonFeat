@@ -173,7 +173,7 @@ cython_debug/
 sanity.sh
 
 # Documentation build
-doxify.sh
+doxify_*
 
 # Mac OS files
 .DS_Store
