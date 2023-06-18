@@ -8,42 +8,61 @@ import autofeat as aft
 
 
 def main():
-    # Parameters for the normal distribution
-    mu = 50      # Mean
-    sigma = 1   # Standard deviation
-    n_samples = 10000
+    # Define signal
+    time = np.linspace(0, 10, 1000) # secs
+    freq = 500                      # Hz
+    dc_offset = 5                   # V
+    ac_amp = 2                      # V
 
-    # Generate random samples from the normal distribution
-    samples = np.random.normal(mu, sigma, n_samples)
+    signal = dc_offset + ac_amp * np.sin(2 * np.pi * freq * time)
 
-    # Create Preprocessor
+    # Define half-wave rectifier
+    half_wave_rectifier = lambda x_i: np.maximum(x_i, 0)
+
+    # Define delta transform preprocessor
     preprocessor = aft.preprocess.DeltaPreprocessor()
 
+
+    delta = dc_offset # Amount to shift by
+
     # Preprocess signal
-    transformed_samples = preprocessor(samples, delta=mu)
+    signal_transformed = preprocessor(signal, delta=delta)
 
-    # Compute the range and pdf for plotting
-    x = np.linspace(mu - 4 * sigma, mu + 4 * sigma, n_samples)
-    pdf = 1 / (sigma * np.sqrt(2 * np.pi)) * np.exp(-(x - mu)**2 / (2 * sigma**2))
-    x_shifted = x - mu
-    transformed_pdf = 1 / (sigma * np.sqrt(2 * np.pi)) * np.exp(-(x_shifted)**2 / (2 * sigma**2))
+    # Apply half-wave rectifier
+    system_output = half_wave_rectifier(signal_transformed)
 
-    # Plot one below the other
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
+    # Plot results
+    fig, (ax1, ax2) = plt.subplots(2, 2, figsize=(10, 6))
 
-    ax1.hist(samples, bins=50, density=True, alpha=0.7, color='grey')
-    ax1.plot(x, pdf, color='blue', linewidth=2)
-    ax1.axvline(x=mu, color='red', linestyle='--', linewidth=2)
-    ax1.set_xlabel('x')
-    ax1.set_ylabel('Probability Density')
-    ax1.set_title('Normal Distribution Centered at {:.2f}'.format(mu))
+    # Plot signal and output of half-wave rectifier (before delta transform)
+    ax1[0].plot(time, signal, label='Signal')
+    ax1[0].set_xlabel('Time (s)')
+    ax1[0].set_ylabel('Voltage (V)')
+    ax1[0].set_title('Original Signal')
+    ax1[0].grid(True)
+    ax1[0].legend()
 
-    ax2.hist(transformed_samples, bins=50, density=True, alpha=0.7, color='grey')
-    ax2.plot(x_shifted, transformed_pdf, color='blue', linewidth=2)
-    ax2.axvline(x=0, color='red', linestyle='--', linewidth=2)
-    ax2.set_xlabel('x')
-    ax2.set_ylabel('Probability Density')
-    ax2.set_title('Normal Distribution Centered at {:.2f}'.format(0))
+    ax1[1].plot(time, half_wave_rectifier(signal), color='orange', label='Output')
+    ax1[1].set_xlabel('Time (s)')
+    ax1[1].set_ylabel('Voltage (V)')
+    ax1[1].set_title('Output of Half-Wave Rectifier (Before Delta Transform)')
+    ax1[1].grid(True)
+    ax1[1].legend()
+
+    # Plot signal and output of half-wave rectifier (after delta transform)
+    ax2[0].plot(time, signal_transformed, label='Signal')
+    ax2[0].set_xlabel('Time (s)')
+    ax2[0].set_ylabel('Voltage (V)')
+    ax2[0].set_title('Signal After Delta Transform')
+    ax2[0].grid(True)
+    ax2[0].legend()
+
+    ax2[1].plot(time, system_output, color='orange', label='Output')
+    ax2[1].set_xlabel('Time (s)')
+    ax2[1].set_ylabel('Voltage (V)')
+    ax2[1].set_title('Output of Half-Wave Rectifier (After Delta Transform)')
+    ax2[1].grid(True)
+    ax2[1].legend()
 
     plt.tight_layout()
 
