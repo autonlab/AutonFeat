@@ -160,8 +160,8 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Pyenv files
-.python-version
+# Mac OS files
+.DS_Store
 
 # Environment Config
 .envrc
@@ -169,19 +169,18 @@ cython_debug/
 # VSCode files
 .vscode
 
-# Bash scripts
+# Pyenv files
+.python-version
+
+# CI/CD scripts
 sanity.sh
-
-# Documentation build
-doxify_*
-
-# Mac OS files
-.DS_Store
 
 # Documentation
 docs
 site
-mkdocs.yml
+doxify*
+test_docs.sh
+# mkdocs.yml
 
 # User studies
 user_studies
