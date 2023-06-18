@@ -111,12 +111,16 @@ theme:
     - navigation.indexes
     # - navigation.tabs
     - navigation.tracking
+
     - search.highlight
     - search.share
     - search.suggest
-    - social
+
     - content.code.copy
     - content.code.annotate
+
+    - social
+
     - toc.follow
   
   # font:
