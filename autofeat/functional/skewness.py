@@ -5,14 +5,14 @@ from typing import Union, Callable
 def skewness_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
     """
     Compute the skewness of the values in `x` where `where` is `True`.
-    The skewness is computed using the Fisher-Pearson standardized coefficient of skewness.\n
-    Note:
-        The skewness is only computed for valid values i.e. values where `where` is `True`. The skewness computed is corrected for statistical bias.
+    The skewness is computed using the Fisher-Pearson standardized coefficient of skewness.
+    The skewness is only computed for valid values i.e. values where `where` is `True`.
+    The skewness computed is corrected for statistical bias.
 
     Args:
-        `x`: The array to compute the skewness of.
+        x: The array to compute the skewness of.
 
-        `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+        where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
     Returns:
         The skewness of the values in `x` where `where` is `True`.

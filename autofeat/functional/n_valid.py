@@ -7,9 +7,9 @@ def n_valid_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.flo
     Compute the number of valid measurements in `x` where `where` is `True` for valid measurements.
 
     Args:
-        `x`: The array to compute the number of valid measurements in.
+        x: The array to compute the number of valid measurements in.
 
-        `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+        where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
     Returns:
         The number of valid measurements in `x`.

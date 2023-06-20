@@ -8,11 +8,11 @@ def median_tf(x: np.ndarray, method: str = 'linear', where: Callable[[Union[int,
     Compute the median of the values in `x`.
 
     Args:
-        `x`: The array to compute the median of.
+        x: The array to compute the median of.
 
-        `method`: The method to use when computing the quantile. Default is 'linear'. See `numpy.quantile` for more information.
+        method: The method to use when computing the quantile. Default is 'linear'. See `numpy.quantile` for more information.
 
-        `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+        where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
     Returns:
         The median of the values in `x`.

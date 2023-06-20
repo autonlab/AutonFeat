@@ -7,11 +7,11 @@ def min_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]
     Compute the min of the values in `x` where `where` is True.
 
     Args:
-        `x`: The array to compute the min of.
+        x: The array to compute the min of.
 
-        `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+        where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
-        `initial`: The initial value to use when computing the min. Default is `np.inf`.
+        initial: The initial value to use when computing the min. Default is `np.inf`.
 
     Returns:
         The min of the values in `x` where `where` is True.

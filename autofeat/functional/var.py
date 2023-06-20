@@ -7,11 +7,11 @@ def var_tf(x: np.ndarray, ddof: Union[int, np.int_] = 0, where: Callable[[Union[
     Compute the variance of the values in `x`.
 
     Args:
-        `x`: The array to compute the variance of.
+        x: The array to compute the variance of.
 
-        `ddof`: The delta degrees of freedom. Default is `0`. See `numpy.var` for more information.
+        ddof: The delta degrees of freedom. Default is `0`. See `numpy.var` for more information.
 
-        `where`: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
+        where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
     Returns:
         The variance of the values in `x`.
