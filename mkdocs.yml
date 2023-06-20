@@ -60,7 +60,17 @@ nav:
       - 'mean' : 'api/functional/mean.md'
 
     - 'Preprocess': 
-      - 'Functional' : 'api/preprocess/functional/functional.md'
+      - 'Functional' :
+        - 'delta' : 'api/preprocess/functional/delta_preprocessor_fn.md'
+        - 'delta mean' : 'api/preprocess/functional/delta_mean_preprocessor_fn.md'
+        - 'delta max' : 'api/preprocess/functional/delta_max_preprocessor_fn.md'
+        - 'delta min' : 'api/preprocess/functional/delta_min_preprocessor_fn.md'
+        - 'delta median' : 'api/preprocess/functional/delta_median_preprocessor_fn.md'
+        - 'delta std' : 'api/preprocess/functional/delta_std_preprocessor_fn.md'
+        - 'delta var' : 'api/preprocess/functional/delta_var_preprocessor_fn.md'
+        - 'delta quantile' : 'api/preprocess/functional/delta_quantile_preprocessor_fn.md'
+
+        - '1D DFT' : 'api/preprocess/functional/dft_preprocessor_fn.md'
 
       - 'Transform' : 
         - 'Delta Transform' : 'api/preprocess/transform/delta_preprocessor.md'
