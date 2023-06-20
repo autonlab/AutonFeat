@@ -20,7 +20,7 @@ def dft_tf(x: np.ndarray, n: Union[int, np.int_] = None, norm: str = 'backward',
         where: A function that takes a value and returns `True` or `False`. Default is `lambda x: not np.isnan(x)` i.e. a measurement is valid if it is not a `NaN` value.
 
     Returns:
-        The 1D DFT of `x`.
+        The 1D DFT of `x`.  It should be noted that the result contains complex numbers. The absolute value of the result can be considered for further processing.
     """
     # Vectorize the where function
     where_fn = np.vectorize(where)
