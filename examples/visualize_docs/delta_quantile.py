@@ -8,7 +8,30 @@ import autofeat as aft
 
 
 def main():
+    # Generate data
+    n_samples = 1000
+    x = np.random.normal(-5, 5, n_samples)
 
+    # Create a preprocessor
+    preprocessor = aft.preprocess.DeltaQuantilePreprocessor()
+
+    # Preprocess data
+    x_shifted = preprocessor(x, q=0.25)
+
+    # Plot normal and shifted data
+    original_quantile = aft.functional.quantile_tf(x, 0.25)
+    shifted_quantile = aft.functional.quantile_tf(x_shifted, 0.25)
+
+    plt.figure(figsize=(8, 6))
+
+    plt.plot(x, '.', color='blue', label='Origianl Data')
+    plt.axhline(original_quantile, color='red', linestyle='--', linewidth=3, label=f'Original Data 25th quantile = {original_quantile:.2f}')
+
+    plt.plot(x_shifted, '.', color='orange', label='Shifted Data')
+    plt.axhline(shifted_quantile, color='green', linestyle='--', linewidth=3, label=f'Shifted Data 25th quantile = {shifted_quantile:.2f}')
+
+    plt.legend()
+    plt.title('Delta Quantile Preprocessing Transform')
 
     plt.tight_layout()
 
