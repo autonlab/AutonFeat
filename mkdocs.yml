@@ -58,6 +58,24 @@ nav:
 
     - 'Functional' :
       - 'mean' : 'api/functional/mean.md'
+      - 'max' : 'api/functional/max.md'
+      - 'min' : 'api/functional/min.md'
+      - 'median' : 'api/functional/median.md'
+      - 'std' : 'api/functional/std.md'
+      - 'var' : 'api/functional/var.md'
+      - 'quantile' : 'api/functional/quantile.md'
+      - 'range' : 'api/functional/range.md'
+      - 'n-valid' : 'api/functional/n_valid.md'
+      - 'iqr' : 'api/functional/iqr.md'
+      - 'skewness' : 'api/functional/skewness.md'
+      - 'kurtosis' : 'api/functional/kurtosis.md'
+
+      - 'data sparsity' : 'api/functional/data_sparsity.md'
+      - 'data density' : 'api/functional/data_density.md'
+
+      - 'entropy' : 'api/functional/entropy.md'
+      - 'cross entropy' : 'api/functional/cross_entropy.md'
+      - 'sample entropy' : 'api/functional/sample_entropy.md'
 
     - 'Preprocess': 
       - 'Functional' :
