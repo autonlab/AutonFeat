@@ -18,22 +18,25 @@ use_directory_urls: true
 nav: 
   - 'About': index.md
 
-  - 'Getting Started':
-    - 'Installation': 'getting_started/installation.md'
-    - 'Introduction': 'getting_started/introduction.md'
+  - 'Getting Started' :
+    - 'Installation' : 'getting_started/installation.md'
+    - 'Introduction' : 'getting_started/introduction.md'
 
-  - 'Tutorials':
+  - 'Tutorials' :
     - 'Tutorial Guide' : 'tutorials/tutorials.md'
-    - 'Multi-Feature Extraction': 'tutorials/multi_feature_extraction.md'
+    - 'Multi-Feature Extraction' : 'tutorials/multi_feature_extraction.md'
   
-  - 'Features':
-    - 'Feature Extractors': 'api/features.md'
-    - 'Preprocessors': 'api/preprocess/preprocess.md'
+  - 'Features' :
+    - 'Feature Extractors' : 'api/features.md'
+    - 'Preprocessors' : 'api/preprocess/preprocess.md'
 
-  - 'API Reference':
-    - 'Reference Guide': 'api/api.md'
+  - 'API Reference' :
+    - 'Reference Guide' : 'api/api.md'
 
-    - 'Core': 'api/core/core.md'
+    - 'Core' : 
+      - 'Sliding Window' : 'api/core/fixed_window.md'
+      - 'Transform' : 'api/core/transform.md'
+      - 'Preprocess' : 'api/core/preprocess.md'
 
     - 'Common' :
       - 'Mean Transform' : 'api/common/mean_transform.md'
@@ -77,7 +80,7 @@ nav:
       - 'cross entropy' : 'api/functional/cross_entropy.md'
       - 'sample entropy' : 'api/functional/sample_entropy.md'
 
-    - 'Preprocess': 
+    - 'Preprocess' : 
       - 'Functional' :
         - 'delta' : 'api/preprocess/functional/delta_preprocessor_fn.md'
         - 'delta mean' : 'api/preprocess/functional/delta_mean_preprocessor_fn.md'
@@ -104,7 +107,9 @@ nav:
 
     - 'Health' : 'api/health/health.md'
 
-  - 'Community':
+    - 'Utils' : 'api/utils/utils.md'
+
+  - 'Community' :
     - 'Contributing': 'community/contributing.md'
 
 theme:
@@ -137,7 +142,7 @@ theme:
     - navigation.top
     - navigation.footer
     - navigation.indexes
-    # - navigation.tabs
+    - navigation.tabs
     - navigation.tracking
 
     - search.highlight
