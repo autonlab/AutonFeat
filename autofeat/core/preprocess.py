@@ -37,17 +37,17 @@ class Preprocess(object):
         Apply the preprocessor to the signal provided.
 
         Args:
-            `signal`: The signal window to apply the preprocessor to.
+            signal: The signal window to apply the preprocessor to.
 
-            `*args`: Additional arguments to pass to the preprocessor.
+            *args: Additional arguments to pass to the preprocessor.
 
-            `**kwargs`: Additional keyword arguments to pass to the preprocessor.
+            **kwargs: Additional keyword arguments to pass to the preprocessor.
 
         Returns:
             The preprocessed signal.
 
         Raises:
-            `NotImplementedError`: If the preprocessor is not implemented.
+            NotImplementedError: If the preprocessor is not implemented.
         """
         raise NotImplementedError("This method is not implemented.")
 
@@ -66,6 +66,6 @@ class Preprocess(object):
         Set the name of the preprocessor.
 
         Args:
-            `name`: The new name of the preprocessor.
+            name: The new name of the preprocessor.
         """
         self._name = name

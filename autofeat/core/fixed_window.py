@@ -12,17 +12,17 @@ class SlidingWindow(object):
         Initialize a new 1D sliding window.
 
         Args:
-            `window_size`: The size of the window.
+            window_size: The size of the window.
 
-            `step_size`: The step size of the window.
+            step_size: The step size of the window.
 
-            `overflow`: The method to take when there is an overflow of the window compared to the signal. Default is `pad`.
-                          \tValid methods:
-                          \t\t`restrict` - Reduces the window to the end of the signal (results in performance degradation due to broken cache lines).\n
-                          \t\t`pad` - Pad signal with value passed to argument `padding`.\n
-                          \t\t`stop` - Skips computation of feature over final window that contains overflow.
+            overflow: The method to take when there is an overflow of the window compared to the signal. Default is `pad`.
+                Valid methods:\n
+                `restrict` - Reduces the window to the end of the signal (results in performance degradation due to broken cache lines).\n
+                `pad` - Pad signal with value passed to argument `padding`.\n
+                `stop` - Skips computation of feature over final window that contains overflow.
 
-            `padding`: The value to pad the signal with in the case of an overflow. Default is `0`.
+            padding: The value to pad the signal with in the case of an overflow. Default is `0`.
         """
 
         self._overflow_methods = [
@@ -110,10 +110,10 @@ class SlidingWindow(object):
         Set the window size.
 
         Args:
-            `window_size`: The window size.
+            window_size: The window size.
 
         Raises:
-            `TypeError`: If the window size is not an integer.
+            TypeError: If the window size is not an integer.
         """
 
         # Checks
@@ -126,10 +126,10 @@ class SlidingWindow(object):
         Set the step size.
 
         Args:
-            `step_size`: The step size.
+            step_size: The step size.
 
         Raises:
-            `TypeError`: If the step size is not an integer.
+            TypeError: If the step size is not an integer.
         """
         # Checks
         self._check_step_size(step_size)
@@ -141,10 +141,10 @@ class SlidingWindow(object):
         Set the overflow method.
 
         Args:
-            `overflow`: The overflow method to set.
+            overflow: The overflow method to set.
 
         Raises:
-            `ValueError`: If the overflow method is not supported.
+            ValueError: If the overflow method is not supported.
         """
         # Checks
         self._check_overflow(overflow)
@@ -156,7 +156,7 @@ class SlidingWindow(object):
         Set the padding value.
 
         Args:
-            `padding`: The padding value to set.
+            padding: The padding value to set.
         """
         self._padding = padding
 
@@ -166,14 +166,14 @@ class SlidingWindow(object):
         Check if the signal is valid.
 
         Args:
-            `signal`: The signal to check.
+            signal: The signal to check.
 
         Raises:
-            `TypeError`: If the signal is not a numpy array.
+            TypeError: If the signal is not a numpy array.
 
-            `Exception`: If the signal is not 1D.
+            Exception: If the signal is not 1D.
 
-            `ValueError`: If the window size is greater than the signal length.
+            ValueError: If the window size is greater than the signal length.
         """
         if not isinstance(signal, np.ndarray):
             raise TypeError("Signal must be a numpy array.")
@@ -189,10 +189,10 @@ class SlidingWindow(object):
         Check if the step size is valid.
 
         Args:
-            `step_size`: The step size to check.
+            step_size: The step size to check.
 
         Raises:
-            `TypeError`: If the step size is not an integer.
+            TypeError: If the step size is not an integer.
         """
 
         if not isinstance(step_size, (int, np.int_)):
@@ -203,12 +203,12 @@ class SlidingWindow(object):
         Check if the window size is valid.
 
         Args:
-            `window_size`: The window size to check.
+            window_size: The window size to check.
 
         Raises:
-            `TypeError`: If the window size is not an integer.
+            TypeError: If the window size is not an integer.
 
-            `ValueError`: If the window size is less than 1.
+            ValueError: If the window size is less than 1.
         """
 
         if not isinstance(window_size, (int, np.int_)):
@@ -222,10 +222,10 @@ class SlidingWindow(object):
         Check if the overflow passed is a supported method of handling overflow.
 
         Args:
-            `overflow`: The overflow method name to check.
+            overflow: The overflow method name to check.
 
         Raises:
-            `ValueError`: If the method name passed is not a valid method. See documentation for more details on overflow handling methods supported.
+            ValueError: If the method name passed is not a valid method. See documentation for more details on overflow handling methods supported.
         """
         supported_methods = self.get_overflow_methods()
         if overflow not in supported_methods:
@@ -237,13 +237,13 @@ class SlidingWindow(object):
         Use a transform function to transform each window.
 
         Args:
-            `transform`: The transformation to apply to the signal.
+            transform: The transformation to apply to the signal.
 
         Returns:
             A function that applies the transformation to the signal using the sliding window.
 
         Raises:
-            `TypeError`: If the transform is not callable.
+            TypeError: If the transform is not callable.
         """
 
         # Checks
@@ -255,11 +255,11 @@ class SlidingWindow(object):
             Apply the transformation to the signal using the sliding window.
 
             Args:
-                `signal`: The signal to apply the transformation to.
+                signal: The signal to apply the transformation to.
 
-                `start_idx`: The starting index of the window. Default is `0`.
+                start_idx: The starting index of the window. Default is `0`.
 
-                `end_idx`: The ending index of the window. Default is `None`.
+                end_idx: The ending index of the window. Default is `None`.
 
             Returns:
                 The transformed signal.
