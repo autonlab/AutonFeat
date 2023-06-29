@@ -57,4 +57,4 @@ Learn more about contributing [here](community/contributing.md).
 For more details, check out the license [here](https://github.com/autonlab/AutoFeat/blob/main/LICENSE).
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
