@@ -59,18 +59,14 @@ class SetupProperties(object):
         Properties needed to setup the package.
         """
         self.name = "autofeat"
-        self.version = '0.0.1'
+        self.version = '0.1.0'
         self.description = os.read('README.md')
-        self.author = 'Dhruv Srikanth'
+        self.author = ['Dhruv Srikanth', 'Auton Lab']
         self.author_email = 'dsrikant@andrew.cmu.edu'
-        self.url = None
-        self.packages = [
-            'distutils',
-            'distutils.command',
-            'numpy',
-            'typing',
-            'numba',
-        ]
+        self.license = os.read('LICENSE')
+        self.url = 'https://autonlab.github.io/AutoFeat'
+        with open('requirements.txt') as f:
+            self.packages = [requirement.rstrip() for requirement in f]
 
     def get_name(self) -> str:
         """
@@ -99,7 +95,7 @@ class SetupProperties(object):
         """
         return self.description
 
-    def get_author(self) -> str:
+    def get_author(self) -> List[str]:
         """
         Get the author of the package.
 
@@ -134,3 +130,12 @@ class SetupProperties(object):
             The packages used by the package.
         """
         return self.packages
+
+    def get_license(self) -> str:
+        """
+        Get the license of the package which is read from the LICENSE file.
+
+        Returns:
+            The license of the package.
+        """
+        return self.license
