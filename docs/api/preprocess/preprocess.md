@@ -6,8 +6,8 @@ Data is sometimes not in the right form for a model. Hence, we featurize it. The
 
 | Submodule | Description |
 | --- | --- |
-| `autofeat.preprocess` | Contains preprocessing featurizers in the form of modules (classes). |
-| `autofeat.preprocess.functional` | Contains preprocessing featurizers in the form of functions. |
+| **`autofeat.preprocess`** | Contains preprocessing featurizers in the form of modules (classes). |
+| **`autofeat.preprocess.functional`** | Contains preprocessing featurizers in the form of functions. |
 
 ## Delta Distribution Shift
 
@@ -31,11 +31,11 @@ Data is sometimes not in the right form for a model. Hence, we featurize it. The
 
 ## Functional Form
 
-A functional form for each of the transforms above is also provided for convenience. Check out the `autofeat.preprocess.functional` sub-module for more details.
+A functional form for each of the transforms above is also provided for convenience. Check out the **`autofeat.preprocess.functional`** sub-module for more details.
 
 ## Custom Preprocessors
 
-`AutoFeat` makes it easy to design custom preprocessors by inheriting from the `Preprocess` class that is a part of the library's core engine. In this example, we show how to implement a `DeltaPreprocessor` that shifts a signal by some $\delta$ value.
+[`AutoFeat`](../../index.md) makes it easy to design custom preprocessors by inheriting from the [`Preprocess`](../core/preprocess.md) class that is a part of the library's core engine. In this example, we show how to implement a `DeltaPreprocessor` that shifts a signal by some $\delta$ value.
 
 ```python
 import numpy as np
@@ -43,15 +43,11 @@ from typing import Union, Callable
 from autofeat.core import Preprocess
 
 class DeltaPreprocessor(Preprocess):
-    """
-    Preprocess the signal by shifting the `signal` by some `delta` value.
-    """
     def __init__(self, name: str = "Delta") -> None:
         super().__init__(name=name)
 
     def __call__(self, signal: np.ndarray, delta: Union[int, float, np.int_, np.float_], where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> np.ndarray:
         where_fn = np.vectorize(where)
-        # Compute mask and multiply by distribution shift along axis
         mask = where_fn(x)
         shift = mask * delta
         return x - shift
@@ -79,7 +75,7 @@ print(processed_signal)
 ```
 
 
-See [this](../../tutorials/tutorials.md) for more examples on how to use preprocessors in `autofeat`.
+See [this](../../tutorials/tutorials.md) for more examples on how to use preprocessors in [`AutoFeat`](../../index.md).
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

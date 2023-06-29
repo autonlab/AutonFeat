@@ -1,6 +1,6 @@
 # Features
 
-Feature extractors are used, as the name suggests, to extract features from a signal. `AutoFeat` provides a wide range of feature extractors that can be used to extract features from a signal. The following sections describe the various feature extractors that are available in `AutoFeat`.
+Feature extractors are used, as the name suggests, to extract features from a signal. [`AutoFeat`](../index.md) provides a wide range of feature extractors that can be used to extract features from a signal. The following sections describe the various feature extractors that are available in [`AutoFeat`](../index.md).
 
 ## Domain Agnostic
 
@@ -41,7 +41,7 @@ Domain agnostic features are applicable to *most* signals irrespective of the do
 
 ## Domain Specific
 
-Domain expertise *almost always* helps in extracting better features. `AutoFeat` provides a wide range of domain specific features that can be used to extract features from a signal. The following sections describe the various domain specific feature extractors that are available in `AutoFeat`.
+Domain expertise *almost always* helps in extracting better features. [`AutoFeat`](../index.md) provides a wide range of domain specific features that can be used to extract features from a signal. The following sections describe the various domain specific feature extractors that are available in [`AutoFeat`](../index.md).
 
 ### Biomedical, and Physiological Signals
 
@@ -53,11 +53,11 @@ Domain expertise *almost always* helps in extracting better features. `AutoFeat`
 
 ## Functional Form
 
-A functional form for each of the transforms above is also provided for convenience. Check out the `autofeat.functional` sub-module for more details.
+A functional form for each of the transforms above is also provided for convenience. Check out the **`autofeat.functional`** sub-module for more details.
 
 ## Custom Featurizers
 
-It is possible to design custom features while extending the functionality of `autofeat`. The `Transform` class is an abstraction representing a featurizer. When defining a custom featurizer, one can utilize the efficiency of the [SlidingWindow](core/fixed_window.md) abstraction by inhering defining the featurizer to inherit from `Transform`. The following example demonstrates how to create a custom feature that computes the mean of the signal.
+It is possible to design custom features while extending the functionality of [`AutoFeat`](../index.md). The [`Transform`](core/transform.md) class is an abstraction representing a featurizer. When defining a custom featurizer, one can utilize the efficiency of the [`SlidingWindow`](core/fixed_window.md) abstraction by inhering defining the featurizer to inherit from [`Transform`](core/transform.md). The following example demonstrates how to create a custom feature that computes the mean of the signal.
 
 ```python
 import numpy as np
@@ -102,7 +102,7 @@ print(tf)
 print(features)
 ```
 
-See [this](../tutorials/tutorials.md) for more examples on how to use feature extractors in `autofeat`.
+See [this](../tutorials/tutorials.md) for more examples on how to use feature extractors in [`AutoFeat`](../index.md).
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
