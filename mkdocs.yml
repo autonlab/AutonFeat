@@ -203,13 +203,13 @@ extra:
   social:
   # Dhruv Srikanth
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/AutonLab
+      link: https://twitter.com/DhruvSrikanth
     - icon: fontawesome/brands/github
       link: https://github.com/DhruvSrikanth  
   # Auton Lab
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/DhruvSrikanth
-    - icon: fontawesome/brands/github
+      link: https://twitter.com/AutonLab
+    - icon: fontawesome/brands/github-alt
       link: https://github.com/autonlab
 
 extra_javascript:
