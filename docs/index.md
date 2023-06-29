@@ -8,9 +8,7 @@ A high performance library for time series featurization.
 
 ## Why? 🤔
 
-***(Coming soon)***
-
-## Design Objectives 🎯
+To prevent others from reinventing the wheel, we have compiled a featurization library for dealing with time-series data. We have also included a number of preprocessors to transform the data into a form more amenable to certain featurizations. Finally, our goal was to make this package without too many dependencies and overhead. Here are some of our design objectives:
 
 - **Simple**: The package must be easy to use and require as little user input as possible.
 - **Interpretable**: The software abstractions must be intuitive, easy to understand and easy to debug.
