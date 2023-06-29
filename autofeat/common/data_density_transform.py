@@ -7,7 +7,7 @@ from autofeat.functional import data_density_tf
 
 class DataDensityTransform(Transform):
     """
-    Compute the number of valid measurements `x`.
+    Compute the data density of a signal window `x`.
     """
     # Dunder methods
     def __init__(self, name: str = "Data Density") -> None:

@@ -7,7 +7,7 @@ from autofeat.functional import cross_entropy_tf
 
 class CrossEntropyTransform(Transform):
     """
-    Compute the skewness of the values in `x`.
+    Compute the cross entropy of the values in `pk` with respect to `qk`.
     """
     # Dunder methods
     def __init__(self, name: str = "Cross Entropy") -> None:
@@ -15,7 +15,7 @@ class CrossEntropyTransform(Transform):
 
     def __call__(self, pk: np.ndarray, qk: np.ndarray, base: Optional[Union[int, np.int_]] = None, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
         """
-        Compute the cross-entropy of the values in `pk` with respect to `qk` where `where` is `True`.
+        Compute the cross entropy of the values in `pk` with respect to `qk` where `where` is `True`.
 
         Args:
             pk: A discrete probability distribution.

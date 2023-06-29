@@ -7,7 +7,7 @@ from autofeat.functional import data_sparsity_tf
 
 class DataSparsityTransform(Transform):
     """
-    Compute the number of invalid measurements `x`.
+    Compute the data sparsity of a signal window `x`.
     """
     # Dunder methods
     def __init__(self, name: str = "Data Sparsity") -> None:
