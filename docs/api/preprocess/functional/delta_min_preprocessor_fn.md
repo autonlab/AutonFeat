@@ -6,7 +6,7 @@ $$
 x_{shifted_{i}} = x_{i} - \min({x}), \quad \forall i \in \{1, \dots, N\}
 $$
 
-For shifting signals by a custom $\delta$, see the [delta preprocessor](../functional/delta_preprocessor_fn.md) function. For more on how we compute the min of a signal, check out [min](../../functional/min.md) function.
+For shifting signals by a custom $\delta$, see the [`delta preprocessor`](../functional/delta_preprocessor_fn.md) function. For more on how we compute the min of a signal, check out [`min`](../../functional/min.md) function.
 
 ::: autofeat.preprocess.functional.delta_min_tf
 
@@ -50,4 +50,4 @@ This can be seen in the figure below.
 ![DeltaMin](../../../assets/delta_min_f_visualize.png)
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

@@ -10,8 +10,8 @@ where $N$ is the number of samples and $k$ is the frequency index.
 
 ## Limitations
 
-- The input signal must be real-valued.
-- The transform is sensitive to noise and outliers.
+> - The input signal must be real-valued.
+> - The transform is sensitive to noise and outliers.
 
 ::: autofeat.preprocess.functional.dft
 
@@ -66,4 +66,4 @@ plt.show()
 ![DFT](../../../assets/dft_f_visualize.png)
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

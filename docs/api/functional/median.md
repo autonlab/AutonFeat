@@ -1,6 +1,6 @@
 # Median Function
 
-The median function computes the median of a window. When combined with the [SlidingWindow](../core/fixed_window.md) abstraction, the median function can be used to compute the `median` feature of a time series. The median is defined as:
+The median function computes the median of a window. When combined with the [`SlidingWindow`](../core/fixed_window.md) abstraction, the median function can be used to compute the `median` feature of a time series. The median is defined as:
 (write the formula as two cases for even and odd length vectors and index with i for each case)
 
 $$
@@ -41,4 +41,4 @@ print(features)
 ```
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

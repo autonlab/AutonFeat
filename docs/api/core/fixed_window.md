@@ -73,4 +73,4 @@ We can view the following operation below:
 ![FixedSlidingWindow](../../assets/fixed_sliding_window_animation.gif)
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

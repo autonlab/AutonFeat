@@ -6,7 +6,7 @@ $$
 x_{shifted_{i}} = x_{i} - \mu_{x}, \quad \forall i \in \{1, \dots, N\}
 $$
 
-For shifting signals by a custom $\delta$, see the [delta preprocessor](../functional/delta_preprocessor_fn.md) function. For more on how we compute the mean of a signal, check out [mean](../../functional/mean.md) function.
+For shifting signals by a custom $\delta$, see the [`delta preprocessor`](../functional/delta_preprocessor_fn.md) function. For more on how we compute the mean of a signal, check out [`mean`](../../functional/mean.md) function.
 
 ::: autofeat.preprocess.functional.delta_mean_tf
 
@@ -79,4 +79,4 @@ This can be seen in the figure below.
 ![DeltaMean](../../../assets/delta_mean_f_visualize.png)
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

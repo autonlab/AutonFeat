@@ -1,6 +1,6 @@
 # Standard Deviation Transform
 
-The standard deviation transform computes the standard deviation of a window. When combined with the [SlidingWindow](../core/fixed_window.md) abstraction, the standard deviation transform can be used to compute the `std` feature of a time series. The standard deviation is defined as:
+The standard deviation transform computes the standard deviation of a window. When combined with the [`SlidingWindow`](../core/fixed_window.md) abstraction, the standard deviation transform can be used to compute the `std` feature of a time series. The standard deviation is defined as:
 
 $$
 \sigma = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (x_i - \mu)^2}
@@ -42,4 +42,4 @@ print(features)
 ```
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

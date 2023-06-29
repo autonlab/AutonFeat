@@ -6,7 +6,7 @@ $$
 x_{shifted_{i}} = x_{i} - median({x}), \quad \forall i \in \{1, \dots, N\}
 $$
 
-For shifting signals by a custom $\delta$, see the [Delta Transform Preprocessor](delta_preprocessor.md). For more on how we compute the median of a signal, check out [median](../../functional/median.md) function.
+For shifting signals by a custom $\delta$, see the [`Delta Transform Preprocessor`](delta_preprocessor.md). For more on how we compute the median of a signal, check out [`median`](../../functional/median.md) function.
 
 ::: autofeat.preprocess.transform.DeltaMedianPreprocessor
 
@@ -84,4 +84,4 @@ As seen in the figure, the drums signal which had a higher mean than the other s
 ![DeltaMedian](../../../assets/delta_median_visualize.png)
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

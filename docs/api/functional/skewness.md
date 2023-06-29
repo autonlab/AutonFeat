@@ -1,6 +1,6 @@
 # Skewness Function
 
-The skew function computes the skewness of a window. When combined with the [SlidingWindow](../core/fixed_window.md) abstraction, the skew function can be used to compute the `skew` feature of a time series. The skewness is defined as:
+The skew function computes the skewness of a window. When combined with the [`SlidingWindow`](../core/fixed_window.md) abstraction, the skew function can be used to compute the `skew` feature of a time series. The skewness is defined as:
 
 $$
 \gamma = \frac{m_3}{m_2^{3/2}}
@@ -53,4 +53,4 @@ features = featurizer(x)
 print(features)
 ```
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

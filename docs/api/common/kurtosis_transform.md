@@ -1,6 +1,6 @@
 # Kurtosis Transform
 
-The kurtosis transform computes the kurtosis of a window. When combined with the [SlidingWindow](../core/fixed_window.md) abstraction, the kurtosis transform can be used to compute the `kurtosis` feature of a time series. The kurtosis is defined as:
+The kurtosis transform computes the kurtosis of a window. When combined with the [`SlidingWindow`](../core/fixed_window.md) abstraction, the kurtosis transform can be used to compute the `kurtosis` feature of a time series. The kurtosis is defined as:
 
 $$
 \kappa = \begin{cases}
@@ -86,4 +86,4 @@ print(tf)
 print(features)
 ```
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

@@ -1,6 +1,6 @@
 # Mean Function
 
-The mean function computes the mean of a signal. Mean is often used as a summary statistic for a signal. Using the [SlidingWindow](../core/fixed_window.md) abstraction, the mean can be computed over a sliding window of the signal to be produce a set of features that can be used for a downstream task.
+The mean function computes the mean of a signal. Mean is often used as a summary statistic for a signal. Using the [`SlidingWindow`](../core/fixed_window.md) abstraction, the mean can be computed over a sliding window of the signal to be produce a set of features that can be used for a downstream task.
 
 ::: autofeat.functional.mean
       
@@ -32,4 +32,4 @@ print(features)
 ```
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

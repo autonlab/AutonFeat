@@ -6,7 +6,7 @@ $$
 x_{shifted_{i}} = x_{i} - \sigma_{x}, \quad \forall i \in \{1, \dots, N\}
 $$
 
-For shifting signals by a custom $\delta$, see the [delta preprocessor](../functional/delta_preprocessor_fn.md) function. For more on how we compute the std of a signal, check out [std](../../functional/std.md) function.
+For shifting signals by a custom $\delta$, see the [`delta preprocessor`](../functional/delta_preprocessor_fn.md) function. For more on how we compute the std of a signal, check out [`std`](../../functional/std.md) function.
 
 ::: autofeat.preprocess.functional.delta_std_tf
 
@@ -71,4 +71,4 @@ This can be seen in the figure below.
 ![DeltaStd](../../../assets/delta_std_f_visualize.png)
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

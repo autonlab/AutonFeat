@@ -1,6 +1,6 @@
 # Preprocess
 
-The `Proprocess` class is a ***core*** building block in `AutoFeat`. This enables users to define custom preprocessors that can be applied to the signal before extracting features.
+The [`Preprocess`](preprocess.md) class is a ***core*** building block in [`AutoFeat`](../../index.md). This enables users to define custom preprocessors that can be applied to the signal before extracting features.
 
 ::: autofeat.core.Preprocess
 
@@ -55,4 +55,4 @@ print(processed_signal)
 [0 1 2 3 4 5 6 7 8]
 ```
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

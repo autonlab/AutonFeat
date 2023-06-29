@@ -6,7 +6,7 @@ $$
 x_{shifted_{i}} = x_{i} - \max({x}), \quad \forall i \in \{1, \dots, N\}
 $$
 
-For shifting signals by a custom $\delta$, see the [Delta Transform Preprocessor](delta_preprocessor.md). For more on how we compute the max of a signal, check out [max](../../functional/max.md) function.
+For shifting signals by a custom $\delta$, see the [`Delta Transform Preprocessor`](delta_preprocessor.md). For more on how we compute the max of a signal, check out [`max`](../../functional/max.md) function.
 
 ::: autofeat.preprocess.transform.DeltaMaxPreprocessor
 
@@ -57,4 +57,4 @@ This can be seen in the figure below.
 
 ![DeltaMax](../../../assets/delta_max_visualize.png)
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

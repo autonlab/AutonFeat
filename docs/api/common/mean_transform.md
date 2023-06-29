@@ -1,6 +1,6 @@
 # Mean Transform
 
-The mean transform computes the mean of a window. When combined with the [SlidingWindow](../core/fixed_window.md) abstraction, the mean transform can be used to compute the `mean` feature of a time series. The mean is defined as:
+The mean transform computes the mean of a window. When combined with the [`SlidingWindow`](../core/fixed_window.md) abstraction, the mean transform can be used to compute the `mean` feature of a time series. The mean is defined as:
 
 $$
 \mu = \frac{1}{n} \sum_{i=1}^{n} x_i
@@ -41,4 +41,4 @@ print(tf)
 print(features)
 ```
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

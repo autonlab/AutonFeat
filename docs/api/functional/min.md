@@ -1,6 +1,6 @@
 # Max Function
 
-The min function computes the min of a window. When combined with the [SlidingWindow](../core/fixed_window.md) abstraction, the min function can be used to compute the `min` feature of a time series. The min is defined as:
+The min function computes the min of a window. When combined with the [`SlidingWindow`](../core/fixed_window.md) abstraction, the min function can be used to compute the `min` feature of a time series. The min is defined as:
 
 $$
 \text{min}(x) = \min_{i=1}^n x_i
@@ -37,4 +37,4 @@ print(features)
 ```
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

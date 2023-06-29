@@ -1,6 +1,6 @@
 # Skewness Transform
 
-The skew transform computes the skewness of a window. When combined with the [SlidingWindow](../core/fixed_window.md) abstraction, the skew transform can be used to compute the `skew` feature of a time series. The skewness is defined as:
+The skew transform computes the skewness of a window. When combined with the [`SlidingWindow`](../core/fixed_window.md) abstraction, the skew transform can be used to compute the `skew` feature of a time series. The skewness is defined as:
 
 $$
 \gamma = \frac{m_3}{m_2^{3/2}}
@@ -57,4 +57,4 @@ print(tf)
 print(features)
 ```
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

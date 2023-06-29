@@ -8,7 +8,7 @@ $$
 
 where $x_{i}$ represents an element of the input signal, $x_{shifted_{i}}$ represents an element of the output signal, and $N$ is the number of elements in the signal.
 
-For shifting signals by a custom $\delta$, see the [Delta Transform Preprocessor](delta_preprocessor.md). For more on how we compute the quantile of a signal, check out [quantile](../../functional/quantile.md) function.
+For shifting signals by a custom $\delta$, see the [`Delta Transform Preprocessor`](delta_preprocessor.md). For more on how we compute the quantile of a signal, check out [`quantile`](../../functional/quantile.md) function.
 
 ::: autofeat.preprocess.transform.DeltaQuantilePreprocessor
 
@@ -59,4 +59,4 @@ plt.show()
 ![DeltaQuantile](../../../assets/delta_quantile_visualize.png)
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

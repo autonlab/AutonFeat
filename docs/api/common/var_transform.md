@@ -1,6 +1,6 @@
 # Variance Transform
 
-The variance transform computes the variance of a window. When combined with the [SlidingWindow](../core/fixed_window.md) abstraction, the variance transform can be used to compute the `var` feature of a time series. The variance is defined as:
+The variance transform computes the variance of a window. When combined with the [`SlidingWindow`](../core/fixed_window.md) abstraction, the variance transform can be used to compute the `var` feature of a time series. The variance is defined as:
 
 $$
 \sigma^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \mu)^2
@@ -43,4 +43,4 @@ print(features)
 ```
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

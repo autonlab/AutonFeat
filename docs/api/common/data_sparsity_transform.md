@@ -1,6 +1,6 @@
 # Data Sparsity Transform
 
-The data sparsity transform computes the ratio of invalid values in a sliding window to the total number of values in the window. See [NValidTransform](n_valid_transform.md) for more details on how invalid values are computed. It can be coupled with the [SlidingWindow](../core/fixed_window.md) abstraction to compute the `data_sparsity` feature of a time series. It can be defined as:
+The data sparsity transform computes the ratio of invalid values in a sliding window to the total number of values in the window. See [`NValidTransform`](n_valid_transform.md) for more details on how valid values are computed. Invalid values are computed by computing $1 - N_{valid}$, where $N_{valid}$ is the number of valid values in the signal window. It can be coupled with the [`SlidingWindow`](../core/fixed_window.md) abstraction to compute the `data_sparsity` feature of a time series. It can be defined as:
 
 $$
 \text{sparsity} = \frac{N_{invalid}}{N_{total}}
@@ -42,4 +42,4 @@ print(tf)
 print(features)
 ```
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

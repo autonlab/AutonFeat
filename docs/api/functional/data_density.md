@@ -1,6 +1,6 @@
 # Data Density Function
 
-The data density function computes the ratio of valid values in a sliding window to the total number of values in the window. See [n-valid](n_valid.md) for more details on how valid values are computed. It can be coupled with the [SlidingWindow](../core/fixed_window.md) abstraction to compute the `data density` feature of a time series. It can be defined as:
+The data density function computes the ratio of valid values in a sliding window to the total number of values in the window. See [`n-valid`](n_valid.md) for more details on how valid values are computed. It can be coupled with the [`SlidingWindow`](../core/fixed_window.md) abstraction to compute the `data density` feature of a time series. It can be defined as:
 
 $$
 \text{density} = \frac{N_{valid}}{N_{total}}
@@ -38,4 +38,4 @@ features = featurizer(x)
 print(features)
 ```
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.

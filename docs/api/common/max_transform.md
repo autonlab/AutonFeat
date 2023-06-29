@@ -1,6 +1,6 @@
 # Max Transform
 
-The max transform computes the max of a window. When combined with the [SlidingWindow](../core/fixed_window.md) abstraction, the max transform can be used to compute the `max` feature of a time series. The max is defined as:
+The max transform computes the max of a window. When combined with the [`SlidingWindow`](../core/fixed_window.md) abstraction, the max transform can be used to compute the `max` feature of a time series. The max is defined as:
 
 $$
 \text{max}(x) = \max_{i=1}^n x_i
@@ -40,4 +40,4 @@ print(tf)
 print(features)
 ```
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
