@@ -176,7 +176,7 @@ cython_debug/
 sanity.sh
 
 # Documentation
-docs
+# docs
 site
 doxify*
 test_docs.sh
@@ -187,3 +187,8 @@ user_studies
 
 # Experiments
 experiments
+
+# Tutorials
+# examples
+examples/tutorials/datasets
+examples/tutorials/AutoFeat
