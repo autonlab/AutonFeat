@@ -4,28 +4,30 @@ The package is easy to install.
 
 ## Pip 📦
 
-It is possible to install using the `pip` package manager.
+It is possible to install using the [`pip`](https://pip.pypa.io/en/stable/getting-started/) package manager.
 
 ```bash
 pip install autofeat
 ```
+*Installing inside a python virtual environment or a conda environment is recommended.*
 
 ## Conda 📦
 
-We offer support for the `conda` package manager.
+We offer support for the [`conda`](https://docs.conda.io/en/latest/) package manager.
 
 ```bash
 conda install -c conda-forge autofeat
 ```
+*Installing inside a python virtual environment or a conda environment is recommended.*
 
 ## Source 📦
 
-It is also possible to install from source.
+It is also possible to install from [`source`](https://github.com/autonlab/AutoFeat).
 
 ```bash
-git clone
-cd autofeat
-python setup.py install
+git clone https://github.com/autonlab/AutoFeat
+cd AutoFeat
+python install -e .
 ```
 
 ## Jump In 🏊‍♂️
@@ -38,4 +40,4 @@ If you need help getting started, you can check out any of the following resourc
 - [Features Extractors](../api/features.md)
 - [Preprocessors](../api/preprocess/preprocess.md)
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutoFeat`](../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
