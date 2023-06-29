@@ -1,5 +1,5 @@
 site_name: ⏳ AutoFeat ⌛️
-site_url: https://github.com/autonlab/AutoFeat.github.io
+site_url: https://autonlab.github.io/AutoFeat
 
 repo_url: https://github.com/autonlab/AutoFeat
 repo_name: AutoFeat
@@ -120,7 +120,7 @@ theme:
     primary: red
     accent: red
     
-    # # Palette toggle for light mode
+    # Palette toggle for light mode
     # - scheme: default
     #   primary: red
     #   accent: red
@@ -201,10 +201,16 @@ markdown_extensions:
 
 extra:
   social:
+  # Dhruv Srikanth
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/AutonLab
+    - icon: fontawesome/brands/github
+      link: https://github.com/DhruvSrikanth  
+  # Auton Lab
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/DhruvSrikanth
     - icon: fontawesome/brands/github
-      link: https://github.com/DhruvSrikanth
+      link: https://github.com/autonlab
 
 extra_javascript:
   - javascripts/katex.js 
