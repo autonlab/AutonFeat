@@ -27,4 +27,4 @@ def test_get_dataset_fn():
     dataset = get_dataset('airline passengers')
     assert isinstance(dataset, pd.DataFrame)
     assert dataset.shape == (144, 3)
-    assert dataset.columns.tolist() == ['uid', 'datastamp', 'passengers']
+    assert dataset.columns.tolist() == ['uid', 'datestamp', 'passengers']
