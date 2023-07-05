@@ -60,13 +60,26 @@ class SetupProperties(object):
         """
         self.name = "autofeat"
         self.version = '0.1.0'
-        self.description = os.read('README.md')
+        self.description = self._read_file('README.md')
         self.author = ['Dhruv Srikanth', 'Auton Lab']
         self.author_email = 'dsrikant@andrew.cmu.edu'
-        self.license = os.read('LICENSE')
+        self.license = self._read_file('LICENSE')
         self.url = 'https://autonlab.github.io/AutoFeat'
         with open('requirements.txt') as f:
             self.packages = [requirement.rstrip() for requirement in f]
+
+    def _read_file(self, file_path: str) -> str:
+        """
+        Read a file and return the contents of the file.
+
+        Args:
+            file_path (str): The path to the file.
+
+        Returns:
+            The contents of the file.
+        """
+        with open(file_path) as f:
+            return f.read()
 
     def get_name(self) -> str:
         """
