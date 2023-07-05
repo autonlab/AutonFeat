@@ -303,6 +303,6 @@ class SlidingWindow(object):
                         # stop computing features
                         break
 
-            return transformed_signal
+            return np.array(transformed_signal)
 
         return apply
