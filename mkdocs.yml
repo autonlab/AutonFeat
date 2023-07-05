@@ -24,6 +24,7 @@ nav:
 
   - 'Tutorials' :
     - 'Tutorial Guide' : 'tutorials/tutorials.md'
+    - 'Single-Feature Extraction' : 'tutorials/single_feature_extraction.md'
     - 'Multi-Feature Extraction' : 'tutorials/multi_feature_extraction.md'
   
   - 'Features' :
