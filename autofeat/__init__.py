@@ -46,7 +46,6 @@ __all__ = [
 ]
 
 # Property imports
-import os
 from typing import List
 
 
