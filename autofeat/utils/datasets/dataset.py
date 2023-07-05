@@ -10,7 +10,7 @@ def get_dataset_map() -> dict:
     Returns:
         A map of all available datasets.
     """
-    dataset_path = importlib.resources.path('autofeat', 'utils/datasets/data')
+    dataset_path = importlib.util.find_spec('autofeat.utils.datasets').origin.replace('__init__.py', 'data/')
     available_datasets = {
         'air passengers': f'{dataset_path}/air_passengers.csv',
     }
