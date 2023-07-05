@@ -31,6 +31,7 @@ def test_fixed_window():
                 featurizer = window.use(tf)
 
                 y_hat = featurizer(signal)
+                assert isinstance(y_hat, np.ndarray)
 
                 # Compute y manually
                 y = []
