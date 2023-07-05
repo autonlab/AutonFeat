@@ -14,6 +14,7 @@ def get_dataset_map() -> dict:
     available_datasets = {
         'air passengers': f'{dataset_path}/air_passengers.csv',
     }
+    print(available_datasets)
     return available_datasets
 
 
