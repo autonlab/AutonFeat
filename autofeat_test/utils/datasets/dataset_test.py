@@ -13,7 +13,7 @@ def test_list_datasets_fn():
     assert isinstance(datasets[0], str)
 
     available_datasets = [
-        'air passengers',
+        'airline passengers',
     ]
 
     for dataset in available_datasets:
@@ -24,7 +24,7 @@ def test_get_dataset_fn():
     """
     Test the get_dataset function.
     """
-    dataset = get_dataset('air passengers')
+    dataset = get_dataset('airline passengers')
     assert isinstance(dataset, pd.DataFrame)
     assert dataset.shape == (144, 3)
-    assert dataset.columns.tolist() == ['unique_id', 'ds', 'y']
+    assert dataset.columns.tolist() == ['uid', 'datastamp', 'passengers']
