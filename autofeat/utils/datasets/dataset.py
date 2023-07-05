@@ -1,3 +1,4 @@
+import importlib
 import numpy as np
 import pandas as pd
 
@@ -9,8 +10,9 @@ def get_dataset_map() -> dict:
     Returns:
         A map of all available datasets.
     """
+    dataset_path = importlib.resources.path('autofeat', 'utils/datasets/data')
     available_datasets = {
-        'air passengers': 'air_passengers.csv',
+        'air passengers': f'{dataset_path}/air_passengers.csv',
     }
     return available_datasets
 
