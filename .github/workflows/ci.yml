@@ -7,20 +7,24 @@ permissions:
   contents: write
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+          python-version: 3.9.6
+      - name: Cache
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
       - uses: actions/cache@v3
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install jinja2 \
+      - name: Install dependencies
+        run: pip install jinja2 \
                          markdown \
                          mkdocs \
                          mkdocs-material \
@@ -33,5 +37,7 @@ jobs:
                          colorama \
                          regex \
                          requests
-      - run: git remote add lab "https://github.com/autonlab/AutoFeat.git"
-      - run: mkdocs gh-deploy -c --force -t material
+      - name: Build
+        run: git remote add lab "https://github.com/autonlab/AutoFeat.git"
+      - name: Deploy
+        run: mkdocs gh-deploy -c --force -t material
