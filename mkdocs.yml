@@ -133,7 +133,7 @@ theme:
     #     name: Dark Theme
     #     icon: material/brightness-7 
 
-    # # Palette toggle for dark mode
+    # Palette toggle for dark mode
     # - scheme: slate
     #   primary: red
     #   accent: red
