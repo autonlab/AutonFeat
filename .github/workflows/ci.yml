@@ -24,4 +24,4 @@ jobs:
       - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocstrings
       - run: pip install 'mkdocstrings[crystal,python]'
-      - run: mkdocs gh-deploy --force
+      - run: mkdocs gh-deploy -c -m "[DOCS] Build new version" -r lab --force -t material
