@@ -31,5 +31,8 @@ def lag_tf(x: np.ndarray, lag: Union[int, np.int_], where: Callable[[Union[int, 
     # Shift the signal elements by the specified lag
     shifted_x = np.roll(filtered_x, lag)
     # Pad the shifted signal with NaNs
-    shifted_x[:lag] = np.nan
+    if lag < 0:
+        shifted_x[lag:] = np.nan
+    else:
+        shifted_x[:lag] = np.nan
     return shifted_x
