@@ -21,5 +21,10 @@ convert_to_markdown() {
 
 # Iterate over the ipynb files and perform the conversion and copying
 for file in $ipynb_files; do
+    folder_name_path="${file%'.ipynb'}"_files
+    folder_name="$output_directory/${folder_name_path##*/}"
+    if [ -d "$folder_name" ]; then
+        rm -rf "$folder_name"
+    fi
     convert_to_markdown "$file"
 done
