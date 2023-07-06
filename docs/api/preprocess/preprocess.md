@@ -29,6 +29,11 @@ Data is sometimes not in the right form for a model. Hence, we featurize it. The
 | --- | --- | --- |
 | DFT | 1D Discrete Fourier Transform of the signal | [`DFTPreprocessor`](transform/dft_preprocessor.md) |
 
+## Signal Manipulation
+| Feature | Description | Endpoint |
+| --- | --- | --- |
+| Lag | Lag the signal by some amount | [`LagPreprocessor`](transform/lag_preprocessor.md) |
+
 ## Functional Form
 
 A functional form for each of the transforms above is also provided for convenience. Check out the **`autofeat.preprocess.functional`** sub-module for more details.

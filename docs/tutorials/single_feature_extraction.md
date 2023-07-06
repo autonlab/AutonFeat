@@ -1,14 +1,6 @@
-# Getting Started
+# Single Feature Extraction
 
 In this tutorial we will show you how to install and use the `autofeat` package for single-feature extraction. We apply the package to the problem of ***time-series forecasting*** i.e. using past values of a time-series to predict future values.
-
-## Table of Contents
-
-- Install Packages
-- Load Dataset
-- Feature Extraction
-- Fit Model
-- Evaluate Model
 
 Feel free to follow along in this Google Colab notebook - 
 
@@ -24,10 +16,17 @@ Feel free to follow along in this Google Colab notebook -
 
 
 ```python
+%%capture
+!git clone "https://github.com/autonlab/AutoFeat.git"
+import sys
+sys.path.append("AutoFeat")
+```
+
+
+```python
 import autofeat as aft
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 ```
 
 ## Load Dataset
@@ -39,14 +38,15 @@ List available datasets that we can use for this tutorial:
 print(aft.utils.datasets.list_datasets())
 ```
 
-    ['air passengers']
+    ['airline passengers']
 
 
 Load the ***Airline Passengers*** dataset:
 
 
 ```python
-air_passengers_df = aft.utils.datasets.get_dataset(name='air passengers')
+air_passengers_df = aft.utils.datasets.get_dataset(name='airline passengers')
+air_passengers_df['datestamp'] = pd.to_datetime(air_passengers_df['datestamp'])
 air_passengers_df.head()
 ```
 
@@ -71,9 +71,9 @@ air_passengers_df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>unique_id</th>
-      <th>ds</th>
-      <th>y</th>
+      <th>uid</th>
+      <th>datestamp</th>
+      <th>passengers</th>
     </tr>
   </thead>
   <tbody>
@@ -117,10 +117,12 @@ Plot the time-series (it is often useful to visualize the data before we start m
 
 
 ```python
-fig, ax = plt.subplots(1, 1, figsize = (15, 5))
-plot_df = air_passengers_df.set_index('ds')
+import matplotlib.pyplot as plt
 
-plot_df[['y']].plot(ax=ax, linewidth=2)
+fig, ax = plt.subplots(1, 1, figsize = (10, 5))
+plot_df = air_passengers_df.set_index('datestamp')
+
+plot_df[['passengers']].plot(ax=ax, linewidth=2)
 ax.set_title('Airline Passengers Forecast', fontsize=22)
 ax.set_ylabel('Monthly Passengers', fontsize=20)
 ax.set_xlabel('Timestamp (t)', fontsize=20)
@@ -132,6 +134,105 @@ ax.grid()
     
 ![png](single_feature_extraction_files/single_feature_extraction_13_0.png)
     
+
+
+## Preprocess Data
+
+We can compute lag features using the preprocessing library from `AutoFeat`. This is often useful for time-series forecasting problems. We can combine this with feature extraction of summary statistics to create a rich set of features for our model (we will see this in the next section).
+
+
+```python
+# Define the number of lagged values to include as features
+lags = [1, 2, 3]
+
+preprocessor = aft.preprocess.LagPreprocessor()
+
+# Create lagged features
+for lag in lags:
+    air_passengers_df[f'passengers_lag{lag}'] = preprocessor(air_passengers_df['passengers'].values, lag=lag)
+
+air_passengers_df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>uid</th>
+      <th>datestamp</th>
+      <th>passengers</th>
+      <th>passengers_lag1</th>
+      <th>passengers_lag2</th>
+      <th>passengers_lag3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>1949-01-31</td>
+      <td>112.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>1949-02-28</td>
+      <td>118.0</td>
+      <td>112.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.0</td>
+      <td>1949-03-31</td>
+      <td>132.0</td>
+      <td>118.0</td>
+      <td>112.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>1949-04-30</td>
+      <td>129.0</td>
+      <td>132.0</td>
+      <td>118.0</td>
+      <td>112.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>1949-05-31</td>
+      <td>121.0</td>
+      <td>129.0</td>
+      <td>132.0</td>
+      <td>118.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ## Feature Extraction
@@ -146,7 +247,7 @@ Set the parameters of the sliding window to perform feature extraction:
 # Sliding Window
 window_size = 12
 step_size = 1
-sliding_window = aft.SlidingWindow(window_size=window_size, step_size=step_size)
+sliding_window = aft.SlidingWindow(window_size=window_size, step_size=step_size, overflow='stop')
 ```
 
 Define the feature we want to extract from the time-series. Here we will be considering the ***mean*** of the time-series values in each window. For a particular window of size $w$, the mean is defined as:
@@ -161,48 +262,346 @@ where $x_i$ is the value of the time-series at time $i$.
 ```python
 feature_extractor = aft.MeanTransform()
 featurizer = sliding_window.use(feature_extractor)
-features = featurizer(air_passengers_df['y'].values)
+features = featurizer(air_passengers_df['passengers'].values)
+
+# We add NaNs to the end of the array to make it the same length of the original array
+features = np.append(features, np.repeat(np.nan, len(air_passengers_df) - len(features)))
+
+# Add the features to the dataframe
+air_passengers_df['passengers_mean'] = features
+air_passengers_df.head()
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>uid</th>
+      <th>datestamp</th>
+      <th>passengers</th>
+      <th>passengers_lag1</th>
+      <th>passengers_lag2</th>
+      <th>passengers_lag3</th>
+      <th>passengers_mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>1949-01-31</td>
+      <td>112.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>126.666667</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>1949-02-28</td>
+      <td>118.0</td>
+      <td>112.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>126.916667</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.0</td>
+      <td>1949-03-31</td>
+      <td>132.0</td>
+      <td>118.0</td>
+      <td>112.0</td>
+      <td>NaN</td>
+      <td>127.583333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>1949-04-30</td>
+      <td>129.0</td>
+      <td>132.0</td>
+      <td>118.0</td>
+      <td>112.0</td>
+      <td>128.333333</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>1949-05-31</td>
+      <td>121.0</td>
+      <td>129.0</td>
+      <td>132.0</td>
+      <td>118.0</td>
+      <td>128.833333</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Lets see what the ***mean*** feature looks like:
 
 
 ```python
-print(features.shape)
-# Plotting features
-plt.plot(features)
+# Plot the mean feature with the original data
+fig, ax = plt.subplots(1, 1, figsize = (10, 5))
+plot_df = air_passengers_df.set_index('datestamp')
+
+plot_df[['passengers', 'passengers_mean']].plot(ax=ax, linewidth=2)
+ax.set_title('Airline Passengers Forecast', fontsize=22)
+ax.set_ylabel('Monthly Passengers', fontsize=20)
+ax.set_xlabel('Timestamp (t)', fontsize=20)
+ax.legend(prop={'size': 15})
+ax.grid()
 ```
 
-    (144,)
-
-
-
-
-
-    [<matplotlib.lines.Line2D at 0x142c98340>]
-
-
-
 
     
-![png](single_feature_extraction_files/single_feature_extraction_19_2.png)
+![png](single_feature_extraction_files/single_feature_extraction_23_0.png)
     
+
+
+Feature extraction often results in a decrease in the number of data points. This is because we are converting a time-series of length $n$ into a time-series of length $n - w + 1$ where $w$ is the window size. In our case, the window size is 12, so we are converting a time-series of length 144 into a time-series of length 133.
+
+
+```python
+# Drop rows with missing values due to the lag
+air_passengers_df.dropna(inplace=True)
+print(air_passengers_df.shape)
+air_passengers_df.head()
+```
+
+    (130, 7)
+
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>uid</th>
+      <th>datestamp</th>
+      <th>passengers</th>
+      <th>passengers_lag1</th>
+      <th>passengers_lag2</th>
+      <th>passengers_lag3</th>
+      <th>passengers_mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>1949-04-30</td>
+      <td>129.0</td>
+      <td>132.0</td>
+      <td>118.0</td>
+      <td>112.0</td>
+      <td>128.333333</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>1949-05-31</td>
+      <td>121.0</td>
+      <td>129.0</td>
+      <td>132.0</td>
+      <td>118.0</td>
+      <td>128.833333</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1.0</td>
+      <td>1949-06-30</td>
+      <td>135.0</td>
+      <td>121.0</td>
+      <td>129.0</td>
+      <td>132.0</td>
+      <td>129.166667</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1.0</td>
+      <td>1949-07-31</td>
+      <td>148.0</td>
+      <td>135.0</td>
+      <td>121.0</td>
+      <td>129.0</td>
+      <td>130.333333</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1.0</td>
+      <td>1949-08-31</td>
+      <td>148.0</td>
+      <td>148.0</td>
+      <td>135.0</td>
+      <td>121.0</td>
+      <td>132.166667</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Finally, we split our data into training and test sets.
+
+
+```python
+from sklearn.model_selection import train_test_split
+
+# Split the data into train and test sets
+train_df, test_df = train_test_split(air_passengers_df, test_size=0.2, shuffle=False)
+
+# Define the target variable
+target = 'passengers'
+
+# Define the features to use
+features = ['passengers_lag1', 'passengers_lag2', 'passengers_lag3', 'passengers_mean']
+
+# Create the feature matrix and target vector
+X_train = train_df[features].values
+y_train = train_df[target].values.reshape(-1, 1)
+
+X_test = test_df[features].values
+y_test = test_df[target].values.reshape(-1, 1)
+
+print(X_train.shape, y_train.shape)
+print(X_test.shape, y_test.shape)
+```
+
+    (104, 4) (104, 1)
+    (26, 4) (26, 1)
 
 
 # Fit Model
 
-$P( Y | X )$
-
-$P(Y_{t+1} | Y_{t}, Y_{t-12})$
+We will be using an autoregressive model for time series forecasting. Autoregressive models are a class of models that use past values to predict future values, then use the predicted values to predict even further into the future. One of the simplest autoregressive models is a linear regression model. We will be using the `LinearRegression` class from `sklearn` to fit a linear regression model to our data.
 
 
 ```python
+%%capture
+from sklearn.linear_model import LinearRegression
 
+# Fit a linear regression model
+model = LinearRegression()
+model.fit(X_train, y_train)
 ```
 
 # Evaluate Model
 
+Remember that we adjusted the target values when we performed feature extraction? Well we can now use the remaining data points to evaluate our model. We will be using the ***mean absolute error*** (MAE) as our evaluation metric. The MAE is defined as:
+
+$$
+\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+$$
+
+where $y_i$ is the actual value of the time-series at time $i$ and $\hat{y}_i$ is the predicted value of the time-series at time $i$.
+
 
 ```python
+from sklearn.metrics import mean_absolute_error
+
+# Predict on the test set
+y_pred = model.predict(X_test)
+```
+
+We can evaluate the results both quantitatively and qualitatively. First, lets look at the MAE:
+
+
+```python
+# Evaluate the model
+mae = mean_absolute_error(y_test, y_pred)
+print(f'Mean Absolute Error: {mae:.2f}')
+```
+
+    Mean Absolute Error: 32.31
+
+
+Next lets plot the actual values of the time-series against the predicted values:
+
+
+```python
+fig, ax = plt.subplots(1, 1, figsize = (10, 5))
+plot_df = test_df.set_index('datestamp')
+plot_df['passengers_pred'] = y_pred
+
+plot_df[['passengers', 'passengers_pred']].plot(ax=ax, linewidth=2)
+ax.set_title('Airline Passengers Forecast', fontsize=22)
+ax.set_ylabel('Monthly Passengers', fontsize=20)
+ax.set_xlabel('Timestamp (t)', fontsize=20)
+ax.legend(prop={'size': 15})
+ax.grid()
 
 ```
 
+
+    
+![png](single_feature_extraction_files/single_feature_extraction_37_0.png)
+    
+
+
+Here is what it looks like with respect to the original time-series:
+
+
+```python
+# Plot the training and test sets
+fig, ax = plt.subplots(1, 1, figsize = (10, 5))
+test_df['passengers_pred'] = y_pred
+plot_df = pd.concat([train_df, test_df]).set_index('datestamp')
+
+plot_df[['passengers', 'passengers_pred']].plot(ax=ax, linewidth=2)
+ax.set_title('Airline Passengers Forecast', fontsize=22)
+ax.set_ylabel('Monthly Passengers', fontsize=20)
+ax.set_xlabel('Timestamp (t)', fontsize=20)
+ax.legend(prop={'size': 15})
+ax.grid()
+
+```
+
+
+    
+![png](single_feature_extraction_files/single_feature_extraction_39_0.png)
+    
+
+
 If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+
+
