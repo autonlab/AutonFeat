@@ -47,6 +47,7 @@ Load the ***Airline Passengers*** dataset:
 ```python
 air_passengers_df = aft.utils.datasets.get_dataset(name='airline passengers')
 air_passengers_df['datestamp'] = pd.to_datetime(air_passengers_df['datestamp'])
+air_passengers_df.drop(columns=['uid'], inplace=True)
 air_passengers_df.head()
 ```
 
@@ -71,7 +72,6 @@ air_passengers_df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>uid</th>
       <th>datestamp</th>
       <th>passengers</th>
     </tr>
@@ -79,31 +79,26 @@ air_passengers_df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.0</td>
       <td>1949-01-31</td>
       <td>112.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.0</td>
       <td>1949-02-28</td>
       <td>118.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
       <td>1949-03-31</td>
       <td>132.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.0</td>
       <td>1949-04-30</td>
       <td>129.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.0</td>
       <td>1949-05-31</td>
       <td>121.0</td>
     </tr>
@@ -150,90 +145,7 @@ preprocessor = aft.preprocess.LagPreprocessor()
 # Create lagged features
 for lag in lags:
     air_passengers_df[f'passengers_lag{lag}'] = preprocessor(air_passengers_df['passengers'].values, lag=lag)
-
-air_passengers_df.head()
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>uid</th>
-      <th>datestamp</th>
-      <th>passengers</th>
-      <th>passengers_lag1</th>
-      <th>passengers_lag2</th>
-      <th>passengers_lag3</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1.0</td>
-      <td>1949-01-31</td>
-      <td>112.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1.0</td>
-      <td>1949-02-28</td>
-      <td>118.0</td>
-      <td>112.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.0</td>
-      <td>1949-03-31</td>
-      <td>132.0</td>
-      <td>118.0</td>
-      <td>112.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1.0</td>
-      <td>1949-04-30</td>
-      <td>129.0</td>
-      <td>132.0</td>
-      <td>118.0</td>
-      <td>112.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
-      <td>1949-05-31</td>
-      <td>121.0</td>
-      <td>129.0</td>
-      <td>132.0</td>
-      <td>118.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 ## Feature Extraction
 
@@ -241,6 +153,9 @@ Set the parameters of the sliding window to perform feature extraction:
 
 - `window_size`: the size of the sliding window
 - `step_size`: the stride of the sliding window
+- `overflow`: what to do with the last window if it is smaller than `window_size`
+
+In this case, we choose to use the `stop` overflow strategy which means that we will stop the sliding window if the last window is smaller than `window_size`.
 
 
 ```python
@@ -269,6 +184,12 @@ features = np.append(features, np.repeat(np.nan, len(air_passengers_df) - len(fe
 
 # Add the features to the dataframe
 air_passengers_df['passengers_mean'] = features
+```
+
+Here is what our data looks like after *preprocessing* and *feature extraction*:
+
+
+```python
 air_passengers_df.head()
 ```
 
@@ -293,7 +214,6 @@ air_passengers_df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>uid</th>
       <th>datestamp</th>
       <th>passengers</th>
       <th>passengers_lag1</th>
@@ -305,7 +225,6 @@ air_passengers_df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.0</td>
       <td>1949-01-31</td>
       <td>112.0</td>
       <td>NaN</td>
@@ -315,7 +234,6 @@ air_passengers_df.head()
     </tr>
     <tr>
       <th>1</th>
-      <td>1.0</td>
       <td>1949-02-28</td>
       <td>118.0</td>
       <td>112.0</td>
@@ -325,7 +243,6 @@ air_passengers_df.head()
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
       <td>1949-03-31</td>
       <td>132.0</td>
       <td>118.0</td>
@@ -335,7 +252,6 @@ air_passengers_df.head()
     </tr>
     <tr>
       <th>3</th>
-      <td>1.0</td>
       <td>1949-04-30</td>
       <td>129.0</td>
       <td>132.0</td>
@@ -345,7 +261,6 @@ air_passengers_df.head()
     </tr>
     <tr>
       <th>4</th>
-      <td>1.0</td>
       <td>1949-05-31</td>
       <td>121.0</td>
       <td>129.0</td>
@@ -377,108 +292,22 @@ ax.grid()
 
 
     
-![png](single_feature_extraction_files/single_feature_extraction_23_0.png)
+![png](single_feature_extraction_files/single_feature_extraction_25_0.png)
     
 
 
-Feature extraction often results in a decrease in the number of data points. This is because we are converting a time-series of length $n$ into a time-series of length $n - w + 1$ where $w$ is the window size. In our case, the window size is 12, so we are converting a time-series of length 144 into a time-series of length 133.
+Feature extraction often results in a decrease in the number of data points. In our case, we chose to handle *overflow* using the `stop` strategy as specified in the `SlidingWindow`. We can see this reduction in the number of data points below:
 
 
 ```python
 # Drop rows with missing values due to the lag
+print(f'Dataframe contained {air_passengers_df.shape[0]} samples')
 air_passengers_df.dropna(inplace=True)
-print(air_passengers_df.shape)
-air_passengers_df.head()
+print(f'Dataframe now contains {air_passengers_df.shape[0]} samples')
 ```
 
-    (130, 7)
-
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>uid</th>
-      <th>datestamp</th>
-      <th>passengers</th>
-      <th>passengers_lag1</th>
-      <th>passengers_lag2</th>
-      <th>passengers_lag3</th>
-      <th>passengers_mean</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>3</th>
-      <td>1.0</td>
-      <td>1949-04-30</td>
-      <td>129.0</td>
-      <td>132.0</td>
-      <td>118.0</td>
-      <td>112.0</td>
-      <td>128.333333</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
-      <td>1949-05-31</td>
-      <td>121.0</td>
-      <td>129.0</td>
-      <td>132.0</td>
-      <td>118.0</td>
-      <td>128.833333</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1.0</td>
-      <td>1949-06-30</td>
-      <td>135.0</td>
-      <td>121.0</td>
-      <td>129.0</td>
-      <td>132.0</td>
-      <td>129.166667</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1.0</td>
-      <td>1949-07-31</td>
-      <td>148.0</td>
-      <td>135.0</td>
-      <td>121.0</td>
-      <td>129.0</td>
-      <td>130.333333</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1.0</td>
-      <td>1949-08-31</td>
-      <td>148.0</td>
-      <td>148.0</td>
-      <td>135.0</td>
-      <td>121.0</td>
-      <td>132.166667</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+    Dataframe contained 144 samples
+    Dataframe now contains 130 samples
 
 
 Finally, we split our data into training and test sets.
@@ -503,15 +332,15 @@ y_train = train_df[target].values.reshape(-1, 1)
 X_test = test_df[features].values
 y_test = test_df[target].values.reshape(-1, 1)
 
-print(X_train.shape, y_train.shape)
-print(X_test.shape, y_test.shape)
+print('Training set sizes - ', X_train.shape, y_train.shape)
+print('Test set sizes - ', X_test.shape, y_test.shape)
 ```
 
-    (104, 4) (104, 1)
-    (26, 4) (26, 1)
+    Training set sizes -  (104, 4) (104, 1)
+    Test set sizes -  (26, 4) (26, 1)
 
 
-# Fit Model
+## Fit Model
 
 We will be using an autoregressive model for time series forecasting. Autoregressive models are a class of models that use past values to predict future values, then use the predicted values to predict even further into the future. One of the simplest autoregressive models is a linear regression model. We will be using the `LinearRegression` class from `sklearn` to fit a linear regression model to our data.
 
@@ -525,7 +354,7 @@ model = LinearRegression()
 model.fit(X_train, y_train)
 ```
 
-# Evaluate Model
+## Evaluate Model
 
 Remember that we adjusted the target values when we performed feature extraction? Well we can now use the remaining data points to evaluate our model. We will be using the ***mean absolute error*** (MAE) as our evaluation metric. The MAE is defined as:
 
@@ -574,7 +403,7 @@ ax.grid()
 
 
     
-![png](single_feature_extraction_files/single_feature_extraction_37_0.png)
+![png](single_feature_extraction_files/single_feature_extraction_39_0.png)
     
 
 
@@ -598,7 +427,7 @@ ax.grid()
 
 
     
-![png](single_feature_extraction_files/single_feature_extraction_39_0.png)
+![png](single_feature_extraction_files/single_feature_extraction_41_0.png)
     
 
 
