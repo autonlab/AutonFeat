@@ -7,6 +7,8 @@ from .delta_std import delta_std_tf
 from .delta_var import delta_var_tf
 from .delta_quantile import delta_quantile_tf
 from .dft import dft_tf
+from .lag import lag_tf
+
 
 # For linter
 __all__ = [
@@ -19,4 +21,5 @@ __all__ = [
     "delta_var_tf",
     "delta_quantile_tf",
     "dft_tf",
+    "lag_tf",
 ]
