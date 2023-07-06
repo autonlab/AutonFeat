@@ -1,20 +1,118 @@
-site_name: ⏳ AutoFeat ⌛️
+# Project information
+site_name: AutoFeat ⌛️
 site_url: https://autonlab.github.io/AutoFeat
-
-repo_url: https://github.com/autonlab/AutoFeat
-repo_name: AutoFeat
-
-site_description: Documentation for AutoFeat, a high-performant package for time-series featurization.
 site_author: Dhruv Srikanth
-copyright: null
-
-remote_branch: main
-remote_name: lab
-
+site_description: >-
+  Documentation for AutoFeat, a high-performant package for time-series featurization.
 docs_dir: docs
 site_dir: site
 use_directory_urls: true
 
+# Repository
+repo_name: AutoFeat
+repo_url: https://github.com/autonlab/AutoFeat
+remote_branch: gh-pages
+remote_name: lab
+
+# Copyright
+copyright: null
+
+# Configuration
+theme:
+  name: material
+  locale: en
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - navigation.footer
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - navigation.collapse
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    - social
+  palette:
+    - scheme: default
+      primary: red
+      accent: red
+      toggle:
+        icon: material/brightness-7
+        name: Dark Mode
+    - scheme: slate
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Light Mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
+    logo: fontawesome/regular/hourglass
+  favicon: fontawesome/regular/hourglass
+  include_homepage_in_sidebar: true
+  highlightjs: true
+  hijs_languages:
+    - python
+
+# Plugins
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [autofeat]
+          options:
+            show_source: false
+            heading_level: 2
+
+# Customization
+extra:
+  social:
+  # Dhruv Srikanth
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/DhruvSrikanth
+    - icon: fontawesome/brands/github
+      link: https://github.com/DhruvSrikanth  
+  # Auton Lab
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/AutonLab
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/autonlab
+
+extra_javascript:
+  - javascripts/katex.js 
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  # (1)!
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+
+# Extensions
+markdown_extensions:
+  - toc:
+      permalink: true
+      separator: "_"
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+
+# Page tree
 nav: 
   - 'About': index.md
 
@@ -116,111 +214,3 @@ nav:
 
   - 'Community' :
     - 'Contributing': 'community/contributing.md'
-
-theme:
-  name: material
-  locale: en
-  
-  palette:
-    primary: red
-    accent: red
-    
-    # Palette toggle for light mode
-    # - scheme: default
-    #   primary: red
-    #   accent: red
-    #   toggle:
-    #     name: Dark Theme
-    #     icon: material/brightness-7 
-
-    # Palette toggle for dark mode
-    # - scheme: slate
-    #   primary: red
-    #   accent: red
-    #   toggle:
-    #     name: Light Theme
-    #     icon: material/brightness-4
-  
-  features:
-    # - navigation.instant
-    - navigation.collapse
-    - navigation.top
-    - navigation.footer
-    - navigation.indexes
-    - navigation.tabs
-    - navigation.tracking
-
-    - search.highlight
-    - search.share
-    - search.suggest
-
-    - content.code.copy
-    - content.code.annotate
-
-    - social
-
-    - toc.follow
-  
-  # font:
-  #   text: Roboto
-  #   code: Roboto Mono
-  
-  icon:
-    repo: fontawesome/brands/github
-  
-  logo: assets/DS.svg
-    
-  include_homepage_in_sidebar: true
-  highlightjs: true
-  hijs_languages:
-    - python
-
-plugins:
-  - search:
-      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  - minify:
-      minify_html: true
-  - mkdocstrings:
-      # enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
-      default_handler: python
-      handlers:
-        python:
-          paths: [autofeat]
-          options:
-            show_source: false
-            heading_level: 2
-
-markdown_extensions:
-  - toc:
-      permalink: True
-      separator: "_"
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite:
-  - pymdownx.snippets:
-  - pymdownx.superfences:
-  - pymdownx.arithmatex:
-      generic: true
-
-extra:
-  social:
-  # Dhruv Srikanth
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/DhruvSrikanth
-    - icon: fontawesome/brands/github
-      link: https://github.com/DhruvSrikanth  
-  # Auton Lab
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/AutonLab
-    - icon: fontawesome/brands/github-alt
-      link: https://github.com/autonlab
-
-extra_javascript:
-  - javascripts/katex.js 
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  # (1)!
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
-
-extra_css:
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
