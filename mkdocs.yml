@@ -94,6 +94,8 @@ nav:
 
         - '1D DFT' : 'api/preprocess/functional/dft_preprocessor_fn.md'
 
+        - 'lag' : 'api/preprocess/functional/lag_preprocessor_fn.md'
+
       - 'Transform' : 
         - 'Delta Transform' : 'api/preprocess/transform/delta_preprocessor.md'
         - 'Delta Mean Transform' : 'api/preprocess/transform/delta_mean_preprocessor.md'
@@ -105,6 +107,8 @@ nav:
         - 'Delta Quantile Transform' : 'api/preprocess/transform/delta_quantile_preprocessor.md'
 
         - '1D DFT Transform' : 'api/preprocess/transform/dft_preprocessor.md'
+
+        - 'Lag Transform' : 'api/preprocess/transform/lag_preprocessor.md'
 
     - 'Health' : 'api/health/health.md'
 
