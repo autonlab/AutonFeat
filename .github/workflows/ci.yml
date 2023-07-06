@@ -26,6 +26,5 @@ jobs:
       - run: pip install mkdocstrings
       - run: pip install 'mkdocstrings[crystal,python]'
       - run: git remote add lab "https://github.com/autonlab/AutoFeat.git"
-      - run: mkdocs gh-deploy -c -m "[DOCS] Build new version" -r lab --force -t material
-
+      - run: mkdocs gh-deploy -c -m "[DOCS] Build new version" -r lab -b gh-pages --force -t material
       
