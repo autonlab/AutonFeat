@@ -37,8 +37,8 @@ theme:
     - social
   palette:
     - scheme: default
-      primary: red
-      accent: red
+      primary: deep orange
+      accent: deep orange
       toggle:
         icon: material/brightness-7
         name: Dark Mode
