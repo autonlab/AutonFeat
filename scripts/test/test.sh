@@ -3,6 +3,6 @@
 cd ..
 cd ..
 # Unit tests
-python -m pytest --quiet autofeat_test
+python -m pytest --quiet tests
 
 cd scripts/test
