@@ -6,6 +6,10 @@ A high performance library for time series featurization.
 
 [`AutoFeat`](index.md) is a high-performant domain agnostic package for time series featurization. Despite the domain agnostic focus of the package, we recognize the benefit of domain knowledge and have included a few domain specific featurizers for popular domains like healthcare. With time series data, as with any data, it is often helpful to perform preprocessing before extracting information from it such as exploring the frequency domain as well as the time domain. We have provided a number of preprocessors that can transform the distribution or space to a form more amenable to certain featurizations. The package is lightweight, fast and easy to use. We hope you enjoy it! 🎉
 
+Here's an illustration of what featurization looks like:
+
+![AutoFeat](assets/fixed_sliding_window_animation.gif)
+
 ## Why? 🤔
 
 To prevent others from reinventing the wheel, we have compiled a featurization library for dealing with time-series data. We have also included a number of preprocessors to transform the data into a form more amenable to certain featurizations. Finally, our goal was to make this package without too many dependencies and overhead. Here are some of our design objectives:
