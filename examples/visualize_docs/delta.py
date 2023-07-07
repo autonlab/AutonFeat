@@ -1,7 +1,3 @@
-import sys
-package_path = '/Users/dhruvsrikanth/Work/CMU/AutoFeat'
-sys.path.append(package_path)
-
 import numpy as np
 import matplotlib.pyplot as plt
 import autofeat as aft
@@ -22,8 +18,7 @@ def main():
     # Define delta transform preprocessor
     preprocessor = aft.preprocess.DeltaPreprocessor()
 
-
-    delta = dc_offset # Amount to shift by
+    delta = dc_offset  # Amount to shift by
 
     # Preprocess signal
     signal_transformed = preprocessor(signal, delta=delta)

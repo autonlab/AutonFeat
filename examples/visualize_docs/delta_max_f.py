@@ -1,7 +1,3 @@
-import sys
-package_path = '/Users/dhruvsrikanth/Work/CMU/AutoFeat'
-sys.path.append(package_path)
-
 import numpy as np
 import matplotlib.pyplot as plt
 import autofeat.preprocess.functional as PF
