@@ -1,16 +1,16 @@
 # Project information
-site_name: AutoFeat ⌛️
-site_url: https://autonlab.github.io/AutoFeat
+site_name: AutonFeat ⌛️
+site_url: https://autonlab.github.io/AutonFeat
 site_author: Dhruv Srikanth
 site_description: >-
-  Documentation for AutoFeat, a high-performant package for time-series featurization.
+  Documentation for AutonFeat, a high-performant package for time-series featurization.
 docs_dir: docs
 site_dir: site
 use_directory_urls: true
 
 # Repository
-repo_name: AutoFeat
-repo_url: https://github.com/autonlab/AutoFeat
+repo_name: AutonFeat
+repo_url: https://github.com/autonlab/AutonFeat
 remote_branch: gh-pages
 remote_name: lab
 
@@ -70,7 +70,7 @@ plugins:
       default_handler: python
       handlers:
         python:
-          paths: [autofeat]
+          paths: [autonfeat]
           options:
             show_source: false
             heading_level: 2

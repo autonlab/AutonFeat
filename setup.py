@@ -1,4 +1,4 @@
-from autofeat import SetupProperties
+from autonfeat import SetupProperties
 from distutils.core import setup
 
 setup_properties = SetupProperties()
