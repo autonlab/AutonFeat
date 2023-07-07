@@ -16,7 +16,7 @@ convert_to_markdown() {
     local markdown_file="${base_name%.ipynb}.md"
     
     # Convert to markdown
-    jupyter nbconvert --execute --to markdown "$ipynb_file" --output-dir="$output_directory"
+    jupyter nbconvert --to markdown "$ipynb_file" --output-dir="$output_directory"
 }
 
 # Iterate over the ipynb files, run the notebooks, perform the conversion and replace doc files
