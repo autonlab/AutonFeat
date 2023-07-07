@@ -16,19 +16,21 @@ jobs:
         with:
           python-version: 3.9.6
       - name: Install dependencies
-        run: pip install jinja2 \
-                         markdown \
-                         mkdocs \
-                         mkdocs-material \
-                         mkdocs-material-extensions \
-                         pygments \
-                         pymdown-extensions \
-                         mkdocs-minify-plugin \
-                         mkdocstrings \
-                         'mkdocstrings[crystal,python]' \
-                         colorama \
-                         regex \
-                         requests
+        run: |
+          python -m pip install --upgrade pip
+          pip install jinja2 \
+                          markdown \
+                          mkdocs \
+                          mkdocs-material \
+                          mkdocs-material-extensions \
+                          pygments \
+                          pymdown-extensions \
+                          mkdocs-minify-plugin \
+                          mkdocstrings \
+                          'mkdocstrings[crystal,python]' \
+                          colorama \
+                          regex \
+                          requests
       - name: Add remote
         run: git remote add lab "https://github.com/autonlab/AutoFeat.git"
       - name: Build and deploy documentation
