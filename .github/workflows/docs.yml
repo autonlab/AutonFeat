@@ -30,8 +30,17 @@ jobs:
                           'mkdocstrings[crystal,python]' \
                           colorama \
                           regex \
-                          requests
+                          requests \
+                          matplotlib \
+                          numpy \
+                          nbconvert \
       - name: Add remote
         run: git remote add lab "https://github.com/autonlab/AutoFeat.git"
-      - name: Build and deploy documentation
-        run: mkdocs gh-deploy --force -c -v
+      - name: Build and deploy
+        run: |
+          cd scripts/docs
+          bash generate_assets.sh
+          bash generate_tutorials.sh
+          cd ..
+          cd ..
+          mkdocs gh-deploy --force -c -v
