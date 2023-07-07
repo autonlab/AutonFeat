@@ -16,15 +16,18 @@ convert_to_markdown() {
     local markdown_file="${base_name%.ipynb}.md"
     
     # Convert to markdown
-    jupyter nbconvert --to markdown "$ipynb_file" --output-dir="$output_directory"
+    jupyter nbconvert --execute --to markdown "$ipynb_file" --output-dir="$output_directory"
 }
 
-# Iterate over the ipynb files and perform the conversion and copying
+# Iterate over the ipynb files, run the notebooks, perform the conversion and replace doc files
 for file in $ipynb_files; do
+    # Remove the existing folder
     folder_name_path="${file%'.ipynb'}"_files
     folder_name="$output_directory/${folder_name_path##*/}"
     if [ -d "$folder_name" ]; then
         rm -rf "$folder_name"
     fi
+    # Run the notebook and
+    # Convert to markdown and copy files
     convert_to_markdown "$file"
 done
