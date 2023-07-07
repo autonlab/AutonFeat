@@ -1,6 +1,9 @@
+import sys
+sys.path.append("../../../AutonFeat")
+
 import numpy as np
 import matplotlib.pyplot as plt
-from autofeat.preprocess.functional import delta_tf
+from autonfeat.preprocess.functional import delta_tf
 
 
 def main():

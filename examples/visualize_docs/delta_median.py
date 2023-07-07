@@ -1,6 +1,9 @@
+import sys
+sys.path.append("../../../AutonFeat")
+
 import numpy as np
 import matplotlib.pyplot as plt
-import autofeat as aft
+import autonfeat as aft
 
 
 def main():

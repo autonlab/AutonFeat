@@ -1,7 +1,10 @@
+import sys
+sys.path.append("../../../AutonFeat")
+
 import numpy as np
 import matplotlib.pyplot as plt
-import autofeat.functional as F
-import autofeat.preprocess.functional as PF
+import autonfeat.functional as F
+import autonfeat.preprocess.functional as PF
 
 
 def main():
