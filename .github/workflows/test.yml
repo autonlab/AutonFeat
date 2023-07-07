@@ -27,6 +27,6 @@ jobs:
                       scipy
           pip install -r requirements.txt
       - name: Lint with flake8
-        run: flake8 autofeat --ignore=E501
+        run: flake8 autonfeat --ignore=E501
       - name: Test with pytest
         run: python -m pytest --quiet tests

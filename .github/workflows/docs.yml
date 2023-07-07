@@ -33,10 +33,13 @@ jobs:
                       requests \
                       matplotlib \
                       numpy \
+                      pandas \
+                      scipy \
+                      scikit-learn \
                       nbconvert \
-                      autofeat \
+                      ipython
       - name: Add remote
-        run: git remote add lab "https://github.com/autonlab/AutoFeat.git"
+        run: git remote add lab "https://github.com/autonlab/AutonFeat.git"
       - name: Build and deploy
         run: |
           cd scripts/docs
