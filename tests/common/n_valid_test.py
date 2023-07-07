@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import NValidTransform
+from autonfeat import NValidTransform
 
 
 def test_n_valid():

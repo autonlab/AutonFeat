@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.preprocess import DeltaMaxPreprocessor
+from autonfeat.preprocess import DeltaMaxPreprocessor
 
 
 def test_delta_max():

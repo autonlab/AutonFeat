@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import MedianTransform
+from autonfeat import MedianTransform
 import pytest
 
 

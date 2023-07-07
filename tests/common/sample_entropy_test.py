@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import SampleEntropyTransform
+from autonfeat import SampleEntropyTransform
 import pytest
 
 
@@ -15,4 +15,4 @@ def test_sample_entropy():
 
     y = 0.0
 
-    # assert pytest.approx(y_hat) == y
+    assert pytest.approx(y_hat) == y

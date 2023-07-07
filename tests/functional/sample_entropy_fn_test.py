@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.functional import sample_entropy_tf
+from autonfeat.functional import sample_entropy_tf
 import pytest
 
 
@@ -13,4 +13,4 @@ def test_sample_entropy_fn():
 
     y = 0.0
 
-    # assert pytest.approx(y_hat) == y
+    assert pytest.approx(y_hat) == y

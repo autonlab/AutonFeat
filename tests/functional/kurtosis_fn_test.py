@@ -1,6 +1,6 @@
 import numpy as np
 import scipy.stats as stats
-from autofeat.functional import kurtosis_tf
+from autonfeat.functional import kurtosis_tf
 import pytest
 
 

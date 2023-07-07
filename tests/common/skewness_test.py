@@ -1,6 +1,6 @@
 import numpy as np
 import scipy.stats as stats
-from autofeat import SkewnessTransform
+from autonfeat import SkewnessTransform
 import pytest
 
 

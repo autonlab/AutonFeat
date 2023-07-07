@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.preprocess.functional import delta_var_tf
+from autonfeat.preprocess.functional import delta_var_tf
 
 
 def test_delta_var_fn():

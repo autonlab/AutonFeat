@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.functional import iqr_tf
+from autonfeat.functional import iqr_tf
 import pytest
 
 

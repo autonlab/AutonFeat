@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from autofeat.utils.datasets import list_datasets, get_dataset
+from autonfeat.utils.datasets import list_datasets, get_dataset
 
 
 def test_list_datasets_fn():

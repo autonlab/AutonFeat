@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import StdTransform
+from autonfeat import StdTransform
 import pytest
 
 

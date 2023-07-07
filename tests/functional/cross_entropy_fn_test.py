@@ -1,6 +1,6 @@
 import numpy as np
 import scipy.stats as stats
-from autofeat.functional import cross_entropy_tf
+from autonfeat.functional import cross_entropy_tf
 import pytest
 
 

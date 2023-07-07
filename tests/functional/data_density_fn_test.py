@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.functional import data_density_tf
+from autonfeat.functional import data_density_tf
 
 
 def test_data_density_fn():

@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import MinTransform
+from autonfeat import MinTransform
 import pytest
 
 

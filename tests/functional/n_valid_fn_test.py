@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.functional import n_valid_tf
+from autonfeat.functional import n_valid_tf
 
 
 def test_n_valid_fn():

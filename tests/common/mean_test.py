@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import MeanTransform
+from autonfeat import MeanTransform
 import pytest
 
 

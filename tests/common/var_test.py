@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import VarTransform
+from autonfeat import VarTransform
 import pytest
 
 

@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.functional import data_sparsity_tf
+from autonfeat.functional import data_sparsity_tf
 
 
 def test_data_sparsity_fn():

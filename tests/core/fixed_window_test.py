@@ -1,5 +1,5 @@
-from autofeat.core import SlidingWindow
-from autofeat.common import MeanTransform
+from autonfeat.core import SlidingWindow
+from autonfeat.common import MeanTransform
 import numpy as np
 
 

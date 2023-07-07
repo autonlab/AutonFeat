@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import RangeTransform
+from autonfeat import RangeTransform
 import pytest
 
 

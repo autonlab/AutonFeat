@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.functional import quantile_tf
+from autonfeat.functional import quantile_tf
 import pytest
 
 

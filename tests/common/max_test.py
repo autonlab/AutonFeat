@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import MaxTransform
+from autonfeat import MaxTransform
 import pytest
 
 

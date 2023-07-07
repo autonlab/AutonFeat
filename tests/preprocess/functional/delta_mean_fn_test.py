@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.preprocess.functional import delta_mean_tf
+from autonfeat.preprocess.functional import delta_mean_tf
 
 
 def test_delta_mean_fn():

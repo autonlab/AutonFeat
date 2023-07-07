@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.functional import max_tf
+from autonfeat.functional import max_tf
 import pytest
 
 

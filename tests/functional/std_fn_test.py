@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.functional import std_tf
+from autonfeat.functional import std_tf
 import pytest
 
 

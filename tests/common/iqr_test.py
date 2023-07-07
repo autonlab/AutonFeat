@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import IQRTransform
+from autonfeat import IQRTransform
 import pytest
 
 

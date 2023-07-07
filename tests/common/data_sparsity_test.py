@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import DataSparsityTransform
+from autonfeat import DataSparsityTransform
 
 
 def test_data_sparsity():

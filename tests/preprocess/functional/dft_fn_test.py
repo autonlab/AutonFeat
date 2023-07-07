@@ -1,6 +1,6 @@
 import numpy as np
 import scipy as sp
-from autofeat.preprocess.functional import dft_tf
+from autonfeat.preprocess.functional import dft_tf
 
 
 def test_dft_fn():

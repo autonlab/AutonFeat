@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import QuantileTransform
+from autonfeat import QuantileTransform
 import pytest
 
 

@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.preprocess import LagPreprocessor
+from autonfeat.preprocess import LagPreprocessor
 
 
 def nan_compare(arr1, arr2):

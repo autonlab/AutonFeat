@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat import DataDensityTransform
+from autonfeat import DataDensityTransform
 
 
 def test_data_density():

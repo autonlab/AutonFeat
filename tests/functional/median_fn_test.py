@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.functional import median_tf
+from autonfeat.functional import median_tf
 import pytest
 
 

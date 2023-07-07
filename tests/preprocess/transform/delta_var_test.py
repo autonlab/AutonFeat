@@ -1,5 +1,5 @@
 import numpy as np
-from autofeat.preprocess import DeltaVarPreprocessor
+from autonfeat.preprocess import DeltaVarPreprocessor
 
 
 def test_delta_var():
