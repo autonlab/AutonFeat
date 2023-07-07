@@ -6,7 +6,7 @@ $$
 x_{shifted_{i}} = x_{i} - \delta, \quad \forall i \in \{1, \dots, N\}, \quad \delta \in \mathbb{R}
 $$
 
-::: autofeat.preprocess.functional.delta_tf
+::: autonfeat.preprocess.functional.delta_tf
 
 ## Examples
 
@@ -44,7 +44,7 @@ $T = 10$ s
 
 ```python
 import numpy as np
-import autofeat.preprocess.functional as PF
+import autonfeat.preprocess.functional as PF
 
 # Define signal
 time = np.linspace(0, 10, 1000) # secs
@@ -125,4 +125,4 @@ We can observe how with the help of the *delta preprocessor* function, shifting 
 Half-wave rectifiers are equivalent to a [rectified linear unit](https://www.cs.toronto.edu/~fritz/absps/reluICML.pdf) i.e. the $ReLU$ activation function used in neural networks.
 
 
-If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

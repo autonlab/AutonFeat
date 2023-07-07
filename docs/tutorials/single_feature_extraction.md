@@ -1,30 +1,30 @@
 # Single Feature Extraction
 
-In this tutorial we will show you how to install and use the `autofeat` package for single-feature extraction. We apply the package to the problem of ***time-series forecasting*** i.e. using past values of a time-series to predict future values.
+In this tutorial we will show you how to install and use the `AutonFeat` package for single-feature extraction. We apply the package to the problem of ***time-series forecasting*** i.e. using past values of a time-series to predict future values.
 
 Feel free to follow along in this Google Colab notebook - 
 
-<a href="https://colab.research.google.com/github/autonlab/AutoFeat/blob/main/examples/tutorials/single_feature_extraction.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/autonlab/AutonFeat/blob/main/examples/tutorials/single_feature_extraction.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ## Install Packages
 
 
 ```python
 %%capture
-!pip install git+https://github.com/autonlab/AutoFeat.git
+!pip install git+https://github.com/autonlab/AutonFeat.git
 ```
 
 
 ```python
 %%capture
-!git clone "https://github.com/autonlab/AutoFeat.git"
+!git clone "https://github.com/autonlab/AutonFeat.git"
 import sys
-sys.path.append("AutoFeat")
+sys.path.append("AutonFeat")
 ```
 
 
 ```python
-import autofeat as aft
+import autonfeat as aft
 import numpy as np
 import pandas as pd
 ```
@@ -133,7 +133,7 @@ ax.grid()
 
 ## Preprocess Data
 
-We can compute lag features using the preprocessing library from `AutoFeat`. This is often useful for time-series forecasting problems. We can combine this with feature extraction of summary statistics to create a rich set of features for our model (we will see this in the next section).
+We can compute lag features using the preprocessing library from `AutonFeat`. This is often useful for time-series forecasting problems. We can combine this with feature extraction of summary statistics to create a rich set of features for our model (we will see this in the next section).
 
 
 ```python
@@ -431,6 +431,4 @@ ax.grid()
     
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
-
-
+If you enjoy using `AutonFeat`, please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

@@ -16,7 +16,7 @@ $$
 
 where $p$ and $q$ are the two probability distributions. The relative entropy is zero if and only if the two distributions are identical. The relative entropy is always non-negative.
 
-::: autofeat.functional.entropy_tf
+::: autonfeat.functional.entropy_tf
       
 
 ## Examples
@@ -25,8 +25,8 @@ where $p$ and $q$ are the two probability distributions. The relative entropy is
 
 ```python
 import numpy as np
-import autofeat as aft
-import autofeat.functional as F
+import autonfeat as aft
+import autonfeat.functional as F
 
 # Random data
 n_samples = 100
@@ -51,8 +51,8 @@ print(features)
 
 ```python
 import numpy as np
-import autofeat as aft
-import autofeat.functional as F
+import autonfeat as aft
+import autonfeat.functional as F
 
 # Random data
 n_samples = 100
@@ -74,4 +74,4 @@ features = featurizer(x1, x2)
 print(features)
 ```
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

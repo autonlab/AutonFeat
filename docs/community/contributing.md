@@ -2,7 +2,7 @@
 
 We'd love to hear from you! Feel free to open an issue or a PR if you have any suggestions or find any bugs.
 
-When contributing, please add tests to the `autofeat_test` directory. Additionally, we follow [`flake8`](https://flake8.pycqa.org/en/latest/) as a linter and [`pytest`](https://docs.pytest.org/en/7.3.x/) for testing. Please lint your code before submitting a pull request to maintain design consistency. For documentation, please write docstrings following the [Google style guide](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings). We use a variant of this style guide for docstrings as shown below:
+When contributing, please add tests to the `tests` directory. Additionally, we follow [`flake8`](https://flake8.pycqa.org/en/latest/) as a linter and [`pytest`](https://docs.pytest.org/en/7.3.x/) for testing. Please lint your code before submitting a pull request to maintain design consistency. For documentation, please write docstrings following the [Google style guide](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings). We use a variant of this style guide for docstrings as shown below:
 
 ```python
 def mean_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x)) -> Union[float, np.float_]:
@@ -31,7 +31,7 @@ The following commands can be run for verficiation before opening a PR:
 python -m pytest tests
 
 # Linting
-flake8 autofeat --ignore=E501
+flake8 autonfeat --ignore=E501
 ```
 
-If you enjoy using [`AutoFeat`](../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

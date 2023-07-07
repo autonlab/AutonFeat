@@ -2,7 +2,7 @@
 
 The quantile function computes the q-th quantile of the data in the sliding window. The quantile is computed using the [numpy.quantile](https://numpy.org/doc/stable/reference/generated/numpy.quantile.html) function. The function can be combined with the [`SlidingWindow`](../core/fixed_window.md) to compute the quantile of the data in a sliding window. We can use this function to compute the median of the data in a sliding window by setting `q=0.5`.
 
-::: autofeat.functional.quantile_tf
+::: autonfeat.functional.quantile_tf
 
 ## Examples
 
@@ -10,8 +10,8 @@ The quantile function computes the q-th quantile of the data in the sliding wind
 
 ```python
 import numpy as np
-import autofeat as aft
-import autofeat.functional as F
+import autonfeat as aft
+import autonfeat.functional as F
 
 # Random data
 n_samples = 100
@@ -36,8 +36,8 @@ print(features)
 
 ```python
 import numpy as np
-import autofeat as aft
-import autofeat.functional as F
+import autonfeat as aft
+import autonfeat.functional as F
 
 # Random data
 n_samples = 100
@@ -59,4 +59,4 @@ print(features)
 ```
 
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

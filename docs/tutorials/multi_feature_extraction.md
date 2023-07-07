@@ -1,6 +1,6 @@
 # Multi-Feature Extraction
 
-When featurizing time-series signals, it is often useful to extract multiple features from the same signal. For example, we may want to compute a subset of summary statistics (e.g. mean, variance, etc.) on the data. This often makes the job of the model easier in converging to a better performance metric. In this tutorial, we will show how to extract multiple features from the same signal using `AutoFeat`. We also show how the features from `AutoFeat` can be used in conjunction with other libraries such as `scikit-learn` to build a predictive model.
+When featurizing time-series signals, it is often useful to extract multiple features from the same signal. For example, we may want to compute a subset of summary statistics (e.g. mean, variance, etc.) on the data. This often makes the job of the model easier in converging to a better performance metric. In this tutorial, we will show how to extract multiple features from the same signal using `AutonFeat`. We also show how the features from `AutonFeat` can be used in conjunction with other libraries such as `scikit-learn` to build a predictive model.
 
 ## Setup
 
@@ -25,7 +25,7 @@ y = (y > np.median(y)).astype(int)
 
 ## Featurization
 
-We now featurize the data using `AutoFeat`. We will extract the following features from the data:
+We now featurize the data using `AutonFeat`. We will extract the following features from the data:
 
 - `mean`: The mean of the signal (at each window).
 - `var`: The variance of the signal (at each window).
@@ -36,7 +36,7 @@ We now featurize the data using `AutoFeat`. We will extract the following featur
 ### Sliding Window and Features
 
 ```python
-import autofeat as aft
+import autonfeat as aft
 
 # Sliding window parameters
 window_size = 10
@@ -103,8 +103,8 @@ print("ROC AUC Score: {:.2f}".format(roc_auc_score(y_test, y_pred)))
 
 ## Conclusion
 
-In this tutorial, we showed how to extract multiple features from the same signal using `AutoFeat`. We also showed how the features from `AutoFeat` can be used in conjunction with other libraries such as `scikit-learn` to build a predictive model.
+In this tutorial, we showed how to extract multiple features from the same signal using `AutonFeat`. We also showed how the features from `AutonFeat` can be used in conjunction with other libraries such as `scikit-learn` to build a predictive model.
 
 
-If you enjoy using `AutoFeat`, please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using `AutonFeat`, please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.
 

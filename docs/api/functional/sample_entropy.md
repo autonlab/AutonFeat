@@ -8,15 +8,15 @@ $$
 
 where $A$ is the number of matches for template vectors of length $m$ and $B$ is the number of matches for template vectors of length $m + 1$. A match is defined as a template vector $x_{m_i}$ that is close to another template vector $x_{m_j}$ in the sense that the maximum absolute difference between their corresponding scalar elements is less than or equal to a threshold $r$.
 
-::: autofeat.functional.sample_entropy_tf
+::: autonfeat.functional.sample_entropy_tf
       
 
 ## Examples
 
 ```python
 import numpy as np
-import autofeat as aft
-import autofeat.functional as F
+import autonfeat as aft
+import autonfeat.functional as F
 
 # Random data
 n_samples = 100
@@ -38,4 +38,4 @@ print(features)
 ```
 
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

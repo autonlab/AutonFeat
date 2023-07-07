@@ -8,7 +8,7 @@ $$
 
 For shifting signals by a custom $\delta$, see the [`delta preprocessor`](../functional/delta_preprocessor_fn.md) function. For more on how we compute the mean of a signal, check out [`mean`](../../functional/mean.md) function.
 
-::: autofeat.preprocess.functional.delta_mean_tf
+::: autonfeat.preprocess.functional.delta_mean_tf
 
 ## Examples
 
@@ -24,7 +24,7 @@ $$
 
 ```python
 import numpy as np
-import autofeat.preprocess.functional as PF
+import autonfeat.preprocess.functional as PF
 
 # Parameters for the normal distribution
 mu = 50      # Mean
@@ -79,4 +79,4 @@ This can be seen in the figure below.
 ![DeltaMean](../../../assets/delta_mean_f_visualize.png)
 
 
-If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

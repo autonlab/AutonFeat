@@ -8,7 +8,7 @@ $$
 
 For shifting signals by a custom $\delta$, see the [`delta preprocessor`](../functional/delta_preprocessor_fn.md) function. For more on how we compute the median of a signal, check out [`median`](../../functional/median.md) function.
 
-::: autofeat.preprocess.functional.delta_median_tf
+::: autonfeat.preprocess.functional.delta_median_tf
 
 ## Examples
 
@@ -20,7 +20,7 @@ We first generate the signals. Then we perform the equilization by applying the 
 
 ```python
 import numpy as np
-import autofeat.preprocess.functional as PF
+import autonfeat.preprocess.functional as PF
 
 # Generating example signals for each instrument
 num_samples = 100
@@ -81,4 +81,4 @@ As seen in the figure, the drums signal which had a higher mean than the other s
 ![DeltaMedian](../../../assets/delta_median_f_visualize.png)
 
 
-If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

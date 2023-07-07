@@ -8,15 +8,15 @@ $$
 
 where $p$ and $q$ are the two probability distributions. The cross entropy is a measure of the difference between two probability distributions. The cross entropy is zero if and only if the two distributions are identical. The cross entropy is always non-negative i.e. $H(p, q) \geq 0$.
 
-::: autofeat.functional.cross_entropy_tf
+::: autonfeat.functional.cross_entropy_tf
       
 
 ## Examples
 
 ```python
 import numpy as np
-import autofeat as aft
-import autofeat.functional as F
+import autonfeat as aft
+import autonfeat.functional as F
 
 # Random data
 n_samples = 100
@@ -38,4 +38,4 @@ features = featurizer(x1, x2)
 print(features)
 ```
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

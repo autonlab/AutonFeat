@@ -10,7 +10,7 @@ where $x_{i}$ represents an element of the input signal, $x_{shifted_{i}}$ repre
 
 For shifting signals by a custom $\delta$, see the [`delta preprocessor`](../functional/delta_preprocessor_fn.md) function. For more on how we compute the quantile of a signal, check out [`quantile`](../../functional/quantile.md) function.
 
-::: autofeat.preprocess.functional.delta_quantile_tf
+::: autonfeat.preprocess.functional.delta_quantile_tf
 
 ## Examples
 
@@ -18,8 +18,8 @@ For shifting signals by a custom $\delta$, see the [`delta preprocessor`](../fun
 
 ```python
 import numpy as np
-import autofeat.functional as F
-import autofeat.functional.preprocess as PF
+import autonfeat.functional as F
+import autonfeat.functional.preprocess as PF
 
 # Generate data
 n_samples = 1000
@@ -57,4 +57,4 @@ plt.show()
 ![DeltaQuantile](../../../assets/delta_quantile_f_visualize.png)
 
 
-If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

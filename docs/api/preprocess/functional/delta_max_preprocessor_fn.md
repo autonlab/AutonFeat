@@ -8,7 +8,7 @@ $$
 
 For shifting signals by a custom $\delta$, see the [`delta preprocessor`](../functional/delta_preprocessor_fn.md) function. For more on how we compute the max of a signal, check out [`max`](../../functional/max.md) function.
 
-::: autofeat.preprocess.functional.delta_max_tf
+::: autonfeat.preprocess.functional.delta_max_tf
 
 ## Examples
 
@@ -18,7 +18,7 @@ Consider the following example. We generate a sound wave with a frequencey of 50
 
 ```python
 import numpy as np
-import autofeat.preprocess.functional as PF
+import autonfeat.preprocess.functional as PF
 
 # Create a random signal
 time = np.linspace(0, 10, 1000)
@@ -54,4 +54,4 @@ This can be seen in the figure below.
 
 ![DeltaMax](../../../assets/delta_max_f_visualize.png)
 
-If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

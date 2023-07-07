@@ -9,14 +9,14 @@ $$
 where $N_{valid}$ is the number of valid values in a window $W$ and $N_{total}$ is the total number of values in $W$.
 
 
-::: autofeat.common.DataDensityTransform
+::: autonfeat.common.DataDensityTransform
       
 
 ## Examples
 
 ```python
 import numpy as np
-import autofeat as aft
+import autonfeat as aft
 
 # Random data
 n_samples = 100
@@ -42,4 +42,4 @@ print(tf)
 print(features)
 ```
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

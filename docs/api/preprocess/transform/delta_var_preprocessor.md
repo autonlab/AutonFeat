@@ -8,7 +8,7 @@ $$
 
 For shifting signals by a custom $\delta$, see the [`Delta Transform Preprocessor`](delta_preprocessor.md). For more on how we compute the var of a signal, check out [`var`](../../functional/var.md) function.
 
-::: autofeat.preprocess.transform.DeltaVarPreprocessor
+::: autonfeat.preprocess.transform.DeltaVarPreprocessor
 
 ## Examples
 
@@ -27,7 +27,7 @@ $$
 
 ```python
 import numpy as np
-import autofeat as aft
+import autonfeat as aft
 
 # Number of samples
 n_samples = 100
@@ -74,4 +74,4 @@ This can be seen in the figure below.
 ![DeltaVar](../../../assets/delta_var_visualize.png)
 
 
-If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

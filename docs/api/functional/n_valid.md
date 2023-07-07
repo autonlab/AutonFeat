@@ -17,15 +17,15 @@ $$
 
 where $n$ is the number of measurements in the sliding window.
 
-::: autofeat.functional.n_valid_tf
+::: autonfeat.functional.n_valid_tf
       
 
 ## Examples
 
 ```python
 import numpy as np
-import autofeat as aft
-import autofeat.functional as F
+import autonfeat as aft
+import autonfeat.functional as F
 
 # Random data
 n_samples = 100
@@ -47,4 +47,4 @@ print(features)
 ```
 
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

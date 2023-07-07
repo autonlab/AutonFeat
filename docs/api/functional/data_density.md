@@ -9,15 +9,15 @@ $$
 where $N_{valid}$ is the number of valid values in a window $W$ and $N_{total}$ is the total number of values in $W$.
 
 
-::: autofeat.functional.data_density_tf
+::: autonfeat.functional.data_density_tf
       
 
 ## Examples
 
 ```python
 import numpy as np
-import autofeat as aft
-import autofeat.functional as F
+import autonfeat as aft
+import autonfeat.functional as F
 
 # Random data
 n_samples = 100
@@ -38,4 +38,4 @@ features = featurizer(x)
 print(features)
 ```
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

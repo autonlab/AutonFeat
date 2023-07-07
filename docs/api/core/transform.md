@@ -1,8 +1,8 @@
 # Transform
 
-One of the ***core*** building blocks of [`AutoFeat`](../../index.md) is the [`Transform`](transform.md) abstraction. This enables users to define custom featurizers that can be applied to the sliding window intervals and is how we implement the build-in feature extractors. 
+One of the ***core*** building blocks of [`AutonFeat`](../../index.md) is the [`Transform`](transform.md) abstraction. This enables users to define custom featurizers that can be applied to the sliding window intervals and is how we implement the build-in feature extractors. 
 
-::: autofeat.core.Transform
+::: autonfeat.core.Transform
 
 ## Examples
 
@@ -26,7 +26,7 @@ Use the `Transform` abstraction to define the featurizer.
 ```python
 import numpy as np
 from typing import Callable, Union
-from autofeat.core import Transform
+from autonfeat.core import Transform
 
 class MeanTransform(Transform):
     def __init__(self, name: str = "Mean") -> None:
@@ -43,7 +43,7 @@ class MeanTransform(Transform):
 Using the [`SlidingWindow`](fixed_window.md) abstraction, we can apply the transform to the sliding window intervals.
 
 ```python
-import autofeat as aft
+import autonfeat as aft
 
 # Random data
 n_samples = 100
@@ -69,4 +69,4 @@ print(tf)
 print(features)
 ```
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

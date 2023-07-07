@@ -8,14 +8,14 @@ $$
 
 where $x_i$ is the $i$-th element of the window and $n$ is the number of elements in the window.
 
-::: autofeat.common.MeanTransform
+::: autonfeat.common.MeanTransform
       
 
 ## Examples
 
 ```python
 import numpy as np
-import autofeat as aft
+import autonfeat as aft
 
 # Random data
 n_samples = 100
@@ -41,4 +41,4 @@ print(tf)
 print(features)
 ```
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

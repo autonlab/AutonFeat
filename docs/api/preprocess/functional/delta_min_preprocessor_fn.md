@@ -8,7 +8,7 @@ $$
 
 For shifting signals by a custom $\delta$, see the [`delta preprocessor`](../functional/delta_preprocessor_fn.md) function. For more on how we compute the min of a signal, check out [`min`](../../functional/min.md) function.
 
-::: autofeat.preprocess.functional.delta_min_tf
+::: autonfeat.preprocess.functional.delta_min_tf
 
 ## Examples
 
@@ -16,7 +16,7 @@ For shifting signals by a custom $\delta$, see the [`delta preprocessor`](../fun
 
 ```python
 import numpy as np
-import autofeat.preprocess.functional as PF
+import autonfeat.preprocess.functional as PF
 
 # Create a random signal
 time = np.linspace(0, 10, 1000)
@@ -50,4 +50,4 @@ This can be seen in the figure below.
 ![DeltaMin](../../../assets/delta_min_f_visualize.png)
 
 
-If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

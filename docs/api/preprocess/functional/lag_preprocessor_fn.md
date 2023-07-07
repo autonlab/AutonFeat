@@ -19,7 +19,7 @@ where $x_{t, \tau}$ is the lag transform of $x_t$ by some integer amount $\tau$.
 > - When the signal is lagged, the first $\tau$ elements are set to `np.nan` values. This is because the lag transform is undefined for these elements. Therefore, when being used the user must ensure that these values are handled appropriately.
 > - Only arrays of `floats` are supported. If passed an array of another type, it will be cast to `float`. If this fails, the function will raise an exception.
 
-::: autofeat.preprocess.transform.LagPreprocessor
+::: autonfeat.preprocess.transform.LagPreprocessor
 
 ## Examples
 
@@ -34,7 +34,7 @@ $$
 
 ```python
 import numpy as np
-import autofeat as aft
+import autonfeat as aft
 
 # Define signal
 num_samples = 10
@@ -71,4 +71,4 @@ plt.show()
 ![Lag](../../../assets/lag_f_visualize.png)
 
 
-If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

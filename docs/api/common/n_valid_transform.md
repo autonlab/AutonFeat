@@ -17,14 +17,14 @@ $$
 
 where $n$ is the number of measurements in the sliding window.
 
-::: autofeat.common.NValidTransform
+::: autonfeat.common.NValidTransform
       
 
 ## Examples
 
 ```python
 import numpy as np
-import autofeat as aft
+import autonfeat as aft
 
 # Random data
 n_samples = 100
@@ -51,4 +51,4 @@ print(features)
 ```
 
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

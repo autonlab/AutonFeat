@@ -9,14 +9,14 @@ $$
 where $x_i$ is the $i$-th element of the window, $n$ is the number of elements in the window, and $\mu$ is the mean of the window.
 
 
-::: autofeat.common.VarTransform
+::: autonfeat.common.VarTransform
       
 
 ## Examples
 
 ```python
 import numpy as np
-import autofeat as aft
+import autonfeat as aft
 
 # Random data
 n_samples = 100
@@ -43,4 +43,4 @@ print(features)
 ```
 
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

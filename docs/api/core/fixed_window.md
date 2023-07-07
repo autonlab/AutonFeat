@@ -17,7 +17,7 @@ Overflow can occur when the window extends beyond the bounds of the signal. This
 
 We provide some examples below on how to combine the *fixed sliding window* abstraction with feature extractors to compute features across a signal.
 
-::: autofeat.core.SlidingWindow
+::: autonfeat.core.SlidingWindow
 
 ## Examples
 
@@ -37,7 +37,7 @@ $F = \text{mean}$
 
 ```python
 import numpy as np
-import autofeat as aft
+import autonfeat as aft
 
 # Setup the signal
 t = np.linspace(0, 10, 1000)
@@ -73,4 +73,4 @@ We can view the following operation below:
 ![FixedSlidingWindow](../../assets/fixed_sliding_window_animation.gif)
 
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

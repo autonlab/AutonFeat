@@ -8,13 +8,13 @@ $$
 
 where $\text{Q1}$ and $\text{Q3}$ are the $25^{th}$ and $75^{th}$ percentiles of the data, respectively.
 
-::: autofeat.common.IQRTransform
+::: autonfeat.common.IQRTransform
 
 ## Examples
 
 ```python
 import numpy as np
-import autofeat as aft
+import autonfeat as aft
 
 # Random data
 n_samples = 100
@@ -40,4 +40,4 @@ print(tf)
 print(features)
 ```
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

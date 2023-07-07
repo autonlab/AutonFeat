@@ -21,7 +21,7 @@ $$
 
 where $N$ is the number of samples in the window and $\bar{x}$ is the mean of the window.
 
-::: autofeat.common.KurtosisTransform
+::: autonfeat.common.KurtosisTransform
       
 
 ## Examples
@@ -30,7 +30,7 @@ where $N$ is the number of samples in the window and $\bar{x}$ is the mean of th
 
 ```python
 import numpy as np
-import autofeat as aft
+import autonfeat as aft
 
 # Random data
 n_samples = 100
@@ -60,7 +60,7 @@ print(features)
 
 ```python
 import numpy as np
-import autofeat as aft
+import autonfeat as aft
 
 # Random data
 n_samples = 100
@@ -86,4 +86,4 @@ print(tf)
 print(features)
 ```
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

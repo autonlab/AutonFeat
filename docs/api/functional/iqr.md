@@ -8,14 +8,14 @@ $$
 
 where $\text{Q1}$ and $\text{Q3}$ are the $25^{th}$ and $75^{th}$ percentiles of the data, respectively.
 
-::: autofeat.functional.iqr_tf
+::: autonfeat.functional.iqr_tf
 
 ## Examples
 
 ```python
 import numpy as np
-import autofeat as aft
-import autofeat.functional as F
+import autonfeat as aft
+import autonfeat.functional as F
 
 # Random data
 n_samples = 100
@@ -36,4 +36,4 @@ features = featurizer(x)
 print(features)
 ```
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

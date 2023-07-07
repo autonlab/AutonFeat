@@ -2,15 +2,15 @@
 
 The mean function computes the mean of a signal. Mean is often used as a summary statistic for a signal. Using the [`SlidingWindow`](../core/fixed_window.md) abstraction, the mean can be computed over a sliding window of the signal to be produce a set of features that can be used for a downstream task.
 
-::: autofeat.functional.mean
+::: autonfeat.functional.mean
       
 
 ## Examples
 
 ```python
 import numpy as np
-import autofeat as aft
-import autofeat.functional as F
+import autonfeat as aft
+import autonfeat.functional as F
 
 # Random data
 n_samples = 100
@@ -32,4 +32,4 @@ print(features)
 ```
 
 
-If you enjoy using [`AutoFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

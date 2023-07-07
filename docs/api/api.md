@@ -1,17 +1,17 @@
 # API Reference Guide
 
-The [`AutoFeat`](../index.md) package is made up of several submodules. The following table provides a brief description of each submodule.
+The [`AutonFeat`](../index.md) package is made up of several submodules. The following table provides a brief description of each submodule.
 
 | Submodule | Description |
 | --- | --- |
-| **`autofeat.core`** | Contains the core functionality of the package. |
-| **`autofeat.common`** | Contains common featurizers. |
-| **`autofeat.functional`** | Contains the functional form of featurizers. |
-| **`autofeat.health`** | Contains healthcare related featurizers. |
-| **`autofeat.preprocess`** | Contains preprocessors. |
-| **`autofeat.preprocess.functional`** | Contains the functional form of preprocessors. |
-| **`autofeat.utils`** | Contains utility functions. |
+| **`autonfeat.core`** | Contains the core functionality of the package. |
+| **`autonfeat.common`** | Contains common featurizers. |
+| **`autonfeat.functional`** | Contains the functional form of featurizers. |
+| **`autonfeat.health`** | Contains healthcare related featurizers. |
+| **`autonfeat.preprocess`** | Contains preprocessors. |
+| **`autonfeat.preprocess.functional`** | Contains the functional form of preprocessors. |
+| **`autonfeat.utils`** | Contains utility functions. |
 
 
 
-If you enjoy using [`AutoFeat`](../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

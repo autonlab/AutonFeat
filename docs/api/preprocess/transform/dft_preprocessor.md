@@ -13,7 +13,7 @@ where $N$ is the number of samples and $k$ is the frequency index.
 > - The input signal must be real-valued.
 > - The transform is sensitive to noise and outliers.
 
-::: autofeat.preprocess.transform.DFTPreprocessor
+::: autonfeat.preprocess.transform.DFTPreprocessor
 
 ## Examples
 
@@ -23,7 +23,7 @@ We define as signal as $f(t) = 2 \sin(2 \pi t) + \sin(10 \cdot 2 \pi t)$ for $t 
 
 ```python
 import numpy as np
-import autofeat as aft
+import autonfeat as aft
 
 start_time = 1  # Start time in seconds
 end_time = 10    # End time in seconds
@@ -69,4 +69,4 @@ plt.show()
 ![DFT](../../../assets/dft_visualize.png)
 
 
-If you enjoy using [`AutoFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutoFeat) ⭐️.
+If you enjoy using [`AutonFeat`](../../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.
