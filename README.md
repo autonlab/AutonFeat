@@ -1,4 +1,4 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Georgia&size=26&duration=4000&pause=400&color=F70000&vCenter=true&multiline=true&width=750&height=100&lines=AutoFeat;A+High+Performance+Library+for+Time-Series+Featurization)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Georgia&size=26&duration=4000&pause=400&color=EE7600&vCenter=true&multiline=true&width=750&height=100&lines=AutoFeat;A+High+Performance+Library+for+Time-Series+Featurization)](https://git.io/typing-svg)
 
 ![Python](https://img.shields.io/badge/Python-3.9.6-blue)
 ![NumPy](https://img.shields.io/badge/NumPy-1.24.4-lightblue)
@@ -11,6 +11,10 @@ A high performance library for time series featurization.
 ## What? 🙋
 
 `AutoFeat` is a high-performant domain agnostic package for time series featurization. Despite the domain agnostic focus of the package, we recognize the benefit of domain knowledge and have included a few domain specific featurizers for popular domains like healthcare. With time series data, as with any data, it is often helpful to perform preprocessing before extracting information from it such as exploring the frequency domain as well as the time domain. We have provided a number of preprocessors that can transform the distribution or space to a form more amenable to certain featurizations. The package is lightweight, fast and easy to use. We hope you enjoy it! 🎉
+
+Here's an illustration of what featurization looks like:
+
+![AutoFeat](docs/assets/fixed_sliding_window_animation.gif)
 
 ## Why? 🤔
 
