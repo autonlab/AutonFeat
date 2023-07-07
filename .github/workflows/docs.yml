@@ -32,12 +32,11 @@ jobs:
                       regex \
                       requests \
                       matplotlib \
-                      numpy \
-                      pandas \
                       scipy \
                       scikit-learn \
                       nbconvert \
                       ipython
+          pip install -r requirements.txt
       - name: Add remote
         run: git remote add lab "https://github.com/autonlab/AutonFeat.git"
       - name: Build and deploy
