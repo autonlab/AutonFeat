@@ -28,7 +28,7 @@ The following commands can be run for verficiation before opening a PR:
 
 ```bash
 # Unit tests
-python -m pytest autofeat_test
+python -m pytest tests
 
 # Linting
 flake8 autofeat --ignore=E501
