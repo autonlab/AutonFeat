@@ -7,7 +7,7 @@ permissions:
   contents: write
 jobs:
   deploy:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -29,7 +29,7 @@ jobs:
                          colorama \
                          regex \
                          requests
-      - name: Build
+      - name: Add remote
         run: git remote add lab "https://github.com/autonlab/AutoFeat.git"
-      - name: Deploy
+      - name: Build and deploy documentation
         run: mkdocs gh-deploy --force -c -v
