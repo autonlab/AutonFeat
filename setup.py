@@ -1,15 +1,47 @@
-from autonfeat import SetupProperties
-from distutils.core import setup
+from setuptools import setup, find_packages
+from codecs import open
+from os import path
 
-setup_properties = SetupProperties()
+here = path.abspath(path.dirname(__file__))
+with open(path.join(here, 'README.md')) as f:
+    long_description = f.read()
+
+user_requirements = [
+    requirement.strip()
+    for requirement in open(
+        path.join(here, 'requirements.txt')
+    ).readlines()
+]
 
 setup(
-    name=setup_properties.get_name(),
-    version=setup_properties.get_version(),
-    description=setup_properties.get_description(),
-    author=[a for a in setup_properties.get_author()],
-    author_email=setup_properties.get_author_email(),
-    url=setup_properties.get_url(),
-    install_requires=[p for p in setup_properties.get_packages()],
-    license=setup_properties.get_license(),
+    name='autonfeat',
+    version='0.1.0',
+    author=[
+        'Dhruv Srikanth',
+        'Auton Lab'
+    ],
+    author_email='dsrikant@andrew.cmu.edu',
+    description='A High Performance Library for Time-Series Featurization.',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    license='Apache License 2.0',
+    url='https://autonlab.github.io/AutoFeat',
+    keywords=[
+        'artificial intelligence',
+        'machine learning',
+        'data science',
+        'data analysis',
+        'time-series',
+        'featurization',
+        'forecasting',
+        'high-performance computing',
+    ],
+    packages=find_packages(where='autonfeat'),
+    package_dir={'': 'autonfeat'},
+    install_requires=user_requirements,
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.8',
 )
