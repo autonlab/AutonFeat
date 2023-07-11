@@ -1,5 +1,6 @@
 import numpy as np
 from typing import Union, Callable
+import warnings
 
 
 def min_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]], Union[bool, np.bool_]] = lambda x: not np.isnan(x), initial: Union[int, float, np.int_, np.float_] = np.inf) -> Union[float, np.float_]:
@@ -18,4 +19,7 @@ def min_tf(x: np.ndarray, where: Callable[[Union[int, float, np.int_, np.float_]
     """
     # Vectorize where fn
     where_fn = np.vectorize(pyfunc=where)
+    if x.dtype != np.float_ and initial.dtype == np.float_:
+        warnings.warn("Only float arrays can be used with an initial comparator of type float, but the input array has dtype {}. Trying to cast array elements to numpy float.".format(x.dtype))
+        x = x.astype(np.float_)
     return np.amin(x, axis=0, where=where_fn(x), initial=initial)
