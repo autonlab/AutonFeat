@@ -11,7 +11,7 @@ Feel free to follow along in this Google Colab notebook -
 
 ```python
 %%capture
-!pip install git+https://github.com/autonlab/AutonFeat.git
+!pip install autonfeat
 ```
 
 
@@ -44,83 +44,60 @@ air_passengers_df.head()
 ```
 
 
-    ---------------------------------------------------------------------------
-
-    FileNotFoundError                         Traceback (most recent call last)
-
-    Cell In[5], line 1
-    ----> 1 air_passengers_df = aft.utils.datasets.get_dataset(name='airline passengers')
-          2 air_passengers_df['datestamp'] = pd.to_datetime(air_passengers_df['datestamp'])
-          3 air_passengers_df.drop(columns=['uid'], inplace=True)
 
 
-    File ~/Work/CMU/AutonFeat/.venv_test/lib/python3.9/site-packages/autonfeat/utils/datasets/dataset.py:49, in get_dataset(name)
-         47 dataset_map = get_dataset_map()
-         48 dataset_path = dataset_map[name]
-    ---> 49 return pd.read_csv(dataset_path)
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-    File ~/Work/CMU/AutonFeat/.venv_test/lib/python3.9/site-packages/pandas/io/parsers/readers.py:912, in read_csv(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)
-        899 kwds_defaults = _refine_defaults_read(
-        900     dialect,
-        901     delimiter,
-       (...)
-        908     dtype_backend=dtype_backend,
-        909 )
-        910 kwds.update(kwds_defaults)
-    --> 912 return _read(filepath_or_buffer, kwds)
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>datestamp</th>
+      <th>passengers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1949-01-31</td>
+      <td>112.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1949-02-28</td>
+      <td>118.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1949-03-31</td>
+      <td>132.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1949-04-30</td>
+      <td>129.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1949-05-31</td>
+      <td>121.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
-
-    File ~/Work/CMU/AutonFeat/.venv_test/lib/python3.9/site-packages/pandas/io/parsers/readers.py:577, in _read(filepath_or_buffer, kwds)
-        574 _validate_names(kwds.get("names", None))
-        576 # Create the parser.
-    --> 577 parser = TextFileReader(filepath_or_buffer, **kwds)
-        579 if chunksize or iterator:
-        580     return parser
-
-
-    File ~/Work/CMU/AutonFeat/.venv_test/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1407, in TextFileReader.__init__(self, f, engine, **kwds)
-       1404     self.options["has_index_names"] = kwds["has_index_names"]
-       1406 self.handles: IOHandles | None = None
-    -> 1407 self._engine = self._make_engine(f, self.engine)
-
-
-    File ~/Work/CMU/AutonFeat/.venv_test/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1661, in TextFileReader._make_engine(self, f, engine)
-       1659     if "b" not in mode:
-       1660         mode += "b"
-    -> 1661 self.handles = get_handle(
-       1662     f,
-       1663     mode,
-       1664     encoding=self.options.get("encoding", None),
-       1665     compression=self.options.get("compression", None),
-       1666     memory_map=self.options.get("memory_map", False),
-       1667     is_text=is_text,
-       1668     errors=self.options.get("encoding_errors", "strict"),
-       1669     storage_options=self.options.get("storage_options", None),
-       1670 )
-       1671 assert self.handles is not None
-       1672 f = self.handles.handle
-
-
-    File ~/Work/CMU/AutonFeat/.venv_test/lib/python3.9/site-packages/pandas/io/common.py:859, in get_handle(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)
-        854 elif isinstance(handle, str):
-        855     # Check whether the filename is to be opened in binary mode.
-        856     # Binary mode does not support 'encoding' and 'newline'.
-        857     if ioargs.encoding and "b" not in ioargs.mode:
-        858         # Encoding
-    --> 859         handle = open(
-        860             handle,
-        861             ioargs.mode,
-        862             encoding=ioargs.encoding,
-        863             errors=errors,
-        864             newline="",
-        865         )
-        866     else:
-        867         # Binary mode
-        868         handle = open(handle, ioargs.mode)
-
-
-    FileNotFoundError: [Errno 2] No such file or directory: '/Users/dhruvsrikanth/Work/CMU/AutonFeat/.venv_test/lib/python3.9/site-packages/autonfeat/utils/datasets/data/airline_passengers.csv'
 
 
 Plot the time-series (it is often useful to visualize the data before we start modeling):
@@ -139,6 +116,12 @@ ax.set_xlabel('Timestamp (t)', fontsize=20)
 ax.legend(prop={'size': 15})
 ax.grid()
 ```
+
+
+    
+![png](single_feature_extraction_files/single_feature_extraction_12_0.png)
+    
+
 
 ## Preprocess Data
 
@@ -202,6 +185,87 @@ Here is what our data looks like after *preprocessing* and *feature extraction*:
 air_passengers_df.head()
 ```
 
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>datestamp</th>
+      <th>passengers</th>
+      <th>passengers_lag1</th>
+      <th>passengers_lag2</th>
+      <th>passengers_lag3</th>
+      <th>passengers_mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1949-01-31</td>
+      <td>112.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>126.666667</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1949-02-28</td>
+      <td>118.0</td>
+      <td>112.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>126.916667</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1949-03-31</td>
+      <td>132.0</td>
+      <td>118.0</td>
+      <td>112.0</td>
+      <td>NaN</td>
+      <td>127.583333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1949-04-30</td>
+      <td>129.0</td>
+      <td>132.0</td>
+      <td>118.0</td>
+      <td>112.0</td>
+      <td>128.333333</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1949-05-31</td>
+      <td>121.0</td>
+      <td>129.0</td>
+      <td>132.0</td>
+      <td>118.0</td>
+      <td>128.833333</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 Lets see what the ***mean*** feature looks like:
 
 
@@ -218,6 +282,12 @@ ax.legend(prop={'size': 15})
 ax.grid()
 ```
 
+
+    
+![png](single_feature_extraction_files/single_feature_extraction_24_0.png)
+    
+
+
 Feature extraction often results in a decrease in the number of data points. In our case, we chose to handle *overflow* using the `stop` strategy as specified in the `SlidingWindow`. We can see this reduction in the number of data points below:
 
 
@@ -227,6 +297,10 @@ print(f'Dataframe contained {air_passengers_df.shape[0]} samples')
 air_passengers_df.dropna(inplace=True)
 print(f'Dataframe now contains {air_passengers_df.shape[0]} samples')
 ```
+
+    Dataframe contained 144 samples
+    Dataframe now contains 130 samples
+
 
 Finally, we split our data into training and test sets.
 
@@ -253,6 +327,10 @@ y_test = test_df[target].values.reshape(-1, 1)
 print('Training set sizes - ', X_train.shape, y_train.shape)
 print('Test set sizes - ', X_test.shape, y_test.shape)
 ```
+
+    Training set sizes -  (104, 4) (104, 1)
+    Test set sizes -  (26, 4) (26, 1)
+
 
 ## Fit Model
 
@@ -295,6 +373,9 @@ mae = mean_absolute_error(y_test, y_pred)
 print(f'Mean Absolute Error: {mae:.2f}')
 ```
 
+    Mean Absolute Error: 32.31
+
+
 Next lets plot the actual values of the time-series against the predicted values:
 
 
@@ -311,6 +392,12 @@ ax.legend(prop={'size': 15})
 ax.grid()
 
 ```
+
+
+    
+![png](single_feature_extraction_files/single_feature_extraction_38_0.png)
+    
+
 
 Here is what it looks like with respect to the original time-series:
 
@@ -329,5 +416,11 @@ ax.legend(prop={'size': 15})
 ax.grid()
 
 ```
+
+
+    
+![png](single_feature_extraction_files/single_feature_extraction_40_0.png)
+    
+
 
 If you enjoy using `AutonFeat`, please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.
