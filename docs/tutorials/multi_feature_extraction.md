@@ -16,14 +16,6 @@ Feel free to follow along in this Google Colab notebook -
 
 
 ```python
-%%capture
-!git clone "https://github.com/autonlab/AutonFeat.git"
-import sys
-sys.path.append("AutonFeat")
-```
-
-
-```python
 import autonfeat as aft
 import numpy as np
 import pandas as pd
@@ -56,7 +48,7 @@ air_passengers_df.head()
 
     FileNotFoundError                         Traceback (most recent call last)
 
-    Cell In[5], line 1
+    Cell In[8], line 1
     ----> 1 air_passengers_df = aft.utils.datasets.get_dataset(name='airline passengers')
           2 air_passengers_df['datestamp'] = pd.to_datetime(air_passengers_df['datestamp'])
           3 air_passengers_df.drop(columns=['uid'], inplace=True)

@@ -38,6 +38,7 @@ setup(
     ],
     packages=find_packages(where='autonfeat'),
     package_dir={'': 'autonfeat'},
+    package_data={'': ['autonfeat/utils/datasets/data/*.csv']},
     install_requires=user_requirements,
     classifiers=[
         "Programming Language :: Python :: 3",

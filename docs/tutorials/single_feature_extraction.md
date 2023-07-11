@@ -16,14 +16,6 @@ Feel free to follow along in this Google Colab notebook -
 
 
 ```python
-%%capture
-!git clone "https://github.com/autonlab/AutonFeat.git"
-import sys
-sys.path.append("AutonFeat")
-```
-
-
-```python
 import autonfeat as aft
 import numpy as np
 import pandas as pd
