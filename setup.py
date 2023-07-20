@@ -24,7 +24,7 @@ setup(
     description='A High Performance Library for Time-Series Featurization.',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    license='Apache License 2.0',
+    license='MIT',
     url='https://autonlab.github.io/AutoFeat',
     keywords=[
         'artificial intelligence',

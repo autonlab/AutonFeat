@@ -56,7 +56,7 @@ Learn more about contributing [here](community/contributing.md).
 
 ## License 📝
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-orange.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 For more details, check out the license [here](https://github.com/autonlab/AutonFeat/blob/main/LICENSE).
 
