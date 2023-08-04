@@ -24,7 +24,7 @@ SOFTWARE.
 
 # Sample Entropy Function
 
-The sample entropy function computes the sample entropy of a window. When combined with the [`SlidingWindow`](../core/fixed_window.md) abstraction, the mean function can be used to compute the `sample entropy` feature of a time series. Sample entropy is a measure of the complexity of the signal. It is a modification of the approximate entropy (ApEn) algorithm. It is defined as:
+The sample entropy function computes the sample entropy of a window. When combined with the [`SlidingWindow`](../core/fixed_window.md) abstraction, the sample entropy function can be used to compute the `sample entropy` feature of a time series. Sample entropy is a measure of the complexity of the signal [[1](https://en.wikipedia.org/wiki/Sample_entropy)]. It is a modification of the approximate entropy (ApEn) algorithm which can be found [here](approx_entropy.md). It is defined as:
 
 $$
 \text{Sample Entropy} = -\log\left(\frac{A}{B}\right)
@@ -55,11 +55,14 @@ window = aft.SlidingWindow(window_size=ws, step_size=ss)
 featurizer = window.use(F.sample_entropy_tf)
 
 # Get features
-features = featurizer(x)
+features = featurizer(x, m=2, r=0.2)
 
 # Print features
 print(features)
 ```
 
+## References
+
+[1] https://en.wikipedia.org/wiki/Sample_entropy
 
 If you enjoy using [`AutonFeat`](../../index.md), please consider starring the [repository](https://github.com/autonlab/AutonFeat) ⭐️.

@@ -30,6 +30,9 @@ from autonfeat.functional import sample_entropy_tf
 class SampleEntropyTransform(Transform):
     """
     Compute the sample entropy of the signal.
+
+    References:
+        Sample Entropy -https://en.wikipedia.org/wiki/Sample_entropy
     """
     # Dunder methods
     def __init__(self, name: str = "Sample Entropy") -> None:

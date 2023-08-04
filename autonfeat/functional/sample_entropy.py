@@ -40,6 +40,9 @@ def sample_entropy_tf(x: np.ndarray, m: Union[int, np.int_], r: Union[int, np.in
 
     Returns:
         The sample entropy of the values in `x` where `where` is `True`.
+
+    References:
+        Sample Entropy -https://en.wikipedia.org/wiki/Sample_entropy
     """
     # Vectorize where fn
     where_fn = np.vectorize(pyfunc=where)
@@ -55,13 +58,13 @@ def sample_entropy_tf(x: np.ndarray, m: Union[int, np.int_], r: Union[int, np.in
     xmj = np.array([filtered_x[i: i + m] for i in nb.prange(N - m + 1)])
 
     # Save all matches minus the self-match, compute B
-    B = np.sum([np.sum(np.abs(xmii - xmj).max(axis=1) <= r) - 1 for xmii in xmi])
+    B = np.sum([np.sum(np.abs(xmi[i] - xmj).max(axis=1) <= r) - 1 for i in nb.prange(len(xmi))])
 
     # Similar for computing A
     m += 1
     xm = np.array([filtered_x[i: i + m] for i in nb.prange(N - m + 1)])
 
-    A = np.sum([np.sum(np.abs(xmi - xm).max(axis=1) <= r) - 1 for xmi in xm])
+    A = np.sum([np.sum(np.abs(xm[i] - xm).max(axis=1) <= r) - 1 for i in nb.prange(len(xm))])
 
     # Return SampEn
     return -np.log(A / B)
