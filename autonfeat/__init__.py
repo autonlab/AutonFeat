@@ -31,7 +31,7 @@ from .common import (
     MedianTransform, StdTransform, VarTransform,
     NValidTransform, DataDensityTransform, DataSparsityTransform,
     SkewnessTransform, KurtosisTransform, EntropyTransform,
-    CrossEntropyTransform, SampleEntropyTransform,
+    CrossEntropyTransform, SampleEntropyTransform, ApproxEntropyTransform,
 )
 
 import autonfeat.functional as functional
@@ -61,6 +61,7 @@ __all__ = [
     'EntropyTransform',
     'CrossEntropyTransform',
     'SampleEntropyTransform',
+    'ApproxEntropyTransform',
 
     'functional',
     'preprocess',

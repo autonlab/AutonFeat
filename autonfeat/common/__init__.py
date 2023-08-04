@@ -37,6 +37,7 @@ from .kurtosis_transform import KurtosisTransform
 from .entropy_transform import EntropyTransform
 from .cross_entropy_transform import CrossEntropyTransform
 from .sample_entropy_transform import SampleEntropyTransform
+from .approx_entropy_transform import ApproxEntropyTransform
 
 # For linter
 __all__ = [
@@ -57,4 +58,5 @@ __all__ = [
     'EntropyTransform',
     'CrossEntropyTransform',
     'SampleEntropyTransform',
+    'ApproxEntropyTransform',
 ]

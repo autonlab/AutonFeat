@@ -61,6 +61,7 @@ Domain agnostic features are applicable to *most* signals irrespective of the do
 | Shannon Entropy | Shannon entropy of the signal | [`EntropyTransform`](common/entropy_transform.md) |
 | KL Divergence | KL divergence of the signal with another distribution | [`EntropyTransform`](common/entropy_transform.md) |
 | Sample Entropy | Sample entropy of the signal | [`SampleEntropyTransform`](common/sample_entropy_transform.md) |
+| Approximate Entropy | Approximate entropy of the signal | [`ApproxEntropyTransform`](common/approx_entropy_transform.md) |
 | Cross Entropy | Cross entropy of the signal with another distribution | [`CrossEntropyTransform`](common/cross_entropy_transform.md) |
 
 ## Domain Specific

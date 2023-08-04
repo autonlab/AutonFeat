@@ -179,6 +179,7 @@ nav:
       - 'Entropy Transform' : 'api/common/entropy_transform.md'
       - 'Cross Entropy Transform' : 'api/common/cross_entropy_transform.md'
       - 'Sample Entropy Transform' : 'api/common/sample_entropy_transform.md'
+      - 'Approximate Entropy Transform' : 'api/common/approx_entropy_transform.md'
 
     - 'Functional' :
       - 'mean' : 'api/functional/mean.md'
@@ -200,6 +201,7 @@ nav:
       - 'entropy' : 'api/functional/entropy.md'
       - 'cross entropy' : 'api/functional/cross_entropy.md'
       - 'sample entropy' : 'api/functional/sample_entropy.md'
+      - 'approximate entropy' : 'api/functional/approx_entropy.md'
 
     - 'Preprocess' : 
       - 'Functional' :

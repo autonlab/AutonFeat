@@ -37,6 +37,7 @@ from .skewness import skewness_tf
 from .entropy import entropy_tf
 from .cross_entropy import cross_entropy_tf
 from .sample_entropy import sample_entropy_tf
+from .approx_entropy import approx_entropy_tf
 
 # For linter
 __all__ = [
@@ -57,4 +58,5 @@ __all__ = [
     "entropy_tf",
     "cross_entropy_tf",
     "sample_entropy_tf",
+    "approx_entropy_tf",
 ]
