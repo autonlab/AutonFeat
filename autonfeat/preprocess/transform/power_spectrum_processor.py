@@ -26,9 +26,9 @@ from autonfeat.core import Preprocess
 from autonfeat.preprocess.functional import power_spectrum_tf
 
 
-class DFTPreprocessor(Preprocess):
+class PowerSpectrumPreprocessor(Preprocess):
     """
-    1D Discete Fourier Transform (DFT) using Fast-Fourier Transform (FFT).
+    Power Spectrum using a 1D DFT.
     """
     # Dunder methods
     def __init__(self, name: str = "Power Spectrumm") -> None:
