@@ -20,11 +20,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+
 from .transform import (
     DeltaPreprocessor, DeltaMeanPreprocessor, DeltaMaxPreprocessor,
     DeltaMinPreprocessor, DeltaMedianPreprocessor, DeltaQuantilePreprocessor,
     DeltaStdPreprocessor, DeltaVarPreprocessor, DFTPreprocessor,
-    LagPreprocessor,
+    PowerSpectrumPreprocessor, LagPreprocessor,
 )
 
 # For linter
@@ -38,5 +39,6 @@ __all__ = [
     "DeltaStdPreprocessor",
     "DeltaVarPreprocessor",
     "DFTPreprocessor",
+    "PowerSpectrumPreprocessor",
     "LagPreprocessor",
 ]
