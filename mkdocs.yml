@@ -215,6 +215,7 @@ nav:
         - 'delta quantile' : 'api/preprocess/functional/delta_quantile_preprocessor_fn.md'
 
         - '1D DFT' : 'api/preprocess/functional/dft_preprocessor_fn.md'
+        - 'power spectrum' : 'api/preprocess/functional/power_spectrum_preprocessor_fn.md'
 
         - 'lag' : 'api/preprocess/functional/lag_preprocessor_fn.md'
 
@@ -229,6 +230,7 @@ nav:
         - 'Delta Quantile Transform' : 'api/preprocess/transform/delta_quantile_preprocessor.md'
 
         - '1D DFT Transform' : 'api/preprocess/transform/dft_preprocessor.md'
+        - 'Power Spectrum Transform' : 'api/preprocess/transform/power_spectrum_preprocessor.md'
 
         - 'Lag Transform' : 'api/preprocess/transform/lag_preprocessor.md'
 

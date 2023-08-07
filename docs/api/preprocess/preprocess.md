@@ -52,6 +52,7 @@ Data is sometimes not in the right form for a model. Hence, we featurize it. The
 | Feature | Description | Endpoint |
 | --- | --- | --- |
 | DFT | 1D Discrete Fourier Transform of the signal | [`DFTPreprocessor`](transform/dft_preprocessor.md) |
+| Power Spectrum | Power spectrum of the signal | [`PowerSpectrumPreprocessor`](transform/power_spectrum_preprocessor.md) |
 
 ## Signal Manipulation
 | Feature | Description | Endpoint |
