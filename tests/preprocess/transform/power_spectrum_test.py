@@ -51,6 +51,6 @@ def test_power_spectrum():
     preprocessor = PowerSpectrumPreprocessor()
     ps_hat = preprocessor(x)  # using autonfeat
 
-    ps = np.abs(sp.fft.fft(x)**2)  # using scipy
+    ps = np.abs(sp.fft.fft(x))**2  # using scipy
 
     assert np.allclose(ps_hat, ps, atol=tol)

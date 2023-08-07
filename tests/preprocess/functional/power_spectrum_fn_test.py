@@ -49,6 +49,6 @@ def test_power_spectrum_fn():
     # Compute the power spectrum
     ps_hat = power_spectrum_tf(x)  # using autonfeat
 
-    ps = np.abs(sp.fft.fft(x)**2)  # using scipy
+    ps = np.abs(sp.fft.fft(x))**2  # using scipy
 
     assert np.allclose(ps_hat, ps, atol=tol)
