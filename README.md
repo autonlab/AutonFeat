@@ -23,15 +23,24 @@ SOFTWARE.
  -->
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Georgia&size=26&duration=4000&pause=400&color=EE7600&vCenter=true&multiline=true&width=750&height=100&lines=AutonFeat;A+High+Performance+Library+for+Time-Series+Featurization)](https://git.io/typing-svg)
 
+[![Docs](https://img.shields.io/badge/Docs-built-lightgreen)](https://autonlab.github.io/AutonFeat/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![Python](https://img.shields.io/badge/Python-3.9.6-blue)
 ![NumPy](https://img.shields.io/badge/NumPy-1.24.4-lightblue)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 # ⏳ AutonFeat ⌛
 
 A high performance library for time series featurization. 
 
 ![Library](docs/assets/auton_feat_banner.png)
+
+# Resources 📚
+
+- [Documentation](https://autonlab.github.io/AutonFeat/)
+- [Getting Started](https://autonlab.org/AutonFeat/getting_started/installation/)
+- [Tutorials](https://autonlab.org/AutonFeat/tutorials/tutorials/)
+- [API Reference](https://autonlab.org/AutonFeat/api/api/)
+- [Community](https://autonlab.org/AutonFeat/community/contributing/)
 
 ## What? 🙋
 
