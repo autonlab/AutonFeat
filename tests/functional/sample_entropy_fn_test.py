@@ -35,4 +35,4 @@ def test_sample_entropy_fn():
 
     y = 0.0
 
-    # assert pytest.approx(y_hat) == y
+    assert pytest.approx(y_hat) == y
