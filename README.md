@@ -34,7 +34,7 @@ A high performance library for time series featurization.
 
 ![Library](docs/assets/auton_feat_banner.png)
 
-# Resources 📚
+## Resources 📚
 
 - [Documentation](https://autonlab.github.io/AutonFeat/)
 - [Getting Started](https://autonlab.org/AutonFeat/getting_started/installation/)
