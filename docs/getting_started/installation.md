@@ -12,19 +12,12 @@ The package is easy to install.
 
 ## Pip 📦
 
+`*(coming soon)*`
+
 It is possible to install using the [`pip`](https://pip.pypa.io/en/stable/getting-started/) package manager.
 
 ```bash
 pip install autonfeat
-```
-*Installing inside a python virtual environment or a conda environment is recommended.*
-
-## Conda 📦
-
-We offer support for the [`conda`](https://docs.conda.io/en/latest/) package manager.
-
-```bash
-conda install -c conda-forge autonfeat
 ```
 *Installing inside a python virtual environment or a conda environment is recommended.*
 
